@@ -1,4 +1,6 @@
 Jci::Application.routes.draw do
+  resources :entidades
+
   resources :voluntario_pessoa_fisicas
 
   get "home/index"

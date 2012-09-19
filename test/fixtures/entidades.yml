@@ -1,0 +1,65 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cnpj_ent: MyString
+  nome_ent: MyString
+  endereco_ent: MyString
+  nome_responsavel_ent: MyString
+  email_ent: MyString
+  telefone_ent: MyString
+  site_ent: MyString
+  data_fundacao_ent: 2012-09-19
+  publico_criancas_ent: false
+  publico_adultos_ent: false
+  publico_melhor_idade_ent: false
+  publico_adolescentes_ent: false
+  publico_especiais_ent: false
+  publico_outros_ent: MyString
+  numero_beneficiados_ent: 1
+  atuacao_juridica_ent: false
+  atuacao_administrativa_ent: false
+  atuacao_recreacao_ent: false
+  atuacao_saude_ent: false
+  atuacao_educacao_ent: false
+  atuacao_manutencao_ent: false
+  atuacao_doacao_ent: false
+  atuacao_outro_ent: MyString
+  apoio_municipal_ent: false
+  apoio_estadual_ent: false
+  apoio_federal_ent: false
+  apoio_particular_ent: false
+  horarios_atendimento_ent: MyString
+  visualizado_ent: false
+  aprovado_ent: false
+
+two:
+  cnpj_ent: MyString
+  nome_ent: MyString
+  endereco_ent: MyString
+  nome_responsavel_ent: MyString
+  email_ent: MyString
+  telefone_ent: MyString
+  site_ent: MyString
+  data_fundacao_ent: 2012-09-19
+  publico_criancas_ent: false
+  publico_adultos_ent: false
+  publico_melhor_idade_ent: false
+  publico_adolescentes_ent: false
+  publico_especiais_ent: false
+  publico_outros_ent: MyString
+  numero_beneficiados_ent: 1
+  atuacao_juridica_ent: false
+  atuacao_administrativa_ent: false
+  atuacao_recreacao_ent: false
+  atuacao_saude_ent: false
+  atuacao_educacao_ent: false
+  atuacao_manutencao_ent: false
+  atuacao_doacao_ent: false
+  atuacao_outro_ent: MyString
+  apoio_municipal_ent: false
+  apoio_estadual_ent: false
+  apoio_federal_ent: false
+  apoio_particular_ent: false
+  horarios_atendimento_ent: MyString
+  visualizado_ent: false
+  aprovado_ent: false
