@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120919181917) do
+ActiveRecord::Schema.define(:version => 20120919183612) do
 
   create_table "entidades", :force => true do |t|
     t.string   "cnpj_ent"
@@ -94,6 +94,21 @@ ActiveRecord::Schema.define(:version => 20120919181917) do
     t.boolean  "visuzalizado_pf"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
+  end
+
+  create_table "voluntario_pessoa_juridicas", :force => true do |t|
+    t.string   "cnpj_pj"
+    t.string   "razao_social_pj"
+    t.string   "inscricao_estadual_pj"
+    t.string   "email_pj"
+    t.string   "telefone_pj"
+    t.string   "endereco_pj"
+    t.string   "area_atuacao_pj"
+    t.string   "contato_pj"
+    t.string   "outras_infos_pj"
+    t.boolean  "visualizado_pj"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
 end
