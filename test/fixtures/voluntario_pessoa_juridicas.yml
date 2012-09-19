@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cnpj_pj: MyString
+  razao_social_pj: MyString
+  inscricao_estadual_pj: MyString
+  email_pj: MyString
+  telefone_pj: MyString
+  endereco_pj: MyString
+  area_atuacao_pj: MyString
+  contato_pj: MyString
+  outras_infos_pj: MyString
+  visualizado_pj: false
+
+two:
+  cnpj_pj: MyString
+  razao_social_pj: MyString
+  inscricao_estadual_pj: MyString
+  email_pj: MyString
+  telefone_pj: MyString
+  endereco_pj: MyString
+  area_atuacao_pj: MyString
+  contato_pj: MyString
+  outras_infos_pj: MyString
+  visualizado_pj: false

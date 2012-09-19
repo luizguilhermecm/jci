@@ -1,4 +1,6 @@
 Jci::Application.routes.draw do
+  resources :voluntario_pessoa_juridicas
+
   resources :entidades
 
   resources :voluntario_pessoa_fisicas
