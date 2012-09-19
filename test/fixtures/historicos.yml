@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  data_hist: 2012-09-19
+  descricao_hist: MyString
+  voluntario_pessoa_fisica: 
+  voluntario_pessoa_juridica: 
+  entidade: 
+
+two:
+  data_hist: 2012-09-19
+  descricao_hist: MyString
+  voluntario_pessoa_fisica: 
+  voluntario_pessoa_juridica: 
+  entidade: 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120919183612) do
+ActiveRecord::Schema.define(:version => 20120919185222) do
 
   create_table "entidades", :force => true do |t|
     t.string   "cnpj_ent"
@@ -46,6 +46,15 @@ ActiveRecord::Schema.define(:version => 20120919183612) do
     t.boolean  "aprovado_ent"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+  end
+
+  create_table "posts", :force => true do |t|
+    t.date     "data_not"
+    t.date     "data_update_not"
+    t.string   "titulo_not"
+    t.text     "descricao_not"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "voluntario_pessoa_fisicas", :force => true do |t|
