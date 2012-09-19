@@ -14,4 +14,6 @@ validates  :contato_p, :presence => true
 #validates  :outras_infos_pj
 #validates  :visualizado_pj
 
+  has_many :historicos
+
 end

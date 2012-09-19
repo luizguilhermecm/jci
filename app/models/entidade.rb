@@ -34,4 +34,7 @@ validates  :horarios_atendimento_ent
 validates  :visualizado_ent           
 validates  :aprovado_ent              
 #/
+
+  has_many :historicos
+
 end

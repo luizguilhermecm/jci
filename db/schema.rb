@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120919185222) do
+ActiveRecord::Schema.define(:version => 20120919191117) do
 
   create_table "entidades", :force => true do |t|
     t.string   "cnpj_ent"
@@ -47,6 +47,20 @@ ActiveRecord::Schema.define(:version => 20120919185222) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
   end
+
+  create_table "historicos", :force => true do |t|
+    t.date     "data_hist"
+    t.string   "descricao_hist"
+    t.integer  "voluntario_pessoa_fisica_id"
+    t.integer  "voluntario_pessoa_juridica_id"
+    t.integer  "entidade_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "historicos", ["entidade_id"], :name => "index_historicos_on_entidade_id"
+  add_index "historicos", ["voluntario_pessoa_fisica_id"], :name => "index_historicos_on_voluntario_pessoa_fisica_id"
+  add_index "historicos", ["voluntario_pessoa_juridica_id"], :name => "index_historicos_on_voluntario_pessoa_juridica_id"
 
   create_table "posts", :force => true do |t|
     t.date     "data_not"

@@ -50,6 +50,15 @@
   <%= @voluntario_pessoa_juridica.visualizado_pj %>
 </p>
 
+<h2>Historico</h2>
+<%= render @voluntario_pessoa_juridica.historicos %>
+
+<h2>Novo Historico</h2>
+<%= render "historicos/formvpj" %>
+
+<br />
+
+
 
 <%= link_to 'Edit', edit_voluntario_pessoa_juridica_path(@voluntario_pessoa_juridica) %> |
 <%= link_to 'Back', voluntario_pessoa_juridicas_path %>

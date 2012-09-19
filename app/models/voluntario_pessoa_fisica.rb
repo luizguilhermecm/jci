@@ -5,6 +5,8 @@ class VoluntarioPessoaFisica < ActiveRecord::Base
 validates  :cpf_pf, :uniqueness => true
 validates  :nome_pf, :presence => true
 validates  :email_pf, :uniqueness => true
+
+  has_many :historicos
 /#
 validates  :telefone_pf
 validates  :como_ficou_sabendo_pf
@@ -47,4 +49,5 @@ validates  :disp_segNoite_pf
 validates  :outras_infos_pf
 validates  :visuzalizado_pf
 #/
+
 end

@@ -1,11 +1,17 @@
 Jci::Application.routes.draw do
   resources :posts
 
-  resources :voluntario_pessoa_juridicas
+  resources :voluntario_pessoa_juridicas do
+    resources :historicos
+  end
 
-  resources :entidades
+  resources :entidades do
+    resources :historicos
+  end
 
-  resources :voluntario_pessoa_fisicas
+  resources :voluntario_pessoa_fisicas do
+    resources :historicos
+  end
 
   get "home/index"
 

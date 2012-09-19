@@ -215,6 +215,13 @@
   <%= @voluntario_pessoa_fisica.visuzalizado_pf %>
 </p>
 
+<h2>Historico</h2>
+<%= render @voluntario_pessoa_fisica.historicos %>
+
+<h2>Novo Historico</h2>
+<%= render "historicos/formvpf" %>
+
+<br />
 
 <%= link_to 'Edit', edit_voluntario_pessoa_fisica_path(@voluntario_pessoa_fisica) %> |
 <%= link_to 'Back', voluntario_pessoa_fisicas_path %>

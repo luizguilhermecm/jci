@@ -151,5 +151,15 @@
 </p>
 
 
+<h2>Historico</h2>
+<%= render @entidade.historicos %>
+
+<h2>Novo Historico</h2>
+<%= render "historicos/forment" %>
+
+<br />
+
+
+
 <%= link_to 'Edit', edit_entidade_path(@entidade) %> |
 <%= link_to 'Back', entidades_path %>
