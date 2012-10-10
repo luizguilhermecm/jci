@@ -1,6 +1,21 @@
 class EntidadesController < ApplicationController
   # GET /entidades
   # GET /entidades.json
+
+  def buscar
+    @entidade = Entidade.find_by_cnpj_ent(params[:cnpj])
+    #@entidades = Entidade.find(:all, :conditions => ['cnpj_ent LIKE ?', "%#{params[:cnpj]}%"])
+    render 'entidades/edit'
+  end
+
+  def buscarArray
+    #exact
+    #@entidades = Entidade.find_all_by_cnpj_ent(params[:cnpj])
+    #query with like
+    @entidades = Entidade.find(:all, :conditions => ['cnpj_ent LIKE ?', "%#{params[:cnpj]}%"])
+    render 'entidades/index'
+  end
+
   def index
     @entidades = Entidade.all
 

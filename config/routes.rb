@@ -7,6 +7,9 @@ Jci::Application.routes.draw do
 
   resources :entidades do
     resources :historicos
+    collection do
+      get :buscar
+    end
   end
 
   resources :voluntario_pessoa_fisicas do
