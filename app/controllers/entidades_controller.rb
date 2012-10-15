@@ -3,9 +3,9 @@ class EntidadesController < ApplicationController
   # GET /entidades.json
 
   def buscar
-    @entidade = Entidade.find_by_cnpj_ent(params[:cnpj])
+    @entidade = Entidade.find_by_cnpj_ent(params[:cnpj_ent])
     #@entidades = Entidade.find(:all, :conditions => ['cnpj_ent LIKE ?', "%#{params[:cnpj]}%"])
-    render 'entidades/edit'
+    render 'entidades/meucadastro'
   end
 
   def buscarArray

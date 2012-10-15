@@ -1,7 +1,13 @@
 class VoluntarioPessoaJuridicasController < ApplicationController
   # GET /voluntario_pessoa_juridicas
   # GET /voluntario_pessoa_juridicas.json
-  def index
+   def buscar
+    @voluntario_pessoa_juridica = VoluntarioPessoaJuridica.find_by_cnpj_pf(params[:cnpj_pj])
+    #@entidades = Entidade.find(:all, :conditions => ['cnpj_ent LIKE ?', "%#{params[:cnpj]}%"])
+    render 'voluntario_pessoa_juridicas/edit'
+  end
+
+   def index
     @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.all
 
     respond_to do |format|

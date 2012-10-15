@@ -3,6 +3,9 @@ Jci::Application.routes.draw do
 
   resources :voluntario_pessoa_juridicas do
     resources :historicos
+     collection do
+      get :buscar
+    end
   end
 
   resources :entidades do
@@ -14,9 +17,16 @@ Jci::Application.routes.draw do
 
   resources :voluntario_pessoa_fisicas do
     resources :historicos
-  end
+      collection do
+      get :buscar
+    end
+ end
 
+  get "entidades/meucadastro"
   get "home/index"
+  get "home/cadastrar"
+  get "home/admin"
+  get "home/logar"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -67,8 +77,9 @@ Jci::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index'
+  root :to => 'home#index'  
 
+  match '/' => 'home#index', :as => :home
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
