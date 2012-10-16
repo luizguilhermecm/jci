@@ -5,14 +5,14 @@ class EntidadesController < ApplicationController
   def buscar
     @entidade = Entidade.find_by_cnpj_ent(params[:cnpj_ent])
     #@entidades = Entidade.find(:all, :conditions => ['cnpj_ent LIKE ?', "%#{params[:cnpj]}%"])
-    render 'entidades/meucadastro'
+    render 'entidades/vermeucadastro'
   end
 
   def buscarArray
     #exact
     #@entidades = Entidade.find_all_by_cnpj_ent(params[:cnpj])
     #query with like
-    @entidades = Entidade.find(:all, :conditions => ['cnpj_ent LIKE ?', "%#{params[:cnpj]}%"])
+    @entidades = Entidade.find(:all, :conditions => ['nome_ent LIKE ? or endereco_ent LIKE ? or site_ent LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%"])
     render 'entidades/index'
   end
 
@@ -36,6 +36,16 @@ class EntidadesController < ApplicationController
     end
   end
 
+  def vermeucadastro
+    @entidade = Entidade.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @entidade }
+    end
+  end
+
+
   # GET /entidades/new
   # GET /entidades/new.json
   def new
@@ -51,6 +61,11 @@ class EntidadesController < ApplicationController
   def edit
     @entidade = Entidade.find(params[:id])
   end
+
+  def editarmeucadastro
+    @entidade = Entidade.find(params[:id])
+  end
+
 
   # POST /entidades
   # POST /entidades.json

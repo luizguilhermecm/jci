@@ -80,7 +80,7 @@
 
 <%= link_to 'New Entidade', new_entidade_path %>
 
-<%= form_tag({:controller => 'entidades', :action => 'buscar'}, :method => 'get') do %>
-      <%= text_field_tag :cnpj %>
+<%= form_tag({:controller => 'entidades', :action => 'buscarArray'}, :method => 'get') do %>
+      <%= text_field_tag :query %>
       <%= submit_tag "Search" %> 
 <% end  %>

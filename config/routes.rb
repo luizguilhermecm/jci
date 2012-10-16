@@ -12,6 +12,9 @@ Jci::Application.routes.draw do
     resources :historicos
     collection do
       get :buscar
+      get :buscarArray
+      get :editarmeucadastro
+      get :vermeucadastro
     end
   end
 
@@ -22,7 +25,8 @@ Jci::Application.routes.draw do
     end
  end
 
-  get "entidades/meucadastro"
+# get "entidades/editarmeucadastro"
+# get "entidades/vermeucadastro"
   get "home/index"
   get "home/cadastrar"
   get "home/admin"
