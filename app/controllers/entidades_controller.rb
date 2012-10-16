@@ -36,6 +36,15 @@ class EntidadesController < ApplicationController
     end
   end
 
+  def several
+    @entidade = Entidade.find(params[:id])
+    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.all
+    @voluntario_pessoa_juridica = VoluntarioPessoaJuridica.last
+    @posts = Post.all
+  end
+
+
+
   def vermeucadastro
     @entidade = Entidade.find(params[:id])
 

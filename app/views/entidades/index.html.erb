@@ -70,6 +70,7 @@
     <td><%= entidade.visualizado_ent %></td>
     <td><%= entidade.aprovado_ent %></td>
     <td><%= link_to 'Show', entidade %></td>
+    <td><%= link_to 'Several', { :action => 'several', :id => entidade} %></td>
     <td><%= link_to 'Edit', edit_entidade_path(entidade) %></td>
     <td><%= link_to 'Destroy', entidade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

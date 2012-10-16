@@ -15,6 +15,7 @@ Jci::Application.routes.draw do
       get :buscarArray
       get :editarmeucadastro
       get :vermeucadastro
+      get :several
     end
   end
 

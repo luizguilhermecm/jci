@@ -1,0 +1,13 @@
+<div style="display:block; float:left; width: 50%;"> 
+  <p id="notice"><%= notice %></p>
+
+<%= render 'adminshow'  %>
+<%= link_to 'Back', entidades_path %>
+</div>
+
+<div style="display:block; float:right; width: 50%;"> 
+<%= render :template => 'voluntario_pessoa_fisicas/index', :object => @voluntario_pessoa_fisicas %>
+<%= render :template => 'voluntario_pessoa_juridicas/show', :object => @voluntario_pessoa_juridica %>
+<%= render :template => 'posts/index', :object => @posts %>
+</div>
+
