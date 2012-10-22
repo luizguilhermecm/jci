@@ -2,9 +2,9 @@ class VoluntarioPessoaJuridicasController < ApplicationController
   # GET /voluntario_pessoa_juridicas
   # GET /voluntario_pessoa_juridicas.json
    def buscar
-    @voluntario_pessoa_juridica = VoluntarioPessoaJuridica.find_by_cnpj_pf(params[:cnpj_pj])
+    @voluntario_pessoa_juridica = VoluntarioPessoaJuridica.find_by_cnpj_pj(params[:cnpj_pj])
     #@entidades = Entidade.find(:all, :conditions => ['cnpj_ent LIKE ?', "%#{params[:cnpj]}%"])
-    render 'voluntario_pessoa_juridicas/edit'
+    render 'voluntario_pessoa_juridicas/vermeucadastro'
   end
 
    def index
@@ -27,6 +27,16 @@ class VoluntarioPessoaJuridicasController < ApplicationController
     end
   end
 
+  def vermeucadastro
+    @voluntario_pessoa_juridica = VoluntarioPessoaJuridica.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @voluntario_pessoa_juridica }
+    end
+  end
+
+
   # GET /voluntario_pessoa_juridicas/new
   # GET /voluntario_pessoa_juridicas/new.json
   def new
@@ -42,6 +52,11 @@ class VoluntarioPessoaJuridicasController < ApplicationController
   def edit
     @voluntario_pessoa_juridica = VoluntarioPessoaJuridica.find(params[:id])
   end
+
+  def editarmeucadastro
+    @voluntario_pessoa_juridica = VoluntarioPessoaJuridica.find(params[:id])
+  end
+
 
   # POST /voluntario_pessoa_juridicas
   # POST /voluntario_pessoa_juridicas.json

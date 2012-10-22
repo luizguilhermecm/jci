@@ -5,7 +5,7 @@ class VoluntarioPessoaFisicasController < ApplicationController
   def buscar
     @voluntario_pessoa_fisica = VoluntarioPessoaFisica.find_by_cpf_pf(params[:cpf])
     #@entidades = Entidade.find(:all, :conditions => ['cnpj_ent LIKE ?', "%#{params[:cnpj]}%"])
-    render 'voluntario_pessoa_fisicas/edit'
+    render 'voluntario_pessoa_fisicas/vermeucadastro'
   end
 
   def index
@@ -28,6 +28,16 @@ class VoluntarioPessoaFisicasController < ApplicationController
     end
   end
 
+  def vermeucadastro
+    @voluntario_pessoa_fisica = VoluntarioPessoaFisica.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @voluntario_pessoa_fisica }
+    end
+  end
+
+
   # GET /voluntario_pessoa_fisicas/new
   # GET /voluntario_pessoa_fisicas/new.json
   def new
@@ -43,6 +53,11 @@ class VoluntarioPessoaFisicasController < ApplicationController
   def edit
     @voluntario_pessoa_fisica = VoluntarioPessoaFisica.find(params[:id])
   end
+
+  def editarmeucadastro
+    @voluntario_pessoa_fisica = VoluntarioPessoaFisica.find(params[:id])
+  end
+
 
   # POST /voluntario_pessoa_fisicas
   # POST /voluntario_pessoa_fisicas.json

@@ -41,6 +41,7 @@ class EntidadesController < ApplicationController
     @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.all
     @voluntario_pessoa_juridica = VoluntarioPessoaJuridica.last
     @posts = Post.all
+    @entidades = Entidade.all
   end
 
 

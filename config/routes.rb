@@ -5,6 +5,8 @@ Jci::Application.routes.draw do
     resources :historicos
      collection do
       get :buscar
+      get :editarmeucadastro
+      get :vermeucadastro   
     end
   end
 
@@ -21,13 +23,15 @@ Jci::Application.routes.draw do
 
   resources :voluntario_pessoa_fisicas do
     resources :historicos
-      collection do
+    collection do
       get :buscar
+      get :editarmeucadastro
+      get :vermeucadastro   
     end
- end
+  end
 
 # get "entidades/editarmeucadastro"
-# get "entidades/vermeucadastro"
+  get "entidades/list"
   get "home/index"
   get "home/cadastrar"
   get "home/admin"

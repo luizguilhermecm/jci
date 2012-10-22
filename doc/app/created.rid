@@ -1,0 +1,21 @@
+Tue, 16 Oct 2012 11:40:11 -0300
+doc/README_FOR_APP	Wed, 19 Sep 2012 14:21:27 -0300
+app/controllers/application_controller.rb	Wed, 19 Sep 2012 14:21:27 -0300
+app/controllers/entidades_controller.rb	Tue, 16 Oct 2012 11:23:26 -0300
+app/controllers/historicos_controller.rb	Wed, 19 Sep 2012 17:19:03 -0300
+app/controllers/home_controller.rb	Sun, 14 Oct 2012 21:57:09 -0300
+app/controllers/posts_controller.rb	Tue, 16 Oct 2012 11:33:20 -0300
+app/controllers/voluntario_pessoa_fisicas_controller.rb	Sun, 14 Oct 2012 22:41:29 -0300
+app/controllers/voluntario_pessoa_juridicas_controller.rb	Sun, 14 Oct 2012 22:55:36 -0300
+app/helpers/application_helper.rb	Wed, 19 Sep 2012 14:21:27 -0300
+app/helpers/entidades_helper.rb	Wed, 19 Sep 2012 15:19:17 -0300
+app/helpers/historicos_helper.rb	Wed, 19 Sep 2012 16:17:11 -0300
+app/helpers/home_helper.rb	Wed, 19 Sep 2012 14:31:33 -0300
+app/helpers/posts_helper.rb	Wed, 19 Sep 2012 15:52:22 -0300
+app/helpers/voluntario_pessoa_fisicas_helper.rb	Wed, 19 Sep 2012 14:34:55 -0300
+app/helpers/voluntario_pessoa_juridicas_helper.rb	Wed, 19 Sep 2012 15:36:12 -0300
+app/models/entidade.rb	Sun, 14 Oct 2012 22:11:58 -0300
+app/models/historico.rb	Wed, 19 Sep 2012 16:11:17 -0300
+app/models/post.rb	Wed, 19 Sep 2012 15:56:55 -0300
+app/models/voluntario_pessoa_fisica.rb	Wed, 19 Sep 2012 16:42:27 -0300
+app/models/voluntario_pessoa_juridica.rb	Wed, 19 Sep 2012 17:23:05 -0300
