@@ -30,6 +30,13 @@ Jci::Application.routes.draw do
     end
   end
 
+  resources :home do
+    collection do
+      get :inbox
+    end
+  end
+
+
 # get "entidades/editarmeucadastro"
   get "entidades/list"
   get "home/index"
