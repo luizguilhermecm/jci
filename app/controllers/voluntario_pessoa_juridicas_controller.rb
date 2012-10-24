@@ -16,6 +16,13 @@ class VoluntarioPessoaJuridicasController < ApplicationController
     end
   end
 
+  def visualizado_pj
+    @voluntario_pessoa_juridica = VoluntarioPessoaJuridica.find(params[:id])
+    @voluntario_pessoa_juridica.visualizado_pj = true
+    @voluntario_pessoa_juridica.save
+    redirect_to @voluntario_pessoa_juridica
+  end
+
   # GET /voluntario_pessoa_juridicas/1
   # GET /voluntario_pessoa_juridicas/1.json
   def show

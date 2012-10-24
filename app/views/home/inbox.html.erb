@@ -1,7 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-Teste :)
+<table border=1>
+  <th> Tipo </th>
+  <th> Nome </th> 
+<% @entidades.each do |entidade| %>
+  <tr>
+    <td>Entidade</td>
+    <td><%= link_to entidade.nome_ent, {:controller => "entidades", :action => "visualizado_ent", :id => entidade.id } %></td>
+ </tr>
+<% end %>
 
-<%= render :text => "huahsua" %>
+<% @voluntario_pessoa_fisicas.each do |voluntario_pessoa_fisica| %>
+  <tr>
+    <td>Pessoa Física</td>
+    <td><%= link_to voluntario_pessoa_fisica.nome_pf, {:controller => "voluntario_pessoa_fisicas", :action => "visualizado_pf", :id => voluntario_pessoa_fisica.id } %></td>
+ </tr>
+<% end %>
 
-<%= render :template => 'entidades/moreshow', :object => @entidades %>
+<% @voluntario_pessoa_juridicas.each do |voluntario_pessoa_juridica| %>
+  <tr>
+    <td>Pessoa Jurídica</td>
+    <td><%= link_to voluntario_pessoa_juridica.razao_social_pj, { :controller => "voluntario_pessoa_juridicas", :action => "visualizado_pj", :id => voluntario_pessoa_juridica.id }%></td>
+ </tr>
+<% end %>
+
+
+</table>

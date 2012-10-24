@@ -11,7 +11,10 @@
 
 <br />
 
+<%= @entidade.aprovado_ent ? false : (link_to "Aprovar", :action => "aprovado", :id => @entidade ) %>
 
+<br /><br />
 
 <%= link_to 'Edit', edit_entidade_path(@entidade) %> |
 <%= link_to 'Back', entidades_path %>
+<%= link_to 'Inbox', { :controller => "home", :action => "inbox" } %>

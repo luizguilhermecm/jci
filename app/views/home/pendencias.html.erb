@@ -1,0 +1,10 @@
+<table border=1>
+  <th> Tipo </th>
+  <th> Nome </th> 
+<% @entidades.each do |entidade| %>
+  <tr>
+    <td>Entidade</td>
+    <td><%= link_to entidade.nome_ent, entidade %></td>
+ </tr>
+<% end %>
+</table>

@@ -6,7 +6,8 @@ Jci::Application.routes.draw do
      collection do
       get :buscar
       get :editarmeucadastro
-      get :vermeucadastro   
+      get :vermeucadastro
+      get :visualizado_pj   
     end
   end
 
@@ -18,6 +19,8 @@ Jci::Application.routes.draw do
       get :editarmeucadastro
       get :vermeucadastro
       get :several
+      get :aprovado
+      get :visualizado_ent
     end
   end
 
@@ -26,23 +29,24 @@ Jci::Application.routes.draw do
     collection do
       get :buscar
       get :editarmeucadastro
-      get :vermeucadastro   
+      get :vermeucadastro
+      get :visualizado_pf   
     end
   end
 
   resources :home do
     collection do
       get :inbox
+      get :cadastrar
+      get :logar
+      get :admin
+      get :pendencias
     end
   end
 
 
 # get "entidades/editarmeucadastro"
   get "entidades/list"
-  get "home/index"
-  get "home/cadastrar"
-  get "home/admin"
-  get "home/logar"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -95,7 +99,7 @@ Jci::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'home#index'  
 
-  match '/' => 'home#index', :as => :home
+  match '/' => 'home#inbex', :as => :home
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

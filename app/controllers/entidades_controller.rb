@@ -16,6 +16,21 @@ class EntidadesController < ApplicationController
     render 'entidades/index'
   end
 
+  def aprovado
+    @entidade = Entidade.find(params[:id])
+    @entidade.aprovado_ent = true
+    @entidade.save
+    redirect_to @entidade
+  end
+
+  def visualizado_ent
+    @entidade = Entidade.find(params[:id])
+    @entidade.visualizado_ent = true
+    @entidade.save
+    redirect_to @entidade
+    #TODO: fazer a verificacao se foi ou nao salvo
+  end
+
   def index
     @entidades = Entidade.all
 
