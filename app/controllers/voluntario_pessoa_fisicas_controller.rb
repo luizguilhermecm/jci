@@ -2,14 +2,29 @@ class VoluntarioPessoaFisicasController < ApplicationController
   # GET /voluntario_pessoa_fisicas
   # GET /voluntario_pessoa_fisicas.json
 
-  def buscar
-    @voluntario_pessoa_fisica = VoluntarioPessoaFisica.find_by_cpf_pf(params[:cpf])
+
+  #def buscarArray
+    #exact
+    #@entidades = Entidade.find_all_by_cnpj_ent(params[:cnpj])
+    #query with like
+    #@entidades = Entidade.find(:all, :conditions => ['nome_ent LIKE ? or endereco_ent LIKE ? or site_ent LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%"])
+    #render 'entidades/index'
+  #end
+
+  def busca_disponibilidade_horario
+    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.where("disp_domManha_pf = ?", params[:disp_dom])
+    render 'voluntario_pessoa_fisicas/index'
+end
+
+
+def buscar
+  @voluntario_pessoa_fisica = VoluntarioPessoaFisica.find_by_cpf_pf(params[:cpf])
     #@entidades = Entidade.find(:all, :conditions => ['cnpj_ent LIKE ?', "%#{params[:cnpj]}%"])
     render 'voluntario_pessoa_fisicas/vermeucadastro'
   end
 
   def index
-    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.all
+    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.all.group_by{|vpf| vpf.nome_pf[0]}
 
     respond_to do |format|
       format.html # index.html.erb
@@ -70,7 +85,7 @@ class VoluntarioPessoaFisicasController < ApplicationController
   # POST /voluntario_pessoa_fisicas.json
   def create
     @voluntario_pessoa_fisica = VoluntarioPessoaFisica.new(params[:voluntario_pessoa_fisica])
-
+    @voluntario_pessoa_fisica.visuzalizado_pf = false
     respond_to do |format|
       if @voluntario_pessoa_fisica.save
         format.html { redirect_to @voluntario_pessoa_fisica, notice: 'Voluntario pessoa fisica was successfully created.' }

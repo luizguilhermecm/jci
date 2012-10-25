@@ -69,7 +69,7 @@ class VoluntarioPessoaJuridicasController < ApplicationController
   # POST /voluntario_pessoa_juridicas.json
   def create
     @voluntario_pessoa_juridica = VoluntarioPessoaJuridica.new(params[:voluntario_pessoa_juridica])
-
+    @voluntario_pessoa_juridica.visualizado_pj = false
     respond_to do |format|
       if @voluntario_pessoa_juridica.save
         format.html { redirect_to @voluntario_pessoa_juridica, notice: 'Voluntario pessoa juridica was successfully created.' }

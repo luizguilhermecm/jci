@@ -1,107 +1,43 @@
+<!-- render abaixo abre uma div que está sendo fechada na ultima linha dessa pagina -->
+<%= render 'home/menu' %>
+
+
 <h1>Listing voluntario_pessoa_fisicas</h1>
 
-<table>
+<table border=1>
   <tr>
-    <th>Cpf pf</th>
     <th>Nome pf</th>
     <th>Email pf</th>
     <th>Telefone pf</th>
-    <th>Como ficou sabendo pf</th>
-    <th>Experiencia pf</th>
-    <th>Publico criancas pf</th>
-    <th>Publico adultos pf</th>
-    <th>Publico melhor idade pf</th>
-    <th>Publico adolescentes pf</th>
-    <th>Publico especiais pf</th>
-    <th>Publico outros pf</th>
-    <th>Atuacao juridica pf</th>
-    <th>Atuacao administrativa pf</th>
-    <th>Atuacao recreacao pf</th>
-    <th>Atuacao saude pf</th>
-    <th>Atuacao educacao pf</th>
-    <th>Atuacao manutencao pf</th>
-    <th>Atuacao doacao pf</th>
-    <th>Atuacao outro pf</th>
-    <th>Disp dommanha pf</th>
-    <th>Disp domtarde pf</th>
-    <th>Disp domnoite pf</th>
-    <th>Disp sabmanha pf</th>
-    <th>Disp sabtarde pf</th>
-    <th>Disp sabnoite pf</th>
-    <th>Disp sexmanha pf</th>
-    <th>Disp sextarde pf</th>
-    <th>Disp sexnoite pf</th>
-    <th>Disp quimanha pf</th>
-    <th>Disp quitarde pf</th>
-    <th>Disp quinoite pf</th>
-    <th>Disp quamanha pf</th>
-    <th>Disp quatarde pf</th>
-    <th>Disp quanoite pf</th>
-    <th>Disp termanha pf</th>
-    <th>Disp tertarde pf</th>
-    <th>Disp ternoite pf</th>
-    <th>Disp segmanha pf</th>
-    <th>Disp segtarde pf</th>
-    <th>Disp segnoite pf</th>
-    <th>Outras infos pf</th>
-    <th>Visuzalizado pf</th>
-    <th></th>
+
     <th></th>
     <th></th>
   </tr>
-
-<% @voluntario_pessoa_fisicas.each do |voluntario_pessoa_fisica| %>
+  <% @voluntario_pessoa_fisicas.keys.sort.each do |starting_letter| %>
+  <% @voluntario_pessoa_fisicas[starting_letter].each do |voluntario_pessoa_fisica| %>
   <tr>
-    <td><%= voluntario_pessoa_fisica.cpf_pf %></td>
-    <td><%= voluntario_pessoa_fisica.nome_pf %></td>
+    <td><%= link_to voluntario_pessoa_fisica.nome_pf, voluntario_pessoa_fisica %></td>
     <td><%= voluntario_pessoa_fisica.email_pf %></td>
     <td><%= voluntario_pessoa_fisica.telefone_pf %></td>
-    <td><%= voluntario_pessoa_fisica.como_ficou_sabendo_pf %></td>
-    <td><%= voluntario_pessoa_fisica.experiencia_pf %></td>
-    <td><%= voluntario_pessoa_fisica.publico_criancas_pf %></td>
-    <td><%= voluntario_pessoa_fisica.publico_adultos_pf %></td>
-    <td><%= voluntario_pessoa_fisica.publico_melhor_idade_pf %></td>
-    <td><%= voluntario_pessoa_fisica.publico_adolescentes_pf %></td>
-    <td><%= voluntario_pessoa_fisica.publico_especiais_pf %></td>
-    <td><%= voluntario_pessoa_fisica.publico_outros_pf %></td>
-    <td><%= voluntario_pessoa_fisica.atuacao_juridica_pf %></td>
-    <td><%= voluntario_pessoa_fisica.atuacao_administrativa_pf %></td>
-    <td><%= voluntario_pessoa_fisica.atuacao_recreacao_pf %></td>
-    <td><%= voluntario_pessoa_fisica.atuacao_saude_pf %></td>
-    <td><%= voluntario_pessoa_fisica.atuacao_educacao_pf %></td>
-    <td><%= voluntario_pessoa_fisica.atuacao_manutencao_pf %></td>
-    <td><%= voluntario_pessoa_fisica.atuacao_doacao_pf %></td>
-    <td><%= voluntario_pessoa_fisica.atuacao_outro_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_domManha_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_domTarde_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_domNoite_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_sabManha_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_sabTarde_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_sabNoite_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_sexManha_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_sexTarde_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_sexNoite_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_quiManha_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_quiTarde_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_quiNoite_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_quaManha_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_quaTarde_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_quaNoite_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_terManha_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_terTarde_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_terNoite_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_segManha_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_segTarde_pf %></td>
-    <td><%= voluntario_pessoa_fisica.disp_segNoite_pf %></td>
-    <td><%= voluntario_pessoa_fisica.outras_infos_pf %></td>
-    <td><%= voluntario_pessoa_fisica.visuzalizado_pf %></td>
-    <td><%= link_to 'Show', voluntario_pessoa_fisica %></td>
-    <td><%= link_to 'Edit', edit_voluntario_pessoa_fisica_path(voluntario_pessoa_fisica) %></td>
-    <td><%= link_to 'Destroy', voluntario_pessoa_fisica, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+    <td><%= link_to 'Editar', edit_voluntario_pessoa_fisica_path(voluntario_pessoa_fisica) %></td>
+    <td><%= link_to 'Apagar', voluntario_pessoa_fisica, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
-<% end %>
+  <% end %>
+  <% end %>
 </table>
 
 <br />
 
 <%= link_to 'New Voluntario pessoa fisica', new_voluntario_pessoa_fisica_path %>
+
+
+
+<%= form_tag({:controller => 'voluntario_pessoa_fisicas', 
+  :action => 'busca_disponibilidade_horario'}, :method => 'get') do %>
+    <%= label_tag :disp_dom %><br />
+    <%= check_box_tag :disp_dom, 'true'%>
+  <%= submit_tag "Search" %> 
+<% end  %>
+
+</div>

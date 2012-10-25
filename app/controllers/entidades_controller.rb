@@ -96,7 +96,8 @@ class EntidadesController < ApplicationController
   # POST /entidades.json
   def create
     @entidade = Entidade.new(params[:entidade])
-
+    @entidade.visualizado_ent = false
+    @entidade.aprovado = false
     respond_to do |format|
       if @entidade.save
         format.html { redirect_to @entidade, notice: 'Entidade was successfully created.' }

@@ -1,3 +1,7 @@
+<!-- render abaixo abre uma div que está sendo fechada na ultima linha dessa pagina -->
+<%= render 'home/menu' %>
+
+
 <%= render 'show' %>
 <h2>Historico</h2>
 <%= render @voluntario_pessoa_juridica.historicos %>
@@ -9,5 +13,6 @@
 
 
 <%= link_to 'Edit', edit_voluntario_pessoa_juridica_path(@voluntario_pessoa_juridica) %> |
-<%= link_to 'Back', voluntario_pessoa_juridicas_path %>
-<%= link_to 'Inbox', { :controller => "home", :action => "inbox" } %>
+
+
+</div>

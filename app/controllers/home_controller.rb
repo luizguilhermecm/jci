@@ -20,7 +20,7 @@ class HomeController < ApplicationController
   end
 
   def inbox
-    @entidades = Entidade.where("visualizado_ent = ?", false)
+    @entidades = Entidade.where("visualizado_ent = ?", false )
     @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.where("visuzalizado_pf = ?", false)
     @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.where("visualizado_pj = ?", false)
  end
