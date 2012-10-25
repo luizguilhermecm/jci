@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 
   def index
+    @posts = Post.all
   end
 
   def admin
@@ -17,6 +18,10 @@ class HomeController < ApplicationController
 
   def pendencias
     @entidades = Entidade.where("aprovado_ent = ?", false)
+  end
+
+  def noticias
+    @posts = Post.all
   end
 
   def inbox
