@@ -31,13 +31,4 @@
 
 <%= link_to 'New Voluntario pessoa fisica', new_voluntario_pessoa_fisica_path %>
 
-
-
-<%= form_tag({:controller => 'voluntario_pessoa_fisicas', 
-  :action => 'busca_disponibilidade_horario'}, :method => 'get') do %>
-    <%= label_tag :disp_dom %><br />
-    <%= check_box_tag :disp_dom, 'true'%>
-  <%= submit_tag "Search" %> 
-<% end  %>
-
 </div>
