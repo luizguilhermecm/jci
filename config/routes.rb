@@ -21,6 +21,7 @@ Jci::Application.routes.draw do
       get :several
       get :aprovado
       get :visualizado_ent
+      get :busca_publico_ent
     end
   end
 

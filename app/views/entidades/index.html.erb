@@ -86,9 +86,26 @@
 <%= link_to 'New Entidade', new_entidade_path %>
 
 <%= form_tag({:controller => 'entidades', :action => 'buscarArray'}, :method => 'get') do %>
-      <%= text_field_tag :query %>
+      Público <br/>
+      <%= text_field_tag :query %> <br/>
       <%= submit_tag "Search" %> 
 <% end  %>
+
+<br><br><br>
+
+<h3>Busca por Público</h3>
+
+<%= form_tag({:controller => 'entidades', :action => 'busca_publico_ent'}, :method => 'get') do %>
+      <%= check_box_tag :publico_criancas_ent, checked_value = true %> Criança <br/>
+      <%= check_box_tag :publico_adultos_ent, checked_value = true %> Adulto <br/>
+      <%= check_box_tag :publico_melhor_idade_ent, checked_value = true %> Melhor Idade<br/>
+      <%= check_box_tag :publico_adolescentes_ent, checked_value = true  %> Adolescente<br/>
+      <%= check_box_tag :publico_especiais_ent, checked_value = true %> Especiais<br/>
+      <br/>
+      <%= submit_tag "Buscar por Público" %> 
+<% end  %>
+
+<br><br><br>
 
 
 </div>

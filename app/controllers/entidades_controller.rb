@@ -8,6 +8,18 @@ class EntidadesController < ApplicationController
     render 'entidades/vermeucadastro'
   end
 
+  def busca_publico_ent
+    if (params[:publico_adolescentes_ent]) 
+      parana = 'SELECT * FROM entidades WHERE publico_adolescentes_ent = ' + params[:publico_adolescentes_ent]
+    else
+      parana = 'SELECT * FROM entidades WHERE telefone_ent = \'1\'';
+    end
+
+    @entidades = Entidade.find_by_sql(parana)
+    render 'entidades/index'
+
+  end
+
   def buscarArray
     #exact
     #@entidades = Entidade.find_all_by_cnpj_ent(params[:cnpj])
