@@ -109,7 +109,7 @@ class EntidadesController < ApplicationController
   def create
     @entidade = Entidade.new(params[:entidade])
     @entidade.visualizado_ent = false
-    @entidade.aprovado = false
+    @entidade.aprovado_ent = false
     respond_to do |format|
       if @entidade.save
         format.html { redirect_to @entidade, notice: 'Entidade was successfully created.' }
