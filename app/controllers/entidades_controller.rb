@@ -9,10 +9,71 @@ class EntidadesController < ApplicationController
   end
 
   def busca_publico_ent
-    if (params[:publico_adolescentes_ent]) 
-      parana = 'SELECT * FROM entidades WHERE publico_adolescentes_ent = ' + params[:publico_adolescentes_ent]
-    else
-      parana = 'SELECT * FROM entidades WHERE telefone_ent = \'1\'';
+    flag = 1 # Only to verify the first time to add the string OR
+     parana = 'SELECT * FROM entidades WHERE ';
+
+    if (params[:publico_adolescentes_ent])
+        parana = parana + ' publico_adolescentes_ent = ' + params[:publico_adolescentes_ent] + ' '
+        flag = 0
+    end
+
+    if (params[:publico_criancas_ent])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' publico_criancas_ent = ' + params[:publico_criancas_ent];
+        flag = 0;
+      else
+        parana = parana + ' publico_criancas_ent = ' + params[:publico_criancas_ent];
+        flag = 0        
+      end
+    end
+
+    if (params[:publico_adultos_ent])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' publico_adultos_ent = ' + params[:publico_adultos_ent];
+        flag = 0;
+      else
+        parana = parana + ' publico_adultos_ent = ' + params[:publico_adultos_ent];
+        flag = 0
+      end
+    end
+
+    if (params[:publico_melhor_idade_ent])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' publico_melhor_idade_ent = ' + params[:publico_melhor_idade_ent];
+        flag = 0;
+      else
+        parana = parana + ' publico_melhor_idade_ent = ' + params[:publico_melhor_idade_ent];
+        flag = 0
+      end
+    end
+
+    if (params[:publico_especiais_ent])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' publico_especiais_ent = ' + params[:publico_especiais_ent];
+        flag = 0;
+      else
+        parana = parana + ' publico_especiais_ent = ' + params[:publico_especiais_ent];
+        flag = 0
+      end
+    end
+
+    if (params[:publico_outros_ent])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' publico_outros_ent = ' + params[:publico_outros_ent];
+        flag = 0;
+      else
+        parana = parana + ' publico_outros_ent = ' + params[:publico_outros_ent];
+        flag = 0
+      end
+    end
+    
+    if (flag == 1)
+      parana = parana + '1 = 1'
     end
 
     @entidades = Entidade.find_by_sql(parana)
@@ -109,7 +170,7 @@ class EntidadesController < ApplicationController
   def create
     @entidade = Entidade.new(params[:entidade])
     @entidade.visualizado_ent = false
-    @entidade.aprovado = false
+    @entidade.aprovado_ent = false
     respond_to do |format|
       if @entidade.save
         format.html { redirect_to @entidade, notice: 'Entidade was successfully created.' }

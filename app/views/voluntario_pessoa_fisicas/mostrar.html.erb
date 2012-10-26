@@ -1,0 +1,17 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<table>  <% @voluntario_pessoa_fisicas.each do |voluntario_pessoa_fisica| %>
+		  <tr>
+		    <td><%= link_to voluntario_pessoa_fisica.nome_pf, voluntario_pessoa_fisica %></td>
+		    <td><%= voluntario_pessoa_fisica.email_pf %></td>
+		    <td><%= voluntario_pessoa_fisica.telefone_pf %></td>
+
+		    <td><%= link_to 'Editar', edit_voluntario_pessoa_fisica_path(voluntario_pessoa_fisica) %></td>
+		    <td><%= link_to 'Apagar', voluntario_pessoa_fisica, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		  </tr>
+		  <% end %>
+		</table>
+	</body>
+</html>
