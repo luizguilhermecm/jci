@@ -16,6 +16,345 @@ def busca_disponibilidade_horario
   render 'voluntario_pessoa_fisicas/index'
 end
 
+def busca_por_disponibilidade
+  flag = 1 # Only to verify the first time to add the string OR
+  parana = 'SELECT * FROM voluntario_pessoa_fisicas WHERE ';
+
+    if (params[:disp_domManha_pf])
+      parana = parana + ' "disp_domManha_pf" = ' + params[:disp_domManha_pf] + ' '
+      flag = 0
+    end
+    
+    if (params[:disp_domTarde_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_domTarde_pf" = ' + params[:disp_domTarde_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_domTarde_pf" = ' + params[:disp_domTarde_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_domNoite_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_domNoite_pf" = ' + params[:disp_domNoite_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_domNoite_pf" = ' + params[:disp_domNoite_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_sabManha_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_sabManha_pf" = ' + params[:disp_sabManha_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_sabManha_pf" = ' + params[:disp_sabManha_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_sabTarde_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_sabTarde_pf" = ' + params[:disp_sabTarde_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_sabTarde_pf" = ' + params[:disp_sabTarde_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_sabNoite_pf])
+      if (flag == 0)    
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_sabNoite_pf" = ' + params[:disp_sabNoite_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_sabNoite_pf" = ' + params[:disp_sabNoite_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_sexManha_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_sexManha_pf" = ' + params[:disp_sexManha_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_sexManha_pf" = ' + params[:disp_sexManha_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_sexTarde_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_sexTarde_pf" = ' + params[:disp_sexTarde_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_sexTarde_pf" = ' + params[:disp_sexTarde_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_sexNoite_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_sexNoite_pf" = ' + params[:disp_sexNoite_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_sexNoite_pf" = ' + params[:disp_sexNoite_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_quiManha_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_quiManha_pf" = ' + params[:disp_quiManha_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_quiManha_pf" = ' + params[:disp_quiManha_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_quiTarde_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_quiTarde_pf" = ' + params[:disp_quiTarde_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_quiTarde_pf" = ' + params[:disp_quiTarde_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_quiNoite_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_quiNoite_pf" = ' + params[:disp_quiNoite_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_quiNoite_pf" = ' + params[:disp_quiNoite_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_quaManha_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_quaManha_pf" = ' + params[:disp_quaManha_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_quaManha_pf" = ' + params[:disp_quaManha_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_quaTarde_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_quaTarde_pf" = ' + params[:disp_quaTarde_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_quaTarde_pf" = ' + params[:disp_quaTarde_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_quaNoite_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_quaNoite_pf" = ' + params[:disp_quaNoite_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_quaNoite_pf" = ' + params[:disp_quaNoite_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_terManha_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_terManha_pf" = ' + params[:disp_terManha_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_terManha_pf" = ' + params[:disp_terManha_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_terTarde_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_terTarde_pf" = ' + params[:disp_terTarde_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_terTarde_pf" = ' + params[:disp_terTarde_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_terNoite_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_terNoite_pf" = ' + params[:disp_terNoite_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_terNoite_pf" = ' + params[:disp_terNoite_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_segManha_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_segManha_pf" = ' + params[:disp_segManha_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_segManha_pf" = ' + params[:disp_segManha_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_segTarde_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_segTarde_pf" = ' + params[:disp_segTarde_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_segTarde_pf" = ' + params[:disp_segTarde_pf];
+        flag = 0        
+      end  
+    end
+
+    if (params[:disp_segNoite_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' "disp_segNoite_pf" = ' + params[:disp_segNoite_pf];
+        flag = 0        
+      else
+        parana = parana + ' "disp_segNoite_pf" = ' + params[:disp_segNoite_pf];
+        flag = 0        
+      end  
+    end
+
+    if (flag == 1)
+      parana = parana + '1 = 1'
+    end
+
+  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql(parana)
+  render 'voluntario_pessoa_fisicas/mostrar'
+
+end
+
+def busca_experiencia
+  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.where("experiencia_pf = ?", true)
+  render 'voluntario_pessoa_fisicas/mostrar'
+end
+
+def busca_atuacao
+    flag = 1 # Only to verify the first time to add the string OR
+    parana = 'SELECT * FROM voluntario_pessoa_fisicas WHERE ';
+
+    if (params[:atuacao_juridica_pf])
+        parana = parana + ' atuacao_juridica_pf = ' + params[:atuacao_juridica_pf] + ' '
+        flag = 0
+    end
+
+    if (params[:atuacao_administrativa_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' atuacao_administrativa_pf = ' + params[:atuacao_administrativa_pf];
+        flag = 0;
+      else
+        parana = parana + ' atuacao_administrativa_pf = ' + params[:atuacao_administrativa_pf];
+        flag = 0        
+      end
+    end
+
+    if (params[:atuacao_recreacao_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' atuacao_recreacao_pf = ' + params[:atuacao_recreacao_pf];
+        flag = 0;
+      else
+        parana = parana + ' atuacao_recreacao_pf = ' + params[:atuacao_recreacao_pf];
+        flag = 0
+      end
+    end
+
+    if (params[:atuacao_saude_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' atuacao_saude_pf = ' + params[:atuacao_saude_pf];
+        flag = 0;
+      else
+        parana = parana + ' atuacao_saude_pf = ' + params[:atuacao_saude_pf];
+        flag = 0
+      end
+    end
+
+    if (params[:atuacao_educacao_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' atuacao_educacao_pf = ' + params[:atuacao_educacao_pf];
+        flag = 0;
+      else
+        parana = parana + ' atuacao_educacao_pf = ' + params[:atuacao_educacao_pf];
+        flag = 0
+      end
+    end
+
+    if (params[:atuacao_manutencao_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' atuacao_manutencao_pf = ' + params[:atuacao_manutencao_pf];
+        flag = 0;
+      else
+        parana = parana + ' atuacao_manutencao_pf = ' + params[:atuacao_manutencao_pf];
+        flag = 0
+      end
+    end
+
+    if (params[:atuacao_doacao_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' atuacao_doacao_pf = ' + params[:atuacao_doacao_pf];
+        flag = 0;
+      else
+        parana = parana + ' atuacao_doacao_pf = ' + params[:atuacao_doacao_pf];
+        flag = 0
+      end
+    end
+
+    if (params[:atuacao_outro_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' atuacao_outro_pf = ' + params[:atuacao_outro_pf];
+        flag = 0;
+      else
+        parana = parana + ' atuacao_outro_pf = ' + params[:atuacao_outro_pf];
+        flag = 0
+      end
+    end
+    
+    if (flag == 1)
+      parana = parana + '1 = 1'
+    end
+
+  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql(parana)
+  
+  render 'voluntario_pessoa_fisicas/mostrar'
+  
+end
+
 def busca_por_afinidade
     flag = 1 # Only to verify the first time to add the string OR
     parana = 'SELECT * FROM voluntario_pessoa_fisicas WHERE ';

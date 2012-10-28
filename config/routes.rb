@@ -22,6 +22,8 @@ Jci::Application.routes.draw do
       get :aprovado
       get :visualizado_ent
       get :busca_publico_ent
+      get :busca_por_atuacao
+      get :busca_por_apoio
     end
   end
 
@@ -34,6 +36,9 @@ Jci::Application.routes.draw do
       get :visualizado_pf   
       get :busca_disponibilidade_horario
       get :busca_por_afinidade
+      get :busca_por_disponibilidade
+      get :busca_experiencia
+      get :busca_atuacao
     end
   end
 

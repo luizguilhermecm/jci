@@ -105,7 +105,38 @@
       <%= submit_tag "Buscar por Público" %> 
 <% end  %>
 
-<br><br><br>
+<br><br>
 
+<h3>Busca por Área de Atuação:</h3>
+
+<%= form_tag({:controller => 'entidades', :action => 'busca_por_atuacao'}, :method => 'get') do %>
+      <%= check_box_tag :atuacao_juridica_ent, checked_value = true %> Jurídica <br/>
+      <%= check_box_tag :atuacao_administrativa_ent, checked_value = true %> Administrativa <br/>
+      <%= check_box_tag :atuacao_recreacao_ent, checked_value = true %> Recreação<br/>
+      <%= check_box_tag :atuacao_saude_ent, checked_value = true  %> Saúde<br/>
+      <%= check_box_tag :atuacao_educacao_ent, checked_value = true  %> Educação<br/>
+      <%= check_box_tag :atuacao_manutencao_ent, checked_value = true  %> Manutenção<br/>
+      <%= check_box_tag :atuacao_doacao_ent, checked_value = true %> Doação<br/>
+      <%= check_box_tag :atuacao_outro_ent, checked_value = true %> Outros<br/> 
+      
+      <br/>
+      <%= submit_tag "Buscar por Atuação" %> 
+<% end  %>
+
+<br>
+
+<h3>Busca por Área de Atuação:</h3>
+
+<%= form_tag({:controller => 'entidades', :action => 'busca_por_apoio'}, :method => 'get') do %>
+      <%= check_box_tag :apoio_municipal_ent, checked_value = true %> Municipal <br/>
+      <%= check_box_tag :apoio_estadual_ent, checked_value = true %> Estadual <br/>
+      <%= check_box_tag :apoio_federal_ent, checked_value = true %> Federal<br/>
+      <%= check_box_tag :apoio_particular_ent, checked_value = true  %> Particulars<br/>
+      <br/>
+      <%= submit_tag "Buscar por Apoio" %> 
+<% end  %>
+
+<br>
+<br>
 
 </div>

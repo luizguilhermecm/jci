@@ -8,6 +8,151 @@ class EntidadesController < ApplicationController
     render 'entidades/vermeucadastro'
   end
 
+  def busca_por_apoio
+    flag = 1 # Only to verify the first time to add the string OR
+    parana = 'SELECT * FROM entidades WHERE ';
+
+    if (params[:apoio_estadual_ent])
+        parana = parana + ' apoio_estadual_ent = ' + params[:apoio_estadual_ent] + ' '
+        flag = 0
+    end
+
+    if (params[:apoio_federal_ent])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' apoio_federal_ent = ' + params[:apoio_federal_ent];
+        flag = 0;
+      else
+        parana = parana + ' apoio_federal_ent = ' + params[:apoio_federal_ent];
+        flag = 0        
+      end
+    end
+
+    if (params[:apoio_particular_ent])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' apoio_particular_ent = ' + params[:apoio_particular_ent];
+        flag = 0;
+      else
+        parana = parana + ' apoio_particular_ent = ' + params[:apoio_particular_ent];
+        flag = 0
+      end
+    end
+
+    if (params[:apoio_municipal_ent])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' apoio_municipal_ent = ' + params[:apoio_municipal_ent];
+        flag = 0;
+      else
+        parana = parana + ' apoio_municipal_ent = ' + params[:apoio_municipal_ent];
+        flag = 0
+      end
+    end
+    
+    if (flag == 1)
+      parana = parana + '1 = 1'
+    end
+
+    @entidades = Entidade.find_by_sql(parana)
+    render 'entidades/index'
+
+  end
+
+  def busca_por_atuacao
+    flag = 1 # Only to verify the first time to add the string OR
+    parana = 'SELECT * FROM entidades WHERE ';
+
+    if (params[:atuacao_juridica_ent])
+        parana = parana + ' atuacao_juridica_ent = ' + params[:atuacao_juridica_ent] + ' '
+        flag = 0
+    end
+
+    if (params[:atuacao_administrativa_ent])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' atuacao_administrativa_ent = ' + params[:atuacao_administrativa_ent];
+        flag = 0;
+      else
+        parana = parana + ' atuacao_administrativa_ent = ' + params[:atuacao_administrativa_ent];
+        flag = 0        
+      end
+    end
+
+    if (params[:atuacao_recreacao_ent])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' atuacao_recreacao_ent = ' + params[:atuacao_recreacao_ent];
+        flag = 0;
+      else
+        parana = parana + ' atuacao_recreacao_ent = ' + params[:atuacao_recreacao_ent];
+        flag = 0
+      end
+    end
+
+    if (params[:atuacao_saude_ent])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' atuacao_saude_ent = ' + params[:atuacao_saude_ent];
+        flag = 0;
+      else
+        parana = parana + ' atuacao_saude_ent = ' + params[:atuacao_saude_ent];
+        flag = 0
+      end
+    end
+
+    if (params[:atuacao_educacao_ent])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' atuacao_educacao_ent = ' + params[:atuacao_educacao_ent];
+        flag = 0;
+      else
+        parana = parana + ' atuacao_educacao_ent = ' + params[:atuacao_educacao_ent];
+        flag = 0
+      end
+    end
+
+    if (params[:atuacao_manutencao_ent])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' atuacao_manutencao_ent = ' + params[:atuacao_manutencao_ent];
+        flag = 0;
+      else
+        parana = parana + ' atuacao_manutencao_ent = ' + params[:atuacao_manutencao_ent];
+        flag = 0
+      end
+    end
+
+    if (params[:atuacao_doacao_ent])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' atuacao_doacao_ent = ' + params[:atuacao_doacao_ent];
+        flag = 0;
+      else
+        parana = parana + ' atuacao_doacao_ent = ' + params[:atuacao_doacao_ent];
+        flag = 0
+      end
+    end
+
+    if (params[:atuacao_outro_ent])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' atuacao_outro_ent = ' + params[:atuacao_outro_ent];
+        flag = 0;
+      else
+        parana = parana + ' atuacao_outro_ent = ' + params[:atuacao_outro_ent];
+        flag = 0
+      end
+    end
+    
+    if (flag == 1)
+      parana = parana + '1 = 1'
+    end
+
+    @entidades = Entidade.find_by_sql(parana)
+    render 'entidades/index'
+  end
+
   def busca_publico_ent
     flag = 1 # Only to verify the first time to add the string OR
      parana = 'SELECT * FROM entidades WHERE ';
