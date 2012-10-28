@@ -30,5 +30,20 @@
 <br />
 
 <%= link_to 'New Voluntario pessoa fisica', new_voluntario_pessoa_fisica_path %>
+<br />
+<br />
+<br />
+
+<h3>Busca por Afinidade:</h3>
+
+<%= form_tag({:controller => 'voluntario_pessoa_fisicas', :action => 'busca_por_afinidade'}, :method => 'get') do %>
+      <%= check_box_tag :publico_criancas_pf, checked_value = true %> Criança <br/>
+      <%= check_box_tag :publico_adultos_pf, checked_value = true %> Adulto <br/>
+      <%= check_box_tag :publico_melhor_idade_pf, checked_value = true %> Melhor Idade<br/>
+      <%= check_box_tag :publico_adolescentes_pf, checked_value = true  %> Adolescente<br/>
+      <%= check_box_tag :publico_especiais_pf, checked_value = true %> Especiais<br/>
+      <br/>
+      <%= submit_tag "Buscar por Afinidade" %> 
+<% end  %>
 
 </div>

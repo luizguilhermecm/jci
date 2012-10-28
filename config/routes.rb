@@ -33,6 +33,7 @@ Jci::Application.routes.draw do
       get :vermeucadastro
       get :visualizado_pf   
       get :busca_disponibilidade_horario
+      get :busca_por_afinidade
     end
   end
 

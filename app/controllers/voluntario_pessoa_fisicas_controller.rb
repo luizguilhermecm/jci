@@ -11,11 +11,85 @@ class VoluntarioPessoaFisicasController < ApplicationController
     #render 'entidades/index'
   #end
 
-  def busca_disponibilidade_horario
-    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.where("disp_domManha_pf = ?", params[:disp_dom])
-    render 'voluntario_pessoa_fisicas/index'
+def busca_disponibilidade_horario
+  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.where("disp_domManha_pf = ?", params[:disp_dom])
+  render 'voluntario_pessoa_fisicas/index'
 end
 
+def busca_por_afinidade
+    flag = 1 # Only to verify the first time to add the string OR
+    parana = 'SELECT * FROM voluntario_pessoa_fisicas WHERE ';
+
+    if (params[:publico_adolescentes_pf])
+        parana = parana + ' publico_adolescentes_pf = ' + params[:publico_adolescentes_pf] + ' '
+        flag = 0
+    end
+
+    if (params[:publico_criancas_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' publico_criancas_pf = ' + params[:publico_criancas_pf];
+        flag = 0;
+      else
+        parana = parana + ' publico_criancas_pf = ' + params[:publico_criancas_pf];
+        flag = 0        
+      end
+    end
+
+    if (params[:publico_adultos_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' publico_adultos_pf = ' + params[:publico_adultos_pf];
+        flag = 0;
+      else
+        parana = parana + ' publico_adultos_pf = ' + params[:publico_adultos_pf];
+        flag = 0
+      end
+    end
+
+    if (params[:publico_melhor_idade_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' publico_melhor_idade_pf = ' + params[:publico_melhor_idade_pf];
+        flag = 0;
+      else
+        parana = parana + ' publico_melhor_idade_pf = ' + params[:publico_melhor_idade_pf];
+        flag = 0
+      end
+    end
+
+    if (params[:publico_especiais_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' publico_especiais_pf = ' + params[:publico_especiais_pf];
+        flag = 0;
+      else
+        parana = parana + ' publico_especiais_pf = ' + params[:publico_especiais_pf];
+        flag = 0
+      end
+    end
+
+    /#
+    if (params[:publico_outros_pf])
+      if (flag == 0)
+        parana = parana + ' OR ';
+        parana = parana + ' publico_outros_pf = ' + params[:publico_outros_pf];
+        flag = 0;
+      else
+        parana = parana + ' publico_outros_pf = ' + params[:publico_outros_pf];
+        flag = 0
+      end
+    end
+    #/
+    
+    if (flag == 1)
+      parana = parana + '1 = 1'
+    end
+
+  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql(parana)
+  
+  render 'voluntario_pessoa_fisicas/mostrar'
+end
 
 def buscar
   @voluntario_pessoa_fisica = VoluntarioPessoaFisica.find_by_cpf_pf(params[:cpf])
