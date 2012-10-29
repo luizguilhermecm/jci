@@ -40,6 +40,8 @@ Jci::Application.routes.draw do
       get :busca_por_disponibilidade
       get :busca_experiencia
       get :busca_atuacao
+      get :buscarHistorico
+      get :buscarGeral
     end
   end
 

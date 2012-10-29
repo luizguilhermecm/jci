@@ -16,6 +16,17 @@ def busca_disponibilidade_horario
   render 'voluntario_pessoa_fisicas/index'
 end
 
+def buscarHistorico
+    flag = 1 # Only to verify the first time to add the string OR
+    @voluntario_pessoa_fisicas = Entidade.find_by_sql(["SELECT nome_pf, email_pf, telefone_pf FROM voluntario_pessoa_fisicas WHERE id IN (SELECT DISTINCT(voluntario_pessoa_fisica_id) FROM historicos WHERE descricao_hist @@ to_tsquery(:id))", {:id => params[:queryHistorico]}]);
+    render 'voluntario_pessoa_fisicas/mostrar' 
+end 
+
+def buscarGeral
+  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find(:all, :conditions => ['atuacao_outro_pf LIKE ? OR como_ficou_sabendo_pf LIKE ? OR cpf_pf LIKE ? OR publico_outros_pf LIKE ? OR telefone_pf LIKE ? OR outras_infos_pf LIKE ?', "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%"])
+  render 'voluntario_pessoa_fisicas/mostrar'
+end
+
 def busca_por_disponibilidade
   flag = 1 # Only to verify the first time to add the string OR
   parana = 'SELECT * FROM voluntario_pessoa_fisicas WHERE ';

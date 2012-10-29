@@ -84,9 +84,9 @@
 <br />
 
 <%= link_to 'New Entidade', new_entidade_path %>
-
 <%= form_tag({:controller => 'entidades', :action => 'buscarArray'}, :method => 'get') do %>
-      Público <br/>
+      <br/>
+      <h3>Busca Geral</h3>
       <%= text_field_tag :query %> <br/>
       <%= submit_tag "Search" %> 
 <% end  %>

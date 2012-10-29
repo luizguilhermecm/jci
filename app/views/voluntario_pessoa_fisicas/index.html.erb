@@ -32,6 +32,21 @@
 <%= link_to 'New Voluntario pessoa fisica', new_voluntario_pessoa_fisica_path %>
 <br />
 <br />
+
+<%= form_tag({:controller => 'voluntario_pessoa_fisicas', :action => 'buscarGeral'}, :method => 'get') do %>
+      <br/>
+      <h3>Busca Geral:</h3>
+      <%= text_field_tag :queryGeral %> <br/>
+      <%= submit_tag "Buscar" %> 
+<% end  %>
+
+<%= form_tag({:controller => 'voluntario_pessoa_fisicas', :action => 'buscarHistorico'}, :method => 'get') do %>
+      <br/>
+      <h3>Busca por Histórico:</h3>
+      <%= text_field_tag :queryHistorico %> <br/>
+      <%= submit_tag "Buscar" %> 
+<% end  %>
+
 <br />
 
 <h3>Busca por Afinidade:</h3>
