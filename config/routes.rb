@@ -7,7 +7,9 @@ Jci::Application.routes.draw do
       get :buscar
       get :editarmeucadastro
       get :vermeucadastro
-      get :visualizado_pj   
+      get :visualizado_pj
+      get :buscarHistorico
+      get :buscarGeral
     end
   end
 
