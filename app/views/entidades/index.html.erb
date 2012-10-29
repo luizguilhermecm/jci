@@ -91,7 +91,14 @@
       <%= submit_tag "Search" %> 
 <% end  %>
 
-<br><br><br>
+<br><br>
+<h3>Pesquisa por Histórico</h3>
+<%= form_tag({:controller => 'entidades', :action => 'buscarHistorico'}, :method => 'get') do %>
+      <%= text_field_tag :queryHistorico %> <br/>
+      <%= submit_tag "Buscar" %> 
+<% end  %>
+<br>
+<br>
 
 <h3>Busca por Público</h3>
 

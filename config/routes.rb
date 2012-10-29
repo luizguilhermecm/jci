@@ -24,6 +24,7 @@ Jci::Application.routes.draw do
       get :busca_publico_ent
       get :busca_por_atuacao
       get :busca_por_apoio
+      get :buscarHistorico
     end
   end
 
