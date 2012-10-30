@@ -52,4 +52,4 @@ production:
   database: jci_production
   pool: 5
   username: postgres
-  password:
+  password: soneka
