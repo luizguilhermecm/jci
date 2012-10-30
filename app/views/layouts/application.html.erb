@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Jci</title>
+  <title>JCI</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "jquery.maskedinput" %>
@@ -9,11 +9,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div style="text-align:center;">
-	<%= image_tag("jci-logo.jpg", :alt => "rss feed") %>
-	</div>
-	
-	<%= yield %>
+  <div id="wrapper">
+    <div id="header">
+      
+      <div id="logo">
+        <%= link_to( image_tag("logo.jpg", :alt => "rss feed"), home_path) %> 
+      </div>
+      
+      <div id="menu">
+        <ul>
+          <li><%= link_to 'Home', home_path %></li>
+          <li><%= link_to 'Cadastre-se', {:controller => "home", :action => 'cadastrar' }%></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Contato</a></li>
+          <li><%= link_to 'Alterar meus dados', {:controller => "home", :action => 'logar'} %></li>
+          <li><%= link_to 'Admin', {:controller => "home", :action => 'inbox' } %></li>
+        </ul>
+      </div>
 
+    </div>
+
+  	<%= yield %>
+
+  </div>
 </body>
 </html>
