@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<h2>Dados Gerais</h2>
   <div class="field">
     <%= f.label :cnpj_ent %>
     <%= f.text_field :cnpj_ent %>
@@ -43,6 +43,7 @@
     <%= f.label :data_fundacao_ent %>
     <%= f.date_select :data_fundacao_ent %>
   </div>
+  <h2>Público</h2>
   <div class="field">
     <div class="check">
     <%= f.label :publico_criancas_ent %>
@@ -74,6 +75,7 @@
     <%= f.label :numero_beneficiados_ent %>
     <%= f.number_field :numero_beneficiados_ent %>
   </div>
+   <h2>Atuacão</h2>
   <div class="field">
     <div class="check">
     <%= f.label :atuacao_juridica_ent %>
@@ -109,6 +111,7 @@
     <%= f.label :atuacao_outro_ent %>
     <%= f.text_field :atuacao_outro_ent %>
   </div>
+   <h2>Apoio</h2>
   <div class="field">
     <div class="check">
     <%= f.label :apoio_municipal_ent %>
@@ -128,14 +131,15 @@
     </div>
   </div>
   <div style="clear: both"></div>
+   <h2>Horários</h2>
   <div class="field">
     <%= f.label :horarios_atendimento_ent %>
     <%= f.text_field :horarios_atendimento_ent %>
   </div>
-  <div class="field">
+  <!--<div class="field">
     <%= f.label :visualizado_ent %>
     <%= f.check_box :visualizado_ent %>
-  </div>
+  </div>-->
  <div class="actions">
     <%= f.submit :class => "botao_azul" %>
   </div>
