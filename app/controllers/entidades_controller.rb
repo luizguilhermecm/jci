@@ -324,7 +324,7 @@ class EntidadesController < ApplicationController
     @entidade.aprovado_ent = false
     respond_to do |format|
       if @entidade.save
-        format.html { redirect_to @entidade, notice: 'Entidade was successfully created.' }
+        format.html { redirect_to :action => "vermeucadastro", :id => @entidade, notice: 'Entidade was successfully created.' }
         format.json { render json: @entidade, status: :created, location: @entidade }
       else
         format.html { render action: "new" }
@@ -340,7 +340,7 @@ class EntidadesController < ApplicationController
 
     respond_to do |format|
       if @entidade.update_attributes(params[:entidade])
-        format.html { redirect_to @entidade, notice: 'Entidade was successfully updated.' }
+        format.html { redirect_to :action => "vermeucadastro", :id => @entidade, notice: 'Entidade was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
