@@ -12,174 +12,183 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :cpf_pf %><br />
+    <%= f.label :cpf_pf %>
     <%= f.text_field :cpf_pf %>
   </div>
   <div class="field">
-    <%= f.label :nome_pf %><br />
+    <%= f.label :nome_pf %>
     <%= f.text_field :nome_pf %>
   </div>
   <div class="field">
-    <%= f.label :email_pf %><br />
+    <%= f.label :email_pf %>
     <%= f.text_field :email_pf %>
   </div>
   <div class="field">
-    <%= f.label :telefone_pf %><br />
+    <%= f.label :telefone_pf %>
     <%= f.text_field :telefone_pf %>
   </div>
   <div class="field">
-    <%= f.label :como_ficou_sabendo_pf %><br />
+    <%= f.label :como_ficou_sabendo_pf %>
     <%= f.text_area :como_ficou_sabendo_pf %>
   </div>
-  <div class="field">
-    <%= f.label :experiencia_pf %><br />
+  <!--<div class="field">
+    <%= f.label :experiencia_pf %>
     <%= f.check_box :experiencia_pf %>
-  </div>
+  </div>-->
   <div class="field">
-    <%= f.label :publico_criancas_pf %><br />
+    <div class="check">
+    <%= f.label :publico_criancas_pf %>
     <%= f.check_box :publico_criancas_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :publico_adultos_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :publico_adultos_pf %>
     <%= f.check_box :publico_adultos_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :publico_melhor_idade_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :publico_melhor_idade_pf %>
     <%= f.check_box :publico_melhor_idade_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :publico_adolescentes_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :publico_adolescentes_pf %>
     <%= f.check_box :publico_adolescentes_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :publico_especiais_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :publico_especiais_pf %>
     <%= f.check_box :publico_especiais_pf %>
+    </div>
+  </div>
+  <div style="clear: both"></div>
+  <div class="field">
+  <%= f.label :publico_outros_pf %>
+  <%= f.text_field :publico_outros_pf %>
   </div>
   <div class="field">
-    <%= f.label :publico_outros_pf %><br />
-    <%= f.text_field :publico_outros_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :atuacao_juridica_pf %><br />
+    <div class="check">
+    <%= f.label :atuacao_juridica_pf %>
     <%= f.check_box :atuacao_juridica_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :atuacao_administrativa_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :atuacao_administrativa_pf %>
     <%= f.check_box :atuacao_administrativa_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :atuacao_recreacao_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :atuacao_recreacao_pf %>
     <%= f.check_box :atuacao_recreacao_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :atuacao_saude_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :atuacao_saude_pf %>
     <%= f.check_box :atuacao_saude_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :atuacao_educacao_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :atuacao_educacao_pf %>
     <%= f.check_box :atuacao_educacao_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :atuacao_manutencao_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :atuacao_manutencao_pf %>
     <%= f.check_box :atuacao_manutencao_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :atuacao_doacao_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :atuacao_doacao_pf %>
     <%= f.check_box :atuacao_doacao_pf %>
+    </div>
   </div>
+  <div style="clear: both"></div>
   <div class="field">
-    <%= f.label :atuacao_outro_pf %><br />
+    <%= f.label :atuacao_outro_pf %>
     <%= f.text_field :atuacao_outro_pf %>
   </div>
   <div class="field">
-    <%= f.label :disp_domManha_pf %><br />
+    <div class="check">
+    <%= f.label :disp_domManha_pf %>
     <%= f.check_box :disp_domManha_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_domTarde_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_domTarde_pf %>
     <%= f.check_box :disp_domTarde_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_domNoite_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_domNoite_pf %>
     <%= f.check_box :disp_domNoite_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_sabManha_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_sabManha_pf %>
     <%= f.check_box :disp_sabManha_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_sabTarde_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_sabTarde_pf %>
     <%= f.check_box :disp_sabTarde_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_sabNoite_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_sabNoite_pf %>
     <%= f.check_box :disp_sabNoite_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_sexManha_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_sexManha_pf %>
     <%= f.check_box :disp_sexManha_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_sexTarde_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_sexTarde_pf %>
     <%= f.check_box :disp_sexTarde_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_sexNoite_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_sexNoite_pf %>
     <%= f.check_box :disp_sexNoite_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_quiManha_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_quiManha_pf %>
     <%= f.check_box :disp_quiManha_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_quiTarde_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_quiTarde_pf %>
     <%= f.check_box :disp_quiTarde_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_quiNoite_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_quiNoite_pf %>
     <%= f.check_box :disp_quiNoite_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_quaManha_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_quaManha_pf %>
     <%= f.check_box :disp_quaManha_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_quaTarde_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_quaTarde_pf %>
     <%= f.check_box :disp_quaTarde_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_quaNoite_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_quaNoite_pf %>
     <%= f.check_box :disp_quaNoite_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_terManha_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_terManha_pf %>
     <%= f.check_box :disp_terManha_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_terTarde_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_terTarde_pf %>
     <%= f.check_box :disp_terTarde_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_terNoite_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_terNoite_pf %>
     <%= f.check_box :disp_terNoite_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_segManha_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_segManha_pf %>
     <%= f.check_box :disp_segManha_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_segTarde_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_segTarde_pf %>
     <%= f.check_box :disp_segTarde_pf %>
-  </div>
-  <div class="field">
-    <%= f.label :disp_segNoite_pf %><br />
+    </div>
+    <div class="check">
+    <%= f.label :disp_segNoite_pf %>
     <%= f.check_box :disp_segNoite_pf %>
+    </div>
   </div>
+  <div style="clear: both"></div>
   <div class="field">
-    <%= f.label :outras_infos_pf %><br />
+    <%= f.label :outras_infos_pf %>
     <%= f.text_area :outras_infos_pf %>
   </div>
  <div class="actions">
-    <%= f.submit %>
+    <%= f.submit  :class => 'botao_azul'%>
   </div>
 <% end %>
