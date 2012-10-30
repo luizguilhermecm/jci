@@ -12,7 +12,7 @@ h1
   margin-bottom: 20px;
 }
 
-input[type=text],  textarea
+input[type=text],  textarea, input[type=number], select
 {
   border: 1px solid #ccc;
   height: 25px;
@@ -177,7 +177,7 @@ a.botao:focus {
 }
 
 .field {
-  margin: 15px 18%;
+  margin: 15px 0;
   width: 70%;
 }
 
