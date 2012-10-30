@@ -82,7 +82,7 @@ end
     @voluntario_pessoa_juridica.visualizado_pj = false
     respond_to do |format|
       if @voluntario_pessoa_juridica.save
-        format.html { redirect_to @voluntario_pessoa_juridica, notice: 'Voluntario pessoa juridica was successfully created.' }
+        format.html { redirect_to :action => "vermeucadastro", :id => @voluntario_pessoa_juridica, notice: 'Voluntario pessoa juridica was successfully created.' }
         format.json { render json: @voluntario_pessoa_juridica, status: :created, location: @voluntario_pessoa_juridica }
       else
         format.html { render action: "new" }
@@ -98,7 +98,7 @@ end
 
     respond_to do |format|
       if @voluntario_pessoa_juridica.update_attributes(params[:voluntario_pessoa_juridica])
-        format.html { redirect_to @voluntario_pessoa_juridica, notice: 'Voluntario pessoa juridica was successfully updated.' }
+        format.html { redirect_to :action => "vermeucadastro", :id => @voluntario_pessoa_juridica, notice: 'Voluntario pessoa juridica was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
