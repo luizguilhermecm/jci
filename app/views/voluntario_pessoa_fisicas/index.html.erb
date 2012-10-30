@@ -3,25 +3,31 @@
 
 
 <h1>Lista de Voluntários: Pessoa Física</h1>
-<%= link_to 'Criar', new_voluntario_pessoa_fisica_path, :class => 'botao_laranja' %>
-<table border=1>
+<%= link_to 'Criar', new_voluntario_pessoa_fisica_path %>
+<table>
   <tr>
-    <th>Nome pf</th>
-    <th>Email pf</th>
-    <th>Telefone pf</th>
-
+    <th>Nome</th>
+    <th>Email</th>
+    <th>Telefone</th>
+    <th></th>
     <th></th>
     <th></th>
   </tr>
   <% @voluntario_pessoa_fisicas.keys.sort.each do |starting_letter| %>
   <% @voluntario_pessoa_fisicas[starting_letter].each do |voluntario_pessoa_fisica| %>
   <tr>
-    <td><%= link_to voluntario_pessoa_fisica.nome_pf, voluntario_pessoa_fisica %></td>
+    <td><%= voluntario_pessoa_fisica.nome_pf %></td>
     <td><%= voluntario_pessoa_fisica.email_pf %></td>
     <td><%= voluntario_pessoa_fisica.telefone_pf %></td>
-
-    <td><%= link_to 'Editar', edit_voluntario_pessoa_fisica_path(voluntario_pessoa_fisica) %></td>
-    <td><%= link_to 'Apagar', voluntario_pessoa_fisica, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td class="center_image">
+      <%= link_to( image_tag("profile.png", :alt => "Ver Perfil"), voluntario_pessoa_fisica) %>
+    </td>
+    <td class="center_image">
+      <%= link_to( image_tag("edit.png", :alt => "Ver Perfil"), edit_voluntario_pessoa_fisica_path(voluntario_pessoa_fisica)) %>
+    </td>
+    <td class="center_image">
+      <%= link_to( image_tag("delete.png", :alt => "Ver Perfil"), voluntario_pessoa_fisica, method: :delete, data: { confirm: 'Are you sure?' }) %>
+    </td>
   </tr>
   <% end %>
   <% end %>
