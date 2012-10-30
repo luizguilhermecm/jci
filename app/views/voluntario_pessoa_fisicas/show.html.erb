@@ -13,6 +13,9 @@
 
 <br />
 
+<h3>Buscar por entidade compatível com este perfil</h3>
+<%= button_to 'Buscar', :controller => 'entidades', :action => 'cruzar_pf_ent', :method => 'get', :id => @voluntario_pessoa_fisica %>
+
 <%= link_to 'Edit', edit_voluntario_pessoa_fisica_path(@voluntario_pessoa_fisica) %> |
 
 </div>

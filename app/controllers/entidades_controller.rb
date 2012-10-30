@@ -8,6 +8,10 @@ class EntidadesController < ApplicationController
     render 'entidades/vermeucadastro'
   end
 
+  def cruzar_pf_ent
+  
+  end
+
   def buscarHistorico
     flag = 1 # Only to verify the first time to add the string OR
     @entidades = Entidade.find_by_sql(["SELECT * FROM entidades WHERE id IN (SELECT DISTINCT(entidade_id) FROM historicos WHERE descricao_hist @@ to_tsquery(:id))", {:id => params[:queryHistorico]}]);
