@@ -2,20 +2,13 @@
 <%= render 'home/menu' %>
 
 
-<h1>Listing voluntario_pessoa_juridicas</h1>
-
+<h1>Lista de Voluntários: Pessoa Jurídica</h1>
+<%= link_to 'New Voluntario pessoa juridica', new_voluntario_pessoa_juridica_path %>
 <table>
   <tr>
-    <th>Cnpj pj</th>
-    <th>Razao social pj</th>
-    <th>Inscricao estadual pj</th>
-    <th>Email pj</th>
-    <th>Telefone pj</th>
-    <th>Endereco pj</th>
-    <th>Area atuacao pj</th>
-    <th>Contato pj</th>
-    <th>Outras infos pj</th>
-    <th>Visualizado pj</th>
+    <th>CNPJ</th>
+    <th>Razao social</th>
+    <th>Telefone</th>
     <th></th>
     <th></th>
     <th></th>
@@ -25,27 +18,24 @@
   <tr>
     <td><%= voluntario_pessoa_juridica.cnpj_pj %></td>
     <td><%= voluntario_pessoa_juridica.razao_social_pj %></td>
-    <td><%= voluntario_pessoa_juridica.inscricao_estadual_pj %></td>
-    <td><%= voluntario_pessoa_juridica.email_pj %></td>
     <td><%= voluntario_pessoa_juridica.telefone_pj %></td>
-    <td><%= voluntario_pessoa_juridica.endereco_pj %></td>
-    <td><%= voluntario_pessoa_juridica.area_atuacao_pj %></td>
-    <td><%= voluntario_pessoa_juridica.contato_pj %></td>
-    <td><%= voluntario_pessoa_juridica.outras_infos_pj %></td>
-    <td><%= voluntario_pessoa_juridica.visualizado_pj %></td>
-    <td><%= link_to 'Show', voluntario_pessoa_juridica %></td>
-    <td><%= link_to 'Edit', edit_voluntario_pessoa_juridica_path(voluntario_pessoa_juridica) %></td>
-    <td><%= link_to 'Destroy', voluntario_pessoa_juridica, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+    <td class="center_image">
+      <%= link_to( image_tag("profile.png", :alt => "Ver Perfil"), voluntario_pessoa_juridica) %>
+    </td>
+    <td class="center_image">
+      <%= link_to( image_tag("edit.png", :alt => "Editar Perfil"), edit_voluntario_pessoa_juridica_path(voluntario_pessoa_juridica)) %>
+    </td>
+    <td class="center_image">
+      <%= link_to( image_tag("delete.png", :alt => "Apagar Perfil"), voluntario_pessoa_juridica, method: :delete, data: { confirm: 'Você tem certeza?' }) %>
+    </td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Voluntario pessoa juridica', new_voluntario_pessoa_juridica_path %>
-
-</br>
-</br>
+<br />
+<br />
 
 <%= form_tag({:controller => 'voluntario_pessoa_juridicas', :action => 'buscarGeral'}, :method => 'get') do %>
       <br/>
