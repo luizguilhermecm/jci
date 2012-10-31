@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JCI</title>
+  <link href="/assets/application.css?body=1" media="all" rel="stylesheet" type="text/css" />
+  <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+<script src="/assets/entidades.js?body=1" type="text/javascript"></script>
+<script src="/assets/historicos.js?body=1" type="text/javascript"></script>
+<script src="/assets/home.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery.maskedinput.js?body=1" type="text/javascript"></script>
+<script src="/assets/posts.js?body=1" type="text/javascript"></script>
+<script src="/assets/utils.js?body=1" type="text/javascript"></script>
+<script src="/assets/voluntario_pessoa_fisicas.js?body=1" type="text/javascript"></script>
+<script src="/assets/voluntario_pessoa_juridicas.js?body=1" type="text/javascript"></script>
+<script src="/assets/application.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.maskedinput.js?body=1" type="text/javascript"></script>
+  <script src="/assets/utils.js?body=1" type="text/javascript"></script>
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="LLvpgIcAo+JFLgsZdDG/7MtYozLVAjymYjnIywHVZl0=" name="csrf-token" />
+</head>
+<body>
+  <div id="wrapper">
+    <div id="header">
+      
+      <div id="logo">
+        <a href="/"><img alt="rss feed" src="/assets/logo.png" /></a> 
+      </div>
+      
+      <div id="menu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/home/cadastrar">Cadastre-se</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Contato</a></li>
+          <li><a href="/home/logar">Alterar meus dados</a></li>
+          <li><a href="/home/inbox">Admin</a></li>
+        </ul>
+      </div>
+
+    </div>
+  	<div id="menu_admin">   
+    <h3>Menu</h3>
+    <ul>
+        <li><a href="/home/inbox">Inbox</a></li>
+        <li><a href="/home/pendencias">Pendências</a></li>
+        <li><a href="/entidades">Entidades</a></li>
+        <li><a href="/voluntario_pessoa_fisicas">Voluntários Pessoa Física</a></li>
+        <li><a href="/voluntario_pessoa_juridicas">Voluntários Pessoa Jurídica</a></li>
+        <li><a href="/posts">Notícias</a></li>
+    </ul>
+
+    <form accept-charset="UTF-8" action="/voluntario_pessoa_fisicas/buscarGeral" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+        <br />
+        <h3>Busca Geral:</h3>
+        <input id="queryGeral" name="queryGeral" type="text" /> <br/>
+        <input name="commit" type="submit" value="Buscar" /> 
+</form>
+    <form accept-charset="UTF-8" action="/voluntario_pessoa_fisicas/buscarHistorico" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+        <h3>Busca por Histórico:</h3>
+        <input id="queryHistorico" name="queryHistorico" type="text" /> <br/>
+        <input name="commit" type="submit" value="Buscar" /> 
+</form>
+    <form accept-charset="UTF-8" action="/voluntario_pessoa_fisicas/busca_por_afinidade" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+        <h3>Busca por Afinidade:</h3>
+        <input id="publico_criancas_pf" name="publico_criancas_pf" type="checkbox" value="true" /> Criança <br/>
+        <input id="publico_adultos_pf" name="publico_adultos_pf" type="checkbox" value="true" /> Adulto <br/>
+        <input id="publico_melhor_idade_pf" name="publico_melhor_idade_pf" type="checkbox" value="true" /> Melhor Idade<br/>
+        <input id="publico_adolescentes_pf" name="publico_adolescentes_pf" type="checkbox" value="true" /> Adolescente<br/>
+        <input id="publico_especiais_pf" name="publico_especiais_pf" type="checkbox" value="true" /> Especiais<br/>
+        <input name="commit" type="submit" value="Buscar por Afinidade" /> 
+</form>
+
+    <form accept-charset="UTF-8" action="/voluntario_pessoa_fisicas/busca_por_disponibilidade" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+        <h3>Busca disponibilidade de horário:</h3>
+        <div class="field">
+            <p> Domingo Manhã: </p>
+            <input id="disp_domManha_pf" name="disp_domManha_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Domingo Tarde: </p>
+            <input id="disp_domTarde_pf" name="disp_domTarde_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Domingo Noite: </p>
+            <input id="disp_domNoite_pf" name="disp_domNoite_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Sábado Manhã: </p>
+            <input id="disp_sabManha_pf" name="disp_sabManha_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Sábado Tarde: </p>
+            <input id="disp_sabTarde_pf" name="disp_sabTarde_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Sábado Noite: </p>
+            <input id="disp_sabNoite_pf" name="disp_sabNoite_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Sexta Manhã: </p>
+            <input id="disp_sexManha_pf" name="disp_sexManha_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Sexta Tarde: </p>
+            <input id="disp_sexTarde_pf" name="disp_sexTarde_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Sexta Noite: </p>
+            <input id="disp_sexNoite_pf" name="disp_sexNoite_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Quinta Manhã: </p>
+            <input id="disp_quiManha_pf" name="disp_quiManha_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Quinta Tarde: </p>
+            <input id="disp_quiTarde_pf" name="disp_quiTarde_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Quinta Noite: </p>
+            <input id="disp_quiNoite_pf" name="disp_quiNoite_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Quarta Manhã: </p>
+            <input id="disp_quaManha_pf" name="disp_quaManha_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Quarta Tarde: </p>
+            <input id="disp_quaTarde_pf" name="disp_quaTarde_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Quarta Noite: </p>
+            <input id="disp_quaNoite_pf" name="disp_quaNoite_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Terça Manhã: </p>
+            <input id="disp_terManha_pf" name="disp_terManha_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Terça Tarde: </p>
+            <input id="disp_terTarde_pf" name="disp_terTarde_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Terça Noite: </p>
+            <input id="disp_terNoite_pf" name="disp_terNoite_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Segunda Manhã: </p>
+            <input id="disp_segManha_pf" name="disp_segManha_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Segunda Tarde: </p>
+            <input id="disp_segTarde_pf" name="disp_segTarde_pf" type="checkbox" value="true" />
+        </div>
+        <div class="field">
+            <p> Segunda Noite: </p>
+            <input id="disp_segNoite_pf" name="disp_segNoite_pf" type="checkbox" value="true" />
+        </div>
+        <input name="commit" type="submit" value="Buscar por Disponibilidade" /> 
+</form>
+    <form accept-charset="UTF-8" action="/voluntario_pessoa_fisicas/busca_experiencia" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+        <h3>Busca por experiência:</h3>
+        <input name="commit" type="submit" value="Buscar por Experiência" /> 
+</form>
+    <form accept-charset="UTF-8" action="/voluntario_pessoa_fisicas/busca_atuacao" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+        <h3>Busca por Área de Atuação:</h3>
+        <input id="atuacao_juridica_pf" name="atuacao_juridica_pf" type="checkbox" value="true" /> Jurídica <br/>
+        <input id="atuacao_administrativa_pf" name="atuacao_administrativa_pf" type="checkbox" value="true" /> Administrativa <br/>
+        <input id="atuacao_recreacao_pf" name="atuacao_recreacao_pf" type="checkbox" value="true" /> Recreação<br/>
+        <input id="atuacao_saude_pf" name="atuacao_saude_pf" type="checkbox" value="true" /> Saúde<br/>
+        <input id="atuacao_educacao_pf" name="atuacao_educacao_pf" type="checkbox" value="true" /> Educação<br/>
+        <input id="atuacao_manutencao_pf" name="atuacao_manutencao_pf" type="checkbox" value="true" /> Manutenção<br/>
+        <input id="atuacao_doacao_pf" name="atuacao_doacao_pf" type="checkbox" value="true" /> Doação<br/>
+        <input id="atuacao_outro_pf" name="atuacao_outro_pf" type="checkbox" value="true" /> Outros<br/> 
+        <input name="commit" type="submit" value="Buscar por Atuação" /> 
+</form></div>
+<div id="aprovar_entidade">
+<a href="/entidades/aprovado?id=8" class="botao_verde">Aprovar</a>
+</div>
+<p id="notice"></p>
+
+<p id="notice"></p>
+
+<p>
+  <b>Cnpj ent:</b>
+  67.881.501/0001-03
+</p>
+
+<p>
+  <b>Nome ent:</b>
+  asdfasdfasdf
+</p>
+
+<p>
+  <b>Endereco ent:</b>
+  asdfasdfas
+</p>
+
+<p>
+  <b>Nome responsavel ent:</b>
+  asdfasdfa
+</p>
+
+<p>
+  <b>Email ent:</b>
+  kkkkkkk
+</p>
+
+<p>
+  <b>Telefone ent:</b>
+  asdfasdfasdf
+</p>
+
+<p>
+  <b>Site ent:</b>
+  asdfasdf
+</p>
+
+<p>
+  <b>Data fundacao ent:</b>
+  2012-10-22
+</p>
+
+<p>
+  <b>Publico criancas ent:</b>
+  false
+</p>
+
+<p>
+  <b>Publico adultos ent:</b>
+  false
+</p>
+
+<p>
+  <b>Publico melhor idade ent:</b>
+  false
+</p>
+
+<p>
+  <b>Publico adolescentes ent:</b>
+  false
+</p>
+
+<p>
+  <b>Publico especiais ent:</b>
+  false
+</p>
+
+<p>
+  <b>Publico outros ent:</b>
+  
+</p>
+
+<p>
+  <b>Numero beneficiados ent:</b>
+  
+</p>
+
+<p>
+  <b>Atuacao juridica ent:</b>
+  false
+</p>
+
+<p>
+  <b>Atuacao administrativa ent:</b>
+  false
+</p>
+
+<p>
+  <b>Atuacao recreacao ent:</b>
+  false
+</p>
+
+<p>
+  <b>Atuacao saude ent:</b>
+  false
+</p>
+
+<p>
+  <b>Atuacao educacao ent:</b>
+  false
+</p>
+
+<p>
+  <b>Atuacao manutencao ent:</b>
+  false
+</p>
+
+<p>
+  <b>Atuacao doacao ent:</b>
+  false
+</p>
+
+<p>
+  <b>Atuacao outro ent:</b>
+  
+</p>
+
+<p>
+  <b>Apoio municipal ent:</b>
+  false
+</p>
+
+<p>
+  <b>Apoio estadual ent:</b>
+  false
+</p>
+
+<p>
+  <b>Apoio federal ent:</b>
+  false
+</p>
+
+<p>
+  <b>Apoio particular ent:</b>
+  false
+</p>
+
+<p>
+  <b>Horarios atendimento ent:</b>
+  
+</p>
+
+
+<br /><br />
+<h1>Histórico</h1>
+
+
+<h3>Novo Histórico</h3>
+<form accept-charset="UTF-8" action="/entidades/8/historicos" class="new_historico" id="new_historico" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="LLvpgIcAo+JFLgsZdDG/7MtYozLVAjymYjnIywHVZl0=" /></div>
+  <div class="field">
+    <label for="historico_descricao_hist">Descricão</label>
+    <input id="historico_descricao_hist" name="historico[descricao_hist]" size="30" type="text" />
+  </div>
+  <div class="actions">
+    <input class="botao_verde" name="commit" type="submit" value="Adicionar ao Histórico" />
+  </div>
+</form>
+
+<br />
+
+
+  </div>
+</body>
+</html>
