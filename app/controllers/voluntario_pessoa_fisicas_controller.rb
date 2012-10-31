@@ -12,7 +12,7 @@ class VoluntarioPessoaFisicasController < ApplicationController
   #end
 def cruzar_pf_ent
   @entidades = Entidade.find_by_sql("
-                SELECT voluntario_pessoa_fisicas.id, cpf_pf, nome_pf, email_pf, telefone_pf, como_ficou_sabendo_pf, 
+                SELECT DISTINCT voluntario_pessoa_fisicas.id, cpf_pf, nome_pf, email_pf, telefone_pf, como_ficou_sabendo_pf, 
                        experiencia_pf, publico_criancas_pf, publico_adultos_pf, publico_melhor_idade_pf, 
                        publico_adolescentes_pf, publico_especiais_pf, publico_outros_pf, 
                        atuacao_juridica_pf, atuacao_administrativa_pf, atuacao_recreacao_pf, 
@@ -48,12 +48,12 @@ end
 
 def buscarHistorico
     flag = 1 # Only to verify the first time to add the string OR
-    @voluntario_pessoa_fisicas = Entidade.find_by_sql(["SELECT nome_pf, email_pf, telefone_pf FROM voluntario_pessoa_fisicas WHERE id IN (SELECT DISTINCT(voluntario_pessoa_fisica_id) FROM historicos WHERE descricao_hist @@ to_tsquery(:id))", {:id => params[:queryHistorico]}]);
-    render 'voluntario_pessoa_fisicas/mostrar' 
+    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql("SELECT * FROM voluntario_pessoa_fisicas WHERE id IN (SELECT DISTINCT(voluntario_pessoa_fisica_id) FROM historicos WHERE lower(descricao_hist) LIKE lower('%"+params[:queryHistorico]+"%'))")
+    render 'voluntario_pessoa_fisicas/mostrar'
 end 
 
 def buscarGeral
-  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find(:all, :conditions => ['atuacao_outro_pf LIKE ? OR como_ficou_sabendo_pf LIKE ? OR cpf_pf LIKE ? OR publico_outros_pf LIKE ? OR telefone_pf LIKE ? OR outras_infos_pf LIKE ?', "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%"])
+  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find(:all, :conditions => ['nome_pf LIKE ? or email_pf LIKE ? or atuacao_outro_pf LIKE ? OR como_ficou_sabendo_pf LIKE ? OR cpf_pf LIKE ? OR publico_outros_pf LIKE ? OR telefone_pf LIKE ? OR outras_infos_pf LIKE ?', "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%"])
   render 'voluntario_pessoa_fisicas/mostrar'
 end
 

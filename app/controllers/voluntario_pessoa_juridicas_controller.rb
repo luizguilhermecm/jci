@@ -9,7 +9,7 @@ class VoluntarioPessoaJuridicasController < ApplicationController
 
   def buscarHistorico
     flag = 1 # Only to verify the first time to add the string OR
-    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.find_by_sql(["SELECT * FROM voluntario_pessoa_juridicas WHERE id IN (SELECT DISTINCT(voluntario_pessoa_juridica_id) FROM historicos WHERE descricao_hist @@ to_tsquery(:id))", {:id => params[:queryHistorico]}]);
+    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.find_by_sql("SELECT * FROM voluntario_pessoa_juridicas WHERE id IN (SELECT DISTINCT(voluntario_pessoa_juridica_id) FROM historicos WHERE lower(descricao_hist) LIKE lower('%"+params[:queryHistorico]+"%'))")
     render 'voluntario_pessoa_juridicas/index'
   end
 
