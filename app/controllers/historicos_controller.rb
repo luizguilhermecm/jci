@@ -14,4 +14,25 @@ class HistoricosController < ApplicationController
       redirect_to entidade_path(@entidade)
     end
   end
+
+  def destroy_ent
+    @entidade = Entidade.find(params[:entidade_id])
+    @historico = @entidade.historicos.find(params[:id])
+    @historico.destroy
+    redirect_to entidade_path(@entidade)
+  end
+
+  def destroy_pf
+    @voluntario_pessoa_fisica = VoluntarioPessoaFisica.find(params[:voluntario_pessoa_fisica_id])
+    @historico = @voluntario_pessoa_fisica.historicos.find(params[:id])
+    @historico.destroy
+    redirect_to voluntario_pessoa_fisica_path(@voluntario_pessoa_fisica)
+  end
+
+  def destroy_pj
+    @voluntario_pessoa_juridica = VoluntarioPessoaJuridica.find(params[:voluntario_pessoa_juridica_id])
+    @historico = @voluntario_pessoa_juridica.historicos.find(params[:id])
+    @historico.destroy
+    redirect_to voluntario_pessoa_fisica_path(@voluntario_pessoa_juridica)
+  end
 end
