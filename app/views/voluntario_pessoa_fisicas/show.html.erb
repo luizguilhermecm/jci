@@ -1,14 +1,15 @@
-<!-- render abaixo abre uma div que está sendo fechada na ultima linha dessa pagina -->
 <%= render 'home/menu' %>
-
+<div id="buscar_entidade">
+<p>Buscar por entidade compatível com este perfil</p>
+<%= button_to 'Buscar', { :controller => 'entidades', :action => 'cruzar_pf_ent', :method => 'get', :id => @voluntario_pessoa_fisica }, :class => "botao_verde" %>
+</div>
 <p id="notice"><%= notice %></p>
-
 <%= render 'show' %>
-
-<h2>Historico</h2>
+<br /><br />
+<h1>Histórico</h1>
 <%= render @voluntario_pessoa_fisica.historicos %>
 
-<h2>Novo Historico</h2>
+<h3>Novo Histórico</h3>
 <%= render "historicos/formvpf" %>
 
 <br />
@@ -19,3 +20,4 @@
 <%= link_to 'Edit', edit_voluntario_pessoa_fisica_path(@voluntario_pessoa_fisica) %> |
 
 </div>
+

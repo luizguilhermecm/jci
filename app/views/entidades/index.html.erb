@@ -6,14 +6,12 @@
 <%= link_to 'Criar Entidade', new_entidade_path, :class => "botao_verde" %>
 <table>
   <tr>
-    <th>CNPJ</th>
+    <th style="width:150px">CNPJ</th>
     <th>Nome</th>
-
-    <th>Telefone</th>
     
     <th>Visualizado</th>
     <th>Aprovado</th>
-    <th></th>
+
     <th></th>
     <th></th>
     <th></th>
@@ -24,16 +22,27 @@
     <td><%= entidade.cnpj_ent %></td>
     <td><%= entidade.nome_ent %></td>
     
-    <td><%= entidade.telefone_ent %></td>
-    
-    <td><%= entidade.visualizado_ent %></td>
-    <td><%= entidade.aprovado_ent %></td>
-
     <td class="center_image">
-      <%= link_to( image_tag("profile.png", :alt => "Ver Entidade"), entidade) %>
+      <%=
+      if entidade.visualizado_ent == true
+        image_tag("true.png", :alt => "Ver Entidade");
+      else 
+        image_tag("false.png", :alt => "Ver Entidade");
+      end
+      %>
     </td>
     <td class="center_image">
-      <%= link_to 'Several', { :action => 'several', :id => entidade} %>
+      <%=
+      if entidade.aprovado_ent == true
+        image_tag("true.png", :alt => "Ver Entidade");
+      else 
+        image_tag("false.png", :alt => "Ver Entidade");
+      end
+      %>
+    </td>
+
+    <td class="center_image">
+      <%= link_to( image_tag("business.png", :alt => "Ver Entidade"), entidade) %>
     </td>
     <td class="center_image">
       <%= link_to( image_tag("edit.png", :alt => "Editar Entidade"), edit_entidade_path(entidade)) %>
@@ -45,6 +54,7 @@
 <% end %>
 </table>
 
+<!--
 <br />
 
 
@@ -111,3 +121,4 @@
 <br>
 
 </div>
+-->
