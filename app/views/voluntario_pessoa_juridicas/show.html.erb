@@ -1,8 +1,10 @@
 <%= render 'home/menu' %>
+<div id="corpo">
 <%= render 'show' %>
-<br /><br />
-<h1>Histórico</h1>
-<%= render @voluntario_pessoa_juridica.historicos %>
 
+<h1>Histórico</h1>
 <h3>Novo Histórico</h3>
 <%= render "historicos/formvpj" %>
+<br />
+<%= render @voluntario_pessoa_juridica.historicos %>
+</div>

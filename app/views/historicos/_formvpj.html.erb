@@ -1,10 +1,11 @@
 <%= form_for([@voluntario_pessoa_juridica, @voluntario_pessoa_juridica.historicos.build]) do |f| %>
-  <div class="field">
+  <div class="field" style="float: left;">
     <%= f.label :descricao_hist, "Descricão" %>
     <%= f.text_field :descricao_hist %>
   </div>
   <div class="actions">
   	<!-- NAO ALTERAR NOME DO BOTAO, SENDO USADO NO CONTROLLER -->
-    <%= f.submit 'Historico PJ', :class => "botao_verde" %>
+    <%= f.submit 'Historico PJ', :class => "botao_verde", :style => "margin:12px 0 0 20px" %>
   </div>
+  <div style="clear: both"></div>
 <% end %>

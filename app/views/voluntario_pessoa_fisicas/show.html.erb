@@ -6,10 +6,11 @@
 </div>
 <p id="notice"><%= notice %></p>
 <%= render 'show' %>
-<br /><br />
-<h1>Histórico</h1>
-<%= render @voluntario_pessoa_fisica.historicos %>
 
+<h1>Histórico</h1>
 <h3>Novo Histórico</h3>
 <%= render "historicos/formvpf" %>
+<br />
+<%= render @voluntario_pessoa_fisica.historicos %>
+
 </div>
