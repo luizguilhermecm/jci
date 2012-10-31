@@ -332,3 +332,21 @@ text-align: center;
   text-align: center;
   width:30px;
 }
+
+#buscar_entidade, #aprovar_entidade {
+  float:right;
+  background-color: #eee;
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+#buscar_entidade p {
+  font-weight: bold;
+  font-size:15px;
+  margin: 15px 0 0 0;
+}
+#aprovar_entidade a {
+  margin-top: 35px;
+}

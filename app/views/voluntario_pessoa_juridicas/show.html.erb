@@ -1,18 +1,8 @@
-<!-- render abaixo abre uma div que está sendo fechada na ultima linha dessa pagina -->
 <%= render 'home/menu' %>
-
-
 <%= render 'show' %>
-<h2>Historico</h2>
+<br /><br />
+<h1>Historico</h1>
 <%= render @voluntario_pessoa_juridica.historicos %>
 
-<h2>Novo Historico</h2>
+<h3>Novo Historico</h3>
 <%= render "historicos/formvpj" %>
-
-<br />
-
-
-<%= link_to 'Edit', edit_voluntario_pessoa_juridica_path(@voluntario_pessoa_juridica) %> |
-
-
-</div>

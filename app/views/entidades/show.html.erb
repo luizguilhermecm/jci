@@ -1,23 +1,15 @@
-<!-- render abaixo abre uma div que está sendo fechada na ultima linha dessa pagina -->
 <%= render 'home/menu' %>
-
+<div id="aprovar_entidade">
+<%= @entidade.aprovado_ent ? false : (link_to "Aprovar", { :action => "aprovado", :id => @entidade}, :class => "botao_verde" ) %>
+</div>
 <p id="notice"><%= notice %></p>
 
-
 <%= render 'show' %>
-
-
-<h2>Historico</h2>
+<br /><br />
+<h1>Histórico</h1>
 <%= render @entidade.historicos %>
 
-<h2>Novo Historico</h2>
+<h3>Novo Histórico</h3>
 <%= render "historicos/forment" %>
 
 <br />
-
-<%= @entidade.aprovado_ent ? false : (link_to "Aprovar", :action => "aprovado", :id => @entidade ) %>
-<br>
-<br>
-<%= link_to 'Edit', edit_entidade_path(@entidade) %> 
-
-</div>

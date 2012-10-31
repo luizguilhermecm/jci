@@ -9,7 +9,30 @@ class EntidadesController < ApplicationController
   end
 
   def cruzar_pf_ent
-  
+    @entidades = Entidade.find_by_sql("SELECT  entidades.id, cnpj_ent, nome_ent, endereco_ent, nome_responsavel_ent, email_ent, 
+                                               telefone_ent, site_ent, data_fundacao_ent, publico_criancas_ent, 
+                                               publico_adultos_ent, publico_melhor_idade_ent, publico_adolescentes_ent, 
+                                               publico_especiais_ent, publico_outros_ent, numero_beneficiados_ent, 
+                                               atuacao_juridica_ent, atuacao_administrativa_ent, atuacao_recreacao_ent, 
+                                               atuacao_saude_ent, atuacao_educacao_ent, atuacao_manutencao_ent, 
+                                               atuacao_doacao_ent, atuacao_outro_ent, apoio_municipal_ent, apoio_estadual_ent, 
+                                               apoio_federal_ent, apoio_particular_ent, horarios_atendimento_ent, 
+                                               visualizado_ent, aprovado_ent, entidades.created_at, entidades.updated_at
+                                        FROM voluntario_pessoa_fisicas
+                                        INNER JOIN entidades ON ((publico_criancas_pf = publico_criancas_ent) AND publico_criancas_pf = 'true')
+                                        OR ((publico_adultos_pf = publico_adultos_ent) AND publico_adultos_pf = 'true')
+                                        OR ((publico_melhor_idade_pf = publico_melhor_idade_ent) AND publico_melhor_idade_pf = 'true')
+                                        OR ((publico_adolescentes_pf = publico_adolescentes_ent) AND publico_adolescentes_pf = 'true') 
+                                        OR ((publico_especiais_pf = publico_especiais_ent) AND publico_especiais_pf = 'true')
+                                        OR ((atuacao_juridica_pf = atuacao_juridica_ent) AND atuacao_juridica_pf = 'true')
+                                        OR ((atuacao_administrativa_pf = atuacao_administrativa_ent) AND atuacao_administrativa_pf = 'true')
+                                        OR ((atuacao_recreacao_pf = atuacao_recreacao_ent) AND atuacao_recreacao_pf = 'true')
+                                        OR ((atuacao_saude_pf = atuacao_saude_ent) AND atuacao_saude_pf = 'true')
+                                        OR ((atuacao_educacao_pf = atuacao_educacao_ent) AND atuacao_educacao_pf = 'true')
+                                        OR ((atuacao_manutencao_pf = atuacao_manutencao_ent) AND atuacao_manutencao_pf = 'true')
+                                        OR ((atuacao_doacao_pf = atuacao_doacao_ent) AND atuacao_doacao_pf = 'true')"
+    )
+    render 'entidades/index'
   end
 
   def buscarHistorico
