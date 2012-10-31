@@ -45,6 +45,7 @@ Jci::Application.routes.draw do
       get :busca_atuacao
       get :buscarHistorico
       get :buscarGeral
+      get :cruzar_pf_ent
     end
   end
 
