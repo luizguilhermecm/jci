@@ -29,69 +29,61 @@
   </div>
   <div class="field">
     <%= f.label :como_ficou_sabendo_pf, "Como ficou sabendo:" %>
-    <%= f.text_area :como_ficou_sabendo_pf %>
+    <%= f.text_area :como_ficou_sabendo_pf%>
   </div>
   <!--<div class="field">
     <%= f.label :experiencia_pf %>
     <%= f.check_box :experiencia_pf %>
   </div>-->
+
   <h2>Público</h2>
   <div class="field">
     <div class="check">
-    <%= f.label :publico_criancas_pf, "Criancas" %>
     <%= f.check_box :publico_criancas_pf %>
-    </div>
-    <div class="check">
-    <%= f.label :publico_adultos_pf, "Adultos" %>
+    <%= f.label :publico_criancas_pf, "Criancas" %>
+
     <%= f.check_box :publico_adultos_pf %>
-    </div>
-    <div class="check">
-    <%= f.label :publico_melhor_idade_pf, "Melhor Idade" %>
+    <%= f.label :publico_adultos_pf, "Adultos" %>
+
     <%= f.check_box :publico_melhor_idade_pf %>
-    </div>
-    <div class="check">
-    <%= f.label :publico_adolescentes_pf, "Adolescentes" %>
+    <%= f.label :publico_melhor_idade_pf, "Melhor Idade" %>
+
     <%= f.check_box :publico_adolescentes_pf %>
-    </div>
-    <div class="check">
-    <%= f.label :publico_especiais_pf, "Especiais" %>
+    <%= f.label :publico_adolescentes_pf, "Adolescentes" %>
+
     <%= f.check_box :publico_especiais_pf %>
+    <%= f.label :publico_especiais_pf, "Especiais" %>
     </div>
   </div>
   <div style="clear: both"></div>
   <div class="field">
   <%= f.label :publico_outros_pf, "Outros:" %>
   <%= f.text_field :publico_outros_pf %>
-  </div>
+  </div><br />
   <h2>Atuacão</h2>
   <div class="field">
     <div class="check">
-    <%= f.label :atuacao_juridica_pf, "Jurídica" %>
+    
     <%= f.check_box :atuacao_juridica_pf %>
-    </div>
-    <div class="check">
-    <%= f.label :atuacao_administrativa_pf, "Administrativa" %>
+    <%= f.label :atuacao_juridica_pf, "Jurídica" %>
+    
     <%= f.check_box :atuacao_administrativa_pf %>
-    </div>
-    <div class="check">
-    <%= f.label :atuacao_recreacao_pf, "Recreacão" %>
+    <%= f.label :atuacao_administrativa_pf, "Administrativa" %>
+    
     <%= f.check_box :atuacao_recreacao_pf %>
-    </div>
-    <div class="check">
-    <%= f.label :atuacao_saude_pf, "Saúde" %>
+    <%= f.label :atuacao_recreacao_pf, "Recreacão" %>
+    
     <%= f.check_box :atuacao_saude_pf %>
-    </div>
-    <div class="check">
-    <%= f.label :atuacao_educacao_pf, "Educacão" %>
+    <%= f.label :atuacao_saude_pf, "Saúde" %>
+    
     <%= f.check_box :atuacao_educacao_pf %>
-    </div>
-    <div class="check">
-    <%= f.label :atuacao_manutencao_pf, "Manutencão" %>
+    <%= f.label :atuacao_educacao_pf, "Educacão" %>
+    
     <%= f.check_box :atuacao_manutencao_pf %>
-    </div>
-    <div class="check">
-    <%= f.label :atuacao_doacao_pf, "Doacão" %>
+    <%= f.label :atuacao_manutencao_pf, "Manutencão" %>
+    
     <%= f.check_box :atuacao_doacao_pf %>
+    <%= f.label :atuacao_doacao_pf, "Doacão" %>
     </div>
   </div>
   <div style="clear: both"></div>
@@ -99,85 +91,106 @@
     <%= f.label :atuacao_outro_pf, "Outros:" %>
     <%= f.text_field :atuacao_outro_pf %>
   </div>
+  <div style="clear: both"></div>
   <h2>Disponibilidade</h2>
   <div class="field">
+    
     <div class="check_dia">
         <h3>Domingo</h3>
-        <%= f.label :disp_domManha_pf, "Manhã" %>
+
         <%= f.check_box :disp_domManha_pf %>
-
-        <%= f.label :disp_domTarde_pf, "Tarde" %>
+        <%= f.label :disp_domManha_pf, "Manhã" %>
+        
         <%= f.check_box :disp_domTarde_pf %>
-
-        <%= f.label :disp_domNoite_pf, "Noite" %>
+        <%= f.label :disp_domTarde_pf, "Tarde" %>
+        
         <%= f.check_box :disp_domNoite_pf %>
+        <%= f.label :disp_domNoite_pf, "Noite" %>
     </div>
+
+    
     <div class="check_dia">
         <h3>Segunda</h3>
-        <%= f.label :disp_segManha_pf, "Manhã"  %>
+        
         <%= f.check_box :disp_segManha_pf %>
+        <%= f.label :disp_segManha_pf, "Manhã"  %>
 
-        <%= f.label :disp_segTarde_pf, "Tarde" %>
+        
         <%= f.check_box :disp_segTarde_pf %>
-
-        <%= f.label :disp_segNoite_pf, "Noite" %>
+        <%= f.label :disp_segTarde_pf, "Tarde" %>
+        
         <%= f.check_box :disp_segNoite_pf %>
+        <%= f.label :disp_segNoite_pf, "Noite" %>
     </div>
+
     <div class="check_dia">
         <h3>Terca</h3>
-        <%= f.label :disp_terManha_pf, "Manhã"  %>
-        <%= f.check_box :disp_terManha_pf %>
         
-        <%= f.label :disp_terTarde_pf, "Tarde" %>
+        <%= f.check_box :disp_terManha_pf %>
+        <%= f.label :disp_terManha_pf, "Manhã"  %>
+        
         <%= f.check_box :disp_terTarde_pf %>
-
-        <%= f.label :disp_terNoite_pf, "Noite" %>
+        <%= f.label :disp_terTarde_pf, "Tarde" %>
+        
         <%= f.check_box :disp_terNoite_pf %>
+        <%= f.label :disp_terNoite_pf, "Noite" %>
     </div>
+
     <div class="check_dia">
         <h3>Quarta</h3>
-        <%= f.label :disp_quaManha_pf, "Manhã"  %>
+        
         <%= f.check_box :disp_quaManha_pf %>
-    
-        <%= f.label :disp_quaTarde_pf, "Tarde" %>
+      <%= f.label :disp_quaManha_pf, "Manhã"  %>
+          
         <%= f.check_box :disp_quaTarde_pf %>
-
-        <%= f.label :disp_quaNoite_pf, "Noite" %>
+        <%= f.label :disp_quaTarde_pf, "Tarde" %>
+        
         <%= f.check_box :disp_quaNoite_pf %>
+        <%= f.label :disp_quaNoite_pf, "Noite" %>
     </div>
+
     <div class="check_dia">
         <h3>Quinta</h3>
-        <%= f.label :disp_quiManha_pf, "Manhã"  %>
+        
         <%= f.check_box :disp_quiManha_pf %>
+        <%= f.label :disp_quiManha_pf, "Manhã"  %>
 
-        <%= f.label :disp_quiTarde_pf, "Tarde" %>
+        
         <%= f.check_box :disp_quiTarde_pf %>
+        <%= f.label :disp_quiTarde_pf, "Tarde" %>
 
-        <%= f.label :disp_quiNoite_pf, "Noite" %>
+        
         <%= f.check_box :disp_quiNoite_pf %>
+        <%= f.label :disp_quiNoite_pf, "Noite" %>
     </div>
+
     <div class="check_dia">
         <h3>Sexta</h3>
-        <%= f.label :disp_sexManha_pf, "Manhã"  %>
+        
         <%= f.check_box :disp_sexManha_pf %>
-
-        <%= f.label :disp_sexTarde_pf, "Tarde" %>
+<%= f.label :disp_sexManha_pf, "Manhã"  %>
+        
         <%= f.check_box :disp_sexTarde_pf %>
+        <%= f.label :disp_sexTarde_pf, "Tarde" %>
 
-        <%= f.label :disp_sexNoite_pf, "Noite" %>
+        
         <%= f.check_box :disp_sexNoite_pf %>
+        <%= f.label :disp_sexNoite_pf, "Noite" %>
     </div>
+
     <div class="check_dia">
         <h3>Sábado</h3>
-        <%= f.label :disp_sabManha_pf, "Manhã"  %>
+        
         <%= f.check_box :disp_sabManha_pf %>
-
-        <%= f.label :disp_sabTarde_pf, "Tarde" %>
+<%= f.label :disp_sabManha_pf, "Manhã"  %>
+        
         <%= f.check_box :disp_sabTarde_pf %>
-
-        <%= f.label :disp_sabNoite_pf, "Noite" %>
+<%= f.label :disp_sabTarde_pf, "Tarde" %>
+        
         <%= f.check_box :disp_sabNoite_pf %>
+        <%= f.label :disp_sabNoite_pf, "Noite" %>
     </div>
+
   </div>
   <div style="clear: both"></div>
   <h2>Outras Informacões</h2>

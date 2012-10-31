@@ -1,7 +1,7 @@
 <!-- render abaixo abre uma div que está sendo fechada na ultima linha dessa pagina -->
 <%= render 'home/menu' %>
 
-
+<div id="corpo">
 <h1>Lista de Voluntários: Pessoa Jurídica</h1>
 <%= link_to 'Criar Voluntário', new_voluntario_pessoa_juridica_path, :class => "botao_verde" %>
 <table>
@@ -32,7 +32,7 @@
   </tr>
 <% end %>
 </table>
-
+</div>
 <!--
 <br />
 <br />

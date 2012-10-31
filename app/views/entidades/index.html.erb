@@ -1,6 +1,6 @@
 <!-- render abaixo abre uma div que está sendo fechada na ultima linha dessa pagina -->
 <%= render 'home/menu' %>
-
+<div id="corpo">
 
 <h1>Lista de Entidades</h1>
 <%= link_to 'Criar Entidade', new_entidade_path, :class => "botao_verde" %>
@@ -53,6 +53,7 @@
   </tr>
 <% end %>
 </table>
+</div>
 
 <!--
 <br />

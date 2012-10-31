@@ -1,4 +1,5 @@
 <%= render 'home/menu' %>
+<div id="corpo">
 <div id="buscar_entidade">
 <p>Buscar por entidade compatível com este perfil</p>
 <%= button_to 'Buscar', { :controller => 'entidades', :action => 'cruzar_pf_ent', :method => 'get', :id => @voluntario_pessoa_fisica }, :class => "botao_verde" %>
@@ -11,3 +12,4 @@
 
 <h3>Novo Histórico</h3>
 <%= render "historicos/formvpf" %>
+</div>

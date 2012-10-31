@@ -1,4 +1,5 @@
 <%= render 'home/menu' %>
+<div id="corpo">
 <div id="aprovar_entidade">
 <%= if  @entidade.aprovado_ent 
 		render :text => "Aprovada"
@@ -17,3 +18,4 @@
 
 <h3>Novo Histórico</h3>
 <%= render "historicos/forment" %>
+</div>

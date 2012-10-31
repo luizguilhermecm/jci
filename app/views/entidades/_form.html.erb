@@ -24,7 +24,7 @@
     <%= f.text_field :endereco_ent %>
   </div>
   <div class="field">
-    <%= f.label :nome_responsavel_ent, "Nome do Responsável:" %>
+    <%= f.label :nome_responsavel_ent, "Responsável:" %>
     <%= f.text_field :nome_responsavel_ent %>
   </div>
   <div class="field">
@@ -40,8 +40,16 @@
     <%= f.text_field :site_ent %>
   </div>
   <div class="field">
-    <%= f.label :data_fundacao_ent, "Data de Fundacão:" %>
+    <%= f.label :data_fundacao_ent, "Data da Fundacão:" %>
     <%= f.date_select :data_fundacao_ent %>
+  </div>
+  <div class="field">
+    <%= f.label :numero_beneficiados_ent, "Número de Beneficiados:" %>
+    <%= f.number_field :numero_beneficiados_ent %>
+  </div>
+  <div class="field">
+    <%= f.label :horarios_atendimento_ent, "Horários de Atendimento:" %>
+    <%= f.text_field :horarios_atendimento_ent %>
   </div>
   <h2>Público</h2>
   <div class="field">
@@ -70,10 +78,6 @@
   <div class="field">
     <%= f.label :publico_outros_ent, "Outros:" %>
     <%= f.text_field :publico_outros_ent %>
-  </div>
-  <div class="field">
-    <%= f.label :numero_beneficiados_ent, "Número de Beneficiados:" %>
-    <%= f.number_field :numero_beneficiados_ent %>
   </div>
    <h2>Atuacão</h2>
   <div class="field">
@@ -132,10 +136,7 @@
   </div>
   <div style="clear: both"></div>
    <h2>Horários</h2>
-  <div class="field">
-    <%= f.label :horarios_atendimento_ent, "Horários de Atendimento:" %>
-    <%= f.text_field :horarios_atendimento_ent %>
-  </div>
+  
   <!--<div class="field">
     <%= f.label :visualizado_ent %>
     <%= f.check_box :visualizado_ent %>
