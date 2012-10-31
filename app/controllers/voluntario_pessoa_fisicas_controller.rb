@@ -512,7 +512,7 @@ def buscar
     @voluntario_pessoa_fisica.visuzalizado_pf = false
     respond_to do |format|
       if @voluntario_pessoa_fisica.save
-        format.html { redirect_to @voluntario_pessoa_fisica, notice: 'Voluntario pessoa fisica was successfully created.' }
+        format.html { redirect_to :action => "vermeucadastro", :id => @voluntario_pessoa_fisica, notice: 'Voluntario pessoa fisica was successfully created.' }
         format.json { render json: @voluntario_pessoa_fisica, status: :created, location: @voluntario_pessoa_fisica }
       else
         format.html { render action: "new" }
@@ -528,7 +528,7 @@ def buscar
 
     respond_to do |format|
       if @voluntario_pessoa_fisica.update_attributes(params[:voluntario_pessoa_fisica])
-        format.html { redirect_to @voluntario_pessoa_fisica, notice: 'Voluntario pessoa fisica was successfully updated.' }
+        format.html { redirect_to :action => "vermeucadastro", :id => @voluntario_pessoa_fisica, notice: 'Voluntario pessoa fisica was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -8,6 +8,10 @@ class EntidadesController < ApplicationController
     render 'entidades/vermeucadastro'
   end
 
+  def cruzar_pf_ent
+  
+  end
+
   def buscarHistorico
     flag = 1 # Only to verify the first time to add the string OR
     @entidades = Entidade.find_by_sql(["SELECT * FROM entidades WHERE id IN (SELECT DISTINCT(entidade_id) FROM historicos WHERE descricao_hist @@ to_tsquery(:id))", {:id => params[:queryHistorico]}]);
@@ -324,7 +328,7 @@ class EntidadesController < ApplicationController
     @entidade.aprovado_ent = false
     respond_to do |format|
       if @entidade.save
-        format.html { redirect_to @entidade, notice: 'Entidade was successfully created.' }
+        format.html { redirect_to :action => "vermeucadastro", :id => @entidade, notice: 'Entidade was successfully created.' }
         format.json { render json: @entidade, status: :created, location: @entidade }
       else
         format.html { render action: "new" }
@@ -340,7 +344,7 @@ class EntidadesController < ApplicationController
 
     respond_to do |format|
       if @entidade.update_attributes(params[:entidade])
-        format.html { redirect_to @entidade, notice: 'Entidade was successfully updated.' }
+        format.html { redirect_to :action => "vermeucadastro", :id => @entidade, notice: 'Entidade was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
