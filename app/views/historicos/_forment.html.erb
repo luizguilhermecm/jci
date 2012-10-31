@@ -1,9 +1,9 @@
 <%= form_for([@entidade, @entidade.historicos.build]) do |f| %>
   <div class="field">
-    <%= f.label :descricao_hist %><br />
+    <%= f.label :descricao_hist, "Descricão" %>
     <%= f.text_field :descricao_hist %>
   </div>
   <div class="actions">
-    <%= f.submit 'ent'%>
+    <%= f.submit 'Adicionar ao Histórico', :class => "botao_verde" %>
   </div>
 <% end %>
