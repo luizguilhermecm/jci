@@ -96,8 +96,17 @@ input[type=text],  textarea, input[type=number], select
 
 #corpo-site
 {
-  text-align: center;
-  margin-top:80px;
+  margin: 0 auto;
+  margin-top:20px;
+  width: 70%;
+  text-align:left
+
+}
+#corpo-site #botoes
+{
+
+  text-align:center
+
 }
 
 #menu_admin h3 {
@@ -144,9 +153,8 @@ input[type=text],  textarea, input[type=number], select
 }
 
 .field .check {
-  background-color: #00ff00;
   float: left;
-  width: 130px;
+  width: 220px;
 }
 
 .field .check input[type=checkbox] {
@@ -155,9 +163,8 @@ input[type=text],  textarea, input[type=number], select
 }
 
 .field .check_dia {
-  background-color: #ff0000;
   margin: 5px 0;
-  width: 120px;
+  width: 220px;
   float: left;
 }
 
