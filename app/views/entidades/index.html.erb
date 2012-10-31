@@ -1,6 +1,6 @@
 <!-- render abaixo abre uma div que está sendo fechada na ultima linha dessa pagina -->
 <%= render 'home/menu' %>
-
+<div id="corpo">
 
 <h1>Lista de Entidades</h1>
 <%= link_to 'Criar Entidade', new_entidade_path, :class => "botao_verde" %>
@@ -42,7 +42,7 @@
     </td>
 
     <td class="center_image">
-      <%= link_to( image_tag("business.png", :alt => "Ver Entidade"), entidade) %>
+      <%= link_to( image_tag("entity.png", :alt => "Ver Entidade"), entidade) %>
     </td>
     <td class="center_image">
       <%= link_to( image_tag("edit.png", :alt => "Editar Entidade"), edit_entidade_path(entidade)) %>
@@ -53,6 +53,7 @@
   </tr>
 <% end %>
 </table>
+</div>
 
 
 <br />

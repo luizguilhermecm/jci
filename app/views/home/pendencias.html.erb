@@ -1,9 +1,9 @@
 <!-- render abaixo abre uma div que está sendo fechada na ultima linha dessa pagina -->
 <%= render 'home/menu' %>
-
+<div id="corpo">
 
 <table border=1>
-  <th> Tipo </th>
+  <th style='width:100px'> Tipo </th>
   <th> Nome </th> 
 <% @entidades.each do |entidade| %>
   <tr>

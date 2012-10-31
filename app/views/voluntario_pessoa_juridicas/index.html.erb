@@ -1,13 +1,13 @@
 <!-- render abaixo abre uma div que está sendo fechada na ultima linha dessa pagina -->
 <%= render 'home/menu' %>
 
-
+<div id="corpo">
 <h1>Lista de Voluntários: Pessoa Jurídica</h1>
 <%= link_to 'Criar Voluntário', new_voluntario_pessoa_juridica_path, :class => "botao_verde" %>
 <table>
   <tr>
-    <th>CNPJ</th>
-    <th>Razao social</th>
+    <th style="width:150px">CNPJ</th>
+    <th>Razão Social</th>
     <th>Telefone</th>
     <th></th>
     <th></th>
@@ -21,7 +21,7 @@
     <td><%= voluntario_pessoa_juridica.telefone_pj %></td>
 
     <td class="center_image">
-      <%= link_to( image_tag("profile.png", :alt => "Ver Perfil"), voluntario_pessoa_juridica) %>
+      <%= link_to( image_tag("business.png", :alt => "Ver Perfil"), voluntario_pessoa_juridica) %>
     </td>
     <td class="center_image">
       <%= link_to( image_tag("edit.png", :alt => "Editar Perfil"), edit_voluntario_pessoa_juridica_path(voluntario_pessoa_juridica)) %>
@@ -32,8 +32,9 @@
   </tr>
 <% end %>
 </table>
-
-
+</div>
+<!--
+>>>>>>> 7d553d32cf219b0aba0c3cd336059a0f2f046a49
 <br />
 <br />
 <br />

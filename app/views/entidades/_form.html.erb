@@ -12,135 +12,151 @@
   <% end %>
 <h2>Dados Gerais</h2>
   <div class="field">
-    <%= f.label :cnpj_ent %>
+    <%= f.label :cnpj_ent, "CNPJ:" %>
     <%= f.text_field :cnpj_ent %>
   </div>
   <div class="field">
-    <%= f.label :nome_ent %>
+    <%= f.label :nome_ent, "Nome:" %>
     <%= f.text_field :nome_ent %>
   </div>
   <div class="field">
-    <%= f.label :endereco_ent %>
+    <%= f.label :endereco_ent, "Endereco:" %>
     <%= f.text_field :endereco_ent %>
   </div>
   <div class="field">
-    <%= f.label :nome_responsavel_ent %>
+    <%= f.label :nome_responsavel_ent, "Responsável:" %>
     <%= f.text_field :nome_responsavel_ent %>
   </div>
   <div class="field">
-    <%= f.label :email_ent %>
+    <%= f.label :email_ent, "Email:" %>
     <%= f.text_field :email_ent %>
   </div>
   <div class="field">
-    <%= f.label :telefone_ent %>
+    <%= f.label :telefone_ent, "Telefone:" %>
     <%= f.text_field :telefone_ent %>
   </div>
   <div class="field">
-    <%= f.label :site_ent %>
+    <%= f.label :site_ent, "Site:" %>
     <%= f.text_field :site_ent %>
   </div>
   <div class="field">
-    <%= f.label :data_fundacao_ent %>
+    <%= f.label :data_fundacao_ent, "Data da Fundacão:" %>
     <%= f.date_select :data_fundacao_ent %>
+  </div>
+  <div class="field">
+    <%= f.label :numero_beneficiados_ent, "Número de Beneficiados:" %>
+    <%= f.number_field :numero_beneficiados_ent %>
+  </div>
+  <div class="field">
+    <%= f.label :horarios_atendimento_ent, "Horários de Atendimento:" %>
+    <%= f.text_field :horarios_atendimento_ent %>
   </div>
   <h2>Público</h2>
   <div class="field">
     <div class="check">
-    <%= f.label :publico_criancas_ent %>
     <%= f.check_box :publico_criancas_ent %>
+    <%= f.label :publico_criancas_ent, "Criancas" %>
     </div>
     <div class="check">
-    <%= f.label :publico_adultos_ent %>
+    
     <%= f.check_box :publico_adultos_ent %>
+    <%= f.label :publico_adultos_ent, "Adultos" %>
     </div>
     <div class="check">
-    <%= f.label :publico_melhor_idade_ent %>
+    
     <%= f.check_box :publico_melhor_idade_ent %>
+    <%= f.label :publico_melhor_idade_ent, "Melhor Idade" %>
     </div>
     <div class="check">
-    <%= f.label :publico_adolescentes_ent %>
+    
     <%= f.check_box :publico_adolescentes_ent %>
+    <%= f.label :publico_adolescentes_ent, "Adolescentes" %>
     </div>
     <div class="check">
-    <%= f.label :publico_especiais_ent %>
+    
     <%= f.check_box :publico_especiais_ent %>
+    <%= f.label :publico_especiais_ent, "Especiais" %>
     </div>
   </div>
   <div style="clear: both"></div>
   <div class="field">
-    <%= f.label :publico_outros_ent %>
+    <%= f.label :publico_outros_ent, "Outros:" %>
     <%= f.text_field :publico_outros_ent %>
-  </div>
-  <div class="field">
-    <%= f.label :numero_beneficiados_ent %>
-    <%= f.number_field :numero_beneficiados_ent %>
   </div>
    <h2>Atuacão</h2>
   <div class="field">
     <div class="check">
-    <%= f.label :atuacao_juridica_ent %>
+    
     <%= f.check_box :atuacao_juridica_ent %>
+    <%= f.label :atuacao_juridica_ent, "Jurídica" %>
     </div>
     <div class="check">
-    <%= f.label :atuacao_administrativa_ent %>
+    
     <%= f.check_box :atuacao_administrativa_ent %>
+    <%= f.label :atuacao_administrativa_ent, "Administrativa" %>
     </div>
     <div class="check">
-    <%= f.label :atuacao_recreacao_ent %>
+    
     <%= f.check_box :atuacao_recreacao_ent %>
+    <%= f.label :atuacao_recreacao_ent, "Recreacão" %>
     </div>
     <div class="check">
-    <%= f.label :atuacao_saude_ent %>
+    
     <%= f.check_box :atuacao_saude_ent %>
+    <%= f.label :atuacao_saude_ent, "Saúde" %>
     </div>
     <div class="check">
-    <%= f.label :atuacao_educacao_ent %>
+    
     <%= f.check_box :atuacao_educacao_ent %>
+    <%= f.label :atuacao_educacao_ent, "Educacão" %>
     </div>
     <div class="check">
-    <%= f.label :atuacao_manutencao_ent %>
+    
     <%= f.check_box :atuacao_manutencao_ent %>
+    <%= f.label :atuacao_manutencao_ent, "Manutencão" %>
     </div>
     <div class="check">
-    <%= f.label :atuacao_doacao_ent %>
+    
     <%= f.check_box :atuacao_doacao_ent %>
+    <%= f.label :atuacao_doacao_ent, "Doacão" %>
     </div>
   </div>
   <div style="clear: both"></div>
   <div class="field">
-    <%= f.label :atuacao_outro_ent %>
+    
     <%= f.text_field :atuacao_outro_ent %>
+    <%= f.label :atuacao_outro_ent, "Outros:" %>
   </div>
    <h2>Apoio</h2>
   <div class="field">
     <div class="check">
-    <%= f.label :apoio_municipal_ent %>
+    
     <%= f.check_box :apoio_municipal_ent %>
+    <%= f.label :apoio_municipal_ent, "Municipal" %>
     </div>
     <div class="check">
-    <%= f.label :apoio_estadual_ent %>
+    
     <%= f.check_box :apoio_estadual_ent %>
+    <%= f.label :apoio_estadual_ent, "Estadual" %>
     </div>
     <div class="check">
-    <%= f.label :apoio_federal_ent %>
+    
     <%= f.check_box :apoio_federal_ent %>
+    <%= f.label :apoio_federal_ent, "Federal" %>
     </div>
     <div class="check">
-    <%= f.label :apoio_particular_ent %>
+    
     <%= f.check_box :apoio_particular_ent %>
+    <%= f.label :apoio_particular_ent, "Particular" %>
     </div>
   </div>
   <div style="clear: both"></div>
-   <h2>Horários</h2>
-  <div class="field">
-    <%= f.label :horarios_atendimento_ent %>
-    <%= f.text_field :horarios_atendimento_ent %>
-  </div>
+  
   <!--<div class="field">
     <%= f.label :visualizado_ent %>
     <%= f.check_box :visualizado_ent %>
   </div>-->
  <div class="actions">
-    <%= f.submit :class => "botao_azul" %>
+    <%= f.submit "Cadastrar", :class => "botao_azul" %>
   </div>
 <% end %>
