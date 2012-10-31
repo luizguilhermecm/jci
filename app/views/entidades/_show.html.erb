@@ -140,5 +140,8 @@
   <%= @entidade.horarios_atendimento_ent %>
 </p>
 
+<h3>Buscar por entidade compatível com este perfil</h3>
+<%= button_to "Buscar", {:controller => "voluntario_pessoa_fisicas", :action => "cruzar_pf_ent" }, :method => "get", :id => @entidade.id %>
+
 <%# FIX: tratar quando a entidade é aprovada e como será aprovada%>
 <%# TODO: tratar quando o atributo visualizado será atribuido true%>

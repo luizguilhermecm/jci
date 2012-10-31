@@ -10,6 +10,36 @@ class VoluntarioPessoaFisicasController < ApplicationController
     #@entidades = Entidade.find(:all, :conditions => ['nome_ent LIKE ? or endereco_ent LIKE ? or site_ent LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%"])
     #render 'entidades/index'
   #end
+def cruzar_pf_ent
+  @entidades = Entidade.find_by_sql("
+                SELECT voluntario_pessoa_fisicas.id, cpf_pf, nome_pf, email_pf, telefone_pf, como_ficou_sabendo_pf, 
+                       experiencia_pf, publico_criancas_pf, publico_adultos_pf, publico_melhor_idade_pf, 
+                       publico_adolescentes_pf, publico_especiais_pf, publico_outros_pf, 
+                       atuacao_juridica_pf, atuacao_administrativa_pf, atuacao_recreacao_pf, 
+                       atuacao_saude_pf, atuacao_educacao_pf, atuacao_manutencao_pf, 
+                       atuacao_doacao_pf, atuacao_outro_pf, \"disp_domManha_pf\", \"disp_domTarde_pf\", 
+                       \"disp_domNoite_pf\", \"disp_sabManha_pf\", \"disp_sabTarde_pf\", \"disp_sabNoite_pf\", 
+                       \"disp_sexManha_pf\", \"disp_sexTarde_pf\", \"disp_sexNoite_pf\", \"disp_quiManha_pf\", 
+                       \"disp_quiTarde_pf\", \"disp_quiNoite_pf\", \"disp_quaManha_pf\", \"disp_quaTarde_pf\", 
+                       \"disp_quaNoite_pf\", \"disp_terManha_pf\", \"disp_terTarde_pf\", \"disp_terNoite_pf\", 
+                       \"disp_segManha_pf\", \"disp_segTarde_pf\", \"disp_segNoite_pf\", outras_infos_pf, 
+                       visuzalizado_pf, voluntario_pessoa_fisicas.created_at, voluntario_pessoa_fisicas.updated_at
+                FROM voluntario_pessoa_fisicas
+                INNER JOIN entidades ON ((publico_criancas_pf = publico_criancas_ent) AND publico_criancas_pf = 'true')
+                OR ((publico_adultos_pf = publico_adultos_ent) AND publico_adultos_pf = 'true')
+                OR ((publico_melhor_idade_pf = publico_melhor_idade_ent) AND publico_melhor_idade_pf = 'true')
+                OR ((publico_adolescentes_pf = publico_adolescentes_ent) AND publico_adolescentes_pf = 'true') 
+                OR ((publico_especiais_pf = publico_especiais_ent) AND publico_especiais_pf = 'true')
+                OR ((atuacao_juridica_pf = atuacao_juridica_ent) AND atuacao_juridica_pf = 'true')
+                OR ((atuacao_administrativa_pf = atuacao_administrativa_ent) AND atuacao_administrativa_pf = 'true')
+                OR ((atuacao_recreacao_pf = atuacao_recreacao_ent) AND atuacao_recreacao_pf = 'true')
+                OR ((atuacao_saude_pf = atuacao_saude_ent) AND atuacao_saude_pf = 'true')
+                OR ((atuacao_educacao_pf = atuacao_educacao_ent) AND atuacao_educacao_pf = 'true')
+                OR ((atuacao_manutencao_pf = atuacao_manutencao_ent) AND atuacao_manutencao_pf = 'true')
+                OR ((atuacao_doacao_pf = atuacao_doacao_ent) AND atuacao_doacao_pf = 'true')"
+                )
+  render 'entidades/mostrar'
+end
 
 def busca_disponibilidade_horario
   @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.where("disp_domManha_pf = ?", params[:disp_dom])
