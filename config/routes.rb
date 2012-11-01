@@ -8,6 +8,8 @@ resources :home do
       get :cadastrar
       get :logar
       get :admin
+      get :contato
+      get :sobre
     end
   end
 

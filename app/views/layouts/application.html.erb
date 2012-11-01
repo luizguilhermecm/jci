@@ -20,8 +20,8 @@
         <ul>
           <li><%= link_to 'Home', home_path %></li>
           <li><%= link_to 'Cadastre-se', {:controller => "home", :action => 'cadastrar' }%></li>
-          <li><a href="#">Sobre</a></li>
-          <li><a href="#">Contato</a></li>
+          <li><%= link_to 'Sobre', {:controller => "home", :action => 'sobre' }%></li>
+          <li><%= link_to 'Contato', {:controller => "home", :action => 'contato' }%></li>
           <li><%= link_to 'Alterar meus dados', {:controller => "home", :action => 'logar'} %></li>
           <li><%= link_to 'Admin', {:controller => "senhorjcis", :action => 'inbox' } %></li>
         </ul>
