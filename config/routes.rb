@@ -1,12 +1,6 @@
 Jci::Application.routes.draw do
   resources :posts
 
-  resources :historicos do
-    collection do
-      post :destroy_ent
-    end
-  end
-
   resources :voluntario_pessoa_juridicas do
     resources :historicos
      collection do
@@ -68,8 +62,6 @@ Jci::Application.routes.draw do
 match 'entidades/:entidade_id/historicos/:id(.:format)' => 'historicos#destroy_ent', :as => :destroy_ent
 match 'voluntario_pessoa_fisicas/:voluntario_pessoa_fisica_id/historicos/:id(.:format)' => 'historicos#destroy_pf', :as => :destroy_pf
 match 'voluntario_pessoa_juridicas/:voluntario_pessoa_juridica_id/historicos/:id(.:format)' => 'historicos#destroy_pj', :as => :destroy_pj
-
-match 'entidades/:entidade_id/historicos' => 'historicos#create_ent', :as => :create_ent
 
 # get "entidades/editarmeucadastro"
   get "entidades/list"
