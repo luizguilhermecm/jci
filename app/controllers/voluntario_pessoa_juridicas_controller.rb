@@ -19,7 +19,7 @@ class VoluntarioPessoaJuridicasController < ApplicationController
   end
 
    def index
-    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.all.group_by{|vpj| vpj.razao_social_pj[0]}
+    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.all
 
     respond_to do |format|
       format.html # index.html.erb

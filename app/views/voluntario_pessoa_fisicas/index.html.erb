@@ -118,8 +118,7 @@
     <th></th>
     <th></th>
   </tr>
-  <% @voluntario_pessoa_fisicas.keys.sort.each do |starting_letter| %>
-  <% @voluntario_pessoa_fisicas[starting_letter].each do |voluntario_pessoa_fisica| %>
+  <% @voluntario_pessoa_fisicas.each do |voluntario_pessoa_fisica| %>
   <tr>
     <td><%= voluntario_pessoa_fisica.nome_pf %></td>
     <td><%= voluntario_pessoa_fisica.email_pf %></td>
@@ -134,7 +133,6 @@
       <%= link_to( image_tag("delete.png", :alt => "Apagar Perfil"), voluntario_pessoa_fisica, method: :delete, data: { confirm: 'Você tem certeza?' }) %>
     </td>
   </tr>
-  <% end %>
   <% end %>
 </table>
 </div>

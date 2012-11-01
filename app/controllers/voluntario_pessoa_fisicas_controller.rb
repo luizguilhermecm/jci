@@ -38,7 +38,7 @@ def cruzar_pf_ent
                 OR ((atuacao_manutencao_pf = atuacao_manutencao_ent) AND atuacao_manutencao_pf = 'true')
                 OR ((atuacao_doacao_pf = atuacao_doacao_ent) AND atuacao_doacao_pf = 'true')"
                 )
-  render 'entidades/mostrar'
+  render 'entidades/index'
 end
 
 def busca_disponibilidade_horario
@@ -49,12 +49,12 @@ end
 def buscarHistorico
     flag = 1 # Only to verify the first time to add the string OR
     @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql("SELECT * FROM voluntario_pessoa_fisicas WHERE id IN (SELECT DISTINCT(voluntario_pessoa_fisica_id) FROM historicos WHERE lower(descricao_hist) LIKE lower('%"+params[:queryHistorico]+"%'))")
-    render 'voluntario_pessoa_fisicas/mostrar'
+    render 'voluntario_pessoa_fisicas/index'
 end 
 
 def buscarGeral
   @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find(:all, :conditions => ['nome_pf LIKE ? or email_pf LIKE ? or atuacao_outro_pf LIKE ? OR como_ficou_sabendo_pf LIKE ? OR cpf_pf LIKE ? OR publico_outros_pf LIKE ? OR telefone_pf LIKE ? OR outras_infos_pf LIKE ?', "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%"])
-  render 'voluntario_pessoa_fisicas/mostrar'
+  render 'voluntario_pessoa_fisicas/index'
 end
 
 def busca_por_disponibilidade
@@ -291,13 +291,13 @@ def busca_por_disponibilidade
     end
 
   @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql(parana)
-  render 'voluntario_pessoa_fisicas/mostrar'
+  render 'voluntario_pessoa_fisicas/index'
 
 end
 
 def busca_experiencia
   @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.where("experiencia_pf = ?", true)
-  render 'voluntario_pessoa_fisicas/mostrar'
+  render 'voluntario_pessoa_fisicas/index'
 end
 
 def busca_atuacao
@@ -392,7 +392,7 @@ def busca_atuacao
 
   @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql(parana)
   
-  render 'voluntario_pessoa_fisicas/mostrar'
+  render 'voluntario_pessoa_fisicas/index'
   
 end
 
@@ -468,7 +468,7 @@ def busca_por_afinidade
 
   @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql(parana)
   
-  render 'voluntario_pessoa_fisicas/mostrar'
+  render 'voluntario_pessoa_fisicas/index'
 end
 
 def buscar
@@ -478,7 +478,7 @@ def buscar
   end
 
   def index
-    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.all.group_by{|vpf| vpf.nome_pf[0]}
+    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.all
 
     respond_to do |format|
       format.html # index.html.erb

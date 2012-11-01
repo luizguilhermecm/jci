@@ -283,7 +283,8 @@ class EntidadesController < ApplicationController
   end
 
   def index
-    @entidades = Entidade.all.group_by{|ent| ent.nome_ent[0]}
+    @entidades = Entidade.all
+    #@entidades = Entidade.all.group_by{|ent| ent.nome_ent[0]}
 
     respond_to do |format|
       format.html # index.html.erb
