@@ -1,17 +1,21 @@
 <p class="historico">
 <%= historico.descricao_hist %>
-<%= if @entidade 
-		button_to('Excluir',[historico.entidade, historico],
-               :confirm => 'Are you sure?',
+<%= 
+if historico.descricao_hist
+     if @entidade 
+		link_to('Excluir',[historico.entidade, historico],
+               :confirm => 'Tem certeza que quer excluir esse histórico de Entidade?',
                :method => "destroy_ent")
+     
  	elsif @voluntario_pessoa_fisica
-		button_to('Excluir', [historico.voluntario_pessoa_fisica, historico],
-               :confirm => 'Are you sure?',
+		link_to('Excluir', [historico.voluntario_pessoa_fisica, historico],
+               :confirm => 'Tem certeza que quer excluir esse histórico de Voluntario Pessoa Física?',
                :method => "destroy_pf")
 	elsif @voluntario_pessoa_juridica
-		button_to('Excluir', [historico.voluntario_pessoa_juridica, historico],
-               :confirm => 'Are you sure?',
+		link_to('Excluir', [historico.voluntario_pessoa_juridica, historico],
+               :confirm => 'Tem certeza que quer excluir esse histórico de Voluntario Pessoa Jurídica?',
                :method => "destroy_pj")
 	end
+end
  %>
 </p>
