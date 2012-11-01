@@ -2,7 +2,57 @@
 <%= render 'home/menu' %>
 <div id="corpo">
 
-<h1>Lista de Entidades</h1>
+<h1>Entidades</h1>
+<div style="float: left; width:50%; height:80px;">
+<%= form_tag({:controller => 'entidades', :action => 'buscarArray'}, :method => 'get') do %>
+      <h3>Busca Geral</h3>
+      <%= text_field_tag :query %>
+      <%= submit_tag "Search", :class => "botao_verde" %> 
+<% end  %>
+</div>
+<div style="float: left; width:50%; height:80px;">
+<h3>Busca pelo Histórico</h3>
+<%= form_tag({:controller => 'entidades', :action => 'buscarHistorico'}, :method => 'get') do %>
+      <%= text_field_tag :queryHistorico %>
+      <%= submit_tag "Buscar", :class => "botao_verde" %> 
+<% end  %>
+</div>
+<div style="float: left; width:50%; height:200px;">
+<h3>Busca por Público</h3>
+<%= form_tag({:controller => 'entidades', :action => 'busca_publico_ent'}, :method => 'get') do %>
+      <%= check_box_tag :publico_criancas_ent, checked_value = true %> Criança <br/>
+      <%= check_box_tag :publico_adultos_ent, checked_value = true %> Adulto <br/>
+      <%= check_box_tag :publico_melhor_idade_ent, checked_value = true %> Melhor Idade<br/>
+      <%= check_box_tag :publico_adolescentes_ent, checked_value = true  %> Adolescente<br/>
+      <%= check_box_tag :publico_especiais_ent, checked_value = true %> Especiais<br/>
+      <%= submit_tag "Buscar por Público", :class => "botao_verde" %> 
+<% end  %>
+</div>
+<div style="float: left; width:50%; height:200px;">
+<h3>Busca por Área de Atuação:</h3>
+<%= form_tag({:controller => 'entidades', :action => 'busca_por_atuacao'}, :method => 'get') do %>
+      <%= check_box_tag :atuacao_juridica_ent, checked_value = true %> Jurídica <br/>
+      <%= check_box_tag :atuacao_administrativa_ent, checked_value = true %> Administrativa <br/>
+      <%= check_box_tag :atuacao_recreacao_ent, checked_value = true %> Recreação<br/>
+      <%= check_box_tag :atuacao_saude_ent, checked_value = true  %> Saúde<br/>
+      <%= check_box_tag :atuacao_educacao_ent, checked_value = true  %> Educação<br/>
+      <%= check_box_tag :atuacao_manutencao_ent, checked_value = true  %> Manutenção<br/>
+      <%= check_box_tag :atuacao_doacao_ent, checked_value = true %> Doação<br/>
+      <%= check_box_tag :atuacao_outro_ent, checked_value = true %> Outros<br/> 
+      <%= submit_tag "Buscar por Atuação", :class => "botao_verde" %> 
+<% end  %>
+</div>
+<div style="float: left; width:50%; height:150px;">
+<h3>Busca por Apoio:</h3>
+<%= form_tag({:controller => 'entidades', :action => 'busca_por_apoio'}, :method => 'get') do %>
+      <%= check_box_tag :apoio_municipal_ent, checked_value = true %> Municipal <br/>
+      <%= check_box_tag :apoio_estadual_ent, checked_value = true %> Estadual <br/>
+      <%= check_box_tag :apoio_federal_ent, checked_value = true %> Federal<br/>
+      <%= check_box_tag :apoio_particular_ent, checked_value = true  %> Particulars<br/>
+      <%= submit_tag "Buscar por Apoio", :class => "botao_verde" %> 
+<% end  %>
+</div>
+<div style="clear:both"></div><br />
 <%= link_to 'Criar Entidade', new_entidade_path, :class => "botao_verde" %>
 <table>
   <tr>
@@ -53,72 +103,4 @@
   </tr>
 <% end %>
 </table>
-</div>
-
-
-<br />
-
-
-<%= form_tag({:controller => 'entidades', :action => 'buscarArray'}, :method => 'get') do %>
-      <br/>
-      <h3>Busca Geral</h3>
-      <%= text_field_tag :query %> <br/>
-      <%= submit_tag "Search" %> 
-<% end  %>
-
-<br><br>
-<h3>Busca pelo Histórico</h3>
-<%= form_tag({:controller => 'entidades', :action => 'buscarHistorico'}, :method => 'get') do %>
-      <%= text_field_tag :queryHistorico %> <br/>
-      <%= submit_tag "Buscar" %> 
-<% end  %>
-<br>
-<br>
-
-<h3>Busca por Público</h3>
-
-<%= form_tag({:controller => 'entidades', :action => 'busca_publico_ent'}, :method => 'get') do %>
-      <%= check_box_tag :publico_criancas_ent, checked_value = true %> Criança <br/>
-      <%= check_box_tag :publico_adultos_ent, checked_value = true %> Adulto <br/>
-      <%= check_box_tag :publico_melhor_idade_ent, checked_value = true %> Melhor Idade<br/>
-      <%= check_box_tag :publico_adolescentes_ent, checked_value = true  %> Adolescente<br/>
-      <%= check_box_tag :publico_especiais_ent, checked_value = true %> Especiais<br/>
-      <br/>
-      <%= submit_tag "Buscar por Público" %> 
-<% end  %>
-
-<br><br>
-
-<h3>Busca por Área de Atuação:</h3>
-
-<%= form_tag({:controller => 'entidades', :action => 'busca_por_atuacao'}, :method => 'get') do %>
-      <%= check_box_tag :atuacao_juridica_ent, checked_value = true %> Jurídica <br/>
-      <%= check_box_tag :atuacao_administrativa_ent, checked_value = true %> Administrativa <br/>
-      <%= check_box_tag :atuacao_recreacao_ent, checked_value = true %> Recreação<br/>
-      <%= check_box_tag :atuacao_saude_ent, checked_value = true  %> Saúde<br/>
-      <%= check_box_tag :atuacao_educacao_ent, checked_value = true  %> Educação<br/>
-      <%= check_box_tag :atuacao_manutencao_ent, checked_value = true  %> Manutenção<br/>
-      <%= check_box_tag :atuacao_doacao_ent, checked_value = true %> Doação<br/>
-      <%= check_box_tag :atuacao_outro_ent, checked_value = true %> Outros<br/> 
-      
-      <br/>
-      <%= submit_tag "Buscar por Atuação" %> 
-<% end  %>
-
-<br>
-
-<h3>Busca por Apoio:</h3>
-
-<%= form_tag({:controller => 'entidades', :action => 'busca_por_apoio'}, :method => 'get') do %>
-      <%= check_box_tag :apoio_municipal_ent, checked_value = true %> Municipal <br/>
-      <%= check_box_tag :apoio_estadual_ent, checked_value = true %> Estadual <br/>
-      <%= check_box_tag :apoio_federal_ent, checked_value = true %> Federal<br/>
-      <%= check_box_tag :apoio_particular_ent, checked_value = true  %> Particulars<br/>
-      <br/>
-      <%= submit_tag "Buscar por Apoio" %> 
-<% end  %>
-
-<br>
-<br>
-
 </div>

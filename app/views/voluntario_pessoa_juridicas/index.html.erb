@@ -2,7 +2,24 @@
 <%= render 'home/menu' %>
 
 <div id="corpo">
-<h1>Lista de Voluntários: Pessoa Jurídica</h1>
+<h1>Voluntários: Pessoa Jurídica</h1>
+<div style="float: left; width:50%">
+<%= form_tag({:controller => 'voluntario_pessoa_juridicas', :action => 'buscarGeral'}, :method => 'get') do %>
+      <br/>
+      <h3>Busca Geral:</h3>
+      <%= text_field_tag :query %>
+      <%= submit_tag "Buscar", :class => "botao_verde" %> 
+<% end  %>
+</div>
+<div style="float: left; width:50%">
+<%= form_tag({:controller => 'voluntario_pessoa_juridicas', :action => 'buscarHistorico'}, :method => 'get') do %>
+      <br/>
+      <h3>Busca por Histórico:</h3>
+      <%= text_field_tag :queryHistorico %>
+      <%= submit_tag "Buscar", :class => "botao_verde" %> 
+<% end  %>
+</div>
+<br /><br /><br /><br /><br /><br />
 <%= link_to 'Criar Voluntário', new_voluntario_pessoa_juridica_path, :class => "botao_verde" %>
 <table>
   <tr>
@@ -33,31 +50,3 @@
 <% end %>
 </table>
 </div>
-
-<br />
-<br />
-<br />
-
-<%= form_tag({:controller => 'voluntario_pessoa_juridicas', :action => 'buscarGeral'}, :method => 'get') do %>
-      <br/>
-      <h3>Busca Geral:</h3>
-      <%= text_field_tag :query %> <br/>
-      <%= submit_tag "Buscar" %> 
-<% end  %>
-
-</br>
-</br>
-
-<%= form_tag({:controller => 'voluntario_pessoa_juridicas', :action => 'buscarHistorico'}, :method => 'get') do %>
-      <br/>
-      <h3>Busca por Histórico:</h3>
-      <%= text_field_tag :queryHistorico %> <br/>
-      <%= submit_tag "Buscar" %> 
-<% end  %>
-
-</br>
-</br>
-</br>
-
-</div>
-

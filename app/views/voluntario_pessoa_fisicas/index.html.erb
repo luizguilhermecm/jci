@@ -2,7 +2,110 @@
 <%= render 'home/menu' %>
 <div id="corpo">
 
-<h1>Lista de Voluntários: Pessoa Física</h1>
+<h1>Voluntários: Pessoa Física</h1>
+<div style="float: left; width:50%; height:80px;">
+    <%= form_tag({:controller => 'voluntario_pessoa_fisicas', :action => 'buscarGeral'}, :method => 'get') do %>
+        <h3>Busca Geral:</h3>
+        <%= text_field_tag :queryGeral %>
+        <%= submit_tag "Buscar", :class => "botao_verde" %> 
+    <% end  %>
+</div>
+<div style="float: left; width:50%; height:80px;">
+    <%= form_tag({:controller => 'voluntario_pessoa_fisicas', :action => 'buscarHistorico'}, :method => 'get') do %>
+        <h3>Busca pelo Histórico:</h3>
+        <%= text_field_tag :queryHistorico %>
+        <%= submit_tag "Buscar", :class => "botao_verde" %> 
+    <% end  %>
+</div>
+<div style="float: left; width:50%; height:220px;">
+<%= form_tag({:controller => 'voluntario_pessoa_fisicas', :action => 'busca_atuacao'}, :method => 'get') do %>
+        <h3>Busca por Área de Atuação:</h3>
+        <%= check_box_tag :atuacao_juridica_pf, checked_value = true %> Jurídica <br/>
+        <%= check_box_tag :atuacao_administrativa_pf, checked_value = true %> Administrativa <br/>
+        <%= check_box_tag :atuacao_recreacao_pf, checked_value = true %> Recreação<br/>
+        <%= check_box_tag :atuacao_saude_pf, checked_value = true  %> Saúde<br/>
+        <%= check_box_tag :atuacao_educacao_pf, checked_value = true  %> Educação<br/>
+        <%= check_box_tag :atuacao_manutencao_pf, checked_value = true  %> Manutenção<br/>
+        <%= check_box_tag :atuacao_doacao_pf, checked_value = true %> Doação<br/>
+        <%= check_box_tag :atuacao_outro_pf, checked_value = true %> Outros<br/> 
+        <%= submit_tag "Buscar por Atuação", :class => "botao_verde" %> 
+    <% end  %>
+</div>
+<div style="float: left; width:50%; height:220px;">
+    <%= form_tag({:controller => 'voluntario_pessoa_fisicas', :action => 'busca_por_afinidade'}, :method => 'get') do %>
+        <h3>Busca por Afinidade:</h3>
+        <%= check_box_tag :publico_criancas_pf, checked_value = true %> Criança <br/>
+        <%= check_box_tag :publico_adultos_pf, checked_value = true %> Adulto <br/>
+        <%= check_box_tag :publico_melhor_idade_pf, checked_value = true %> Melhor Idade<br/>
+        <%= check_box_tag :publico_adolescentes_pf, checked_value = true  %> Adolescente<br/>
+        <%= check_box_tag :publico_especiais_pf, checked_value = true %> Especiais<br/>
+        <%= submit_tag "Buscar por Afinidade", :class => "botao_verde" %> 
+    <% end  %>
+</div>
+<div style="clear: both"></div>
+    <%= form_tag({:controller => 'voluntario_pessoa_fisicas', :action => 'busca_por_disponibilidade'}, :method => 'get') do %>
+        <h3>Busca disponibilidade de horário:</h3>
+    <div class="field">
+        <div class="check_dia">
+            <p><b>Domingo</b></p>
+            <%= check_box_tag :disp_domManha_pf, checked_value = true %>Manhã<br />
+            <%= check_box_tag :disp_domTarde_pf, checked_value = true %>Tarde<br />
+            <%= check_box_tag :disp_domNoite_pf, checked_value = true %>Noite
+        </div>
+
+        <div class="check_dia">
+            <p><b>Segunda</b></p>
+            <%= check_box_tag :disp_segManha_pf, checked_value = true %>Manhã<br />
+            <%= check_box_tag :disp_segTarde_pf, checked_value = true %>Tarde<br />
+            <%= check_box_tag :disp_segNoite_pf, checked_value = true %>Noite
+        </div>
+
+        <div class="check_dia">
+            <p><b>Terca</b></p>
+            <%= check_box_tag :disp_terManha_pf, checked_value = true %>Manhã<br />
+            <%= check_box_tag :disp_terTarde_pf, checked_value = true %>Tarde<br />
+            <%= check_box_tag :disp_terNoite_pf, checked_value = true %>Noite
+        </div>
+
+        <div class="check_dia">
+            <p><b>Quarta</b></p>
+            <%= check_box_tag :disp_quaManha_pf, checked_value = true %>Manhã<br />
+            <%= check_box_tag :disp_quaTarde_pf, checked_value = true %>Tarde<br />
+            <%= check_box_tag :disp_quaNoite_pf, checked_value = true %>Noite
+        </div>
+
+        <div class="check_dia">
+            <p><b>Quinta</b></p>
+            <%= check_box_tag :disp_quiManha_pf, checked_value = true %>Manhã<br />
+            <%= check_box_tag :disp_quiTarde_pf, checked_value = true %>Tarde<br />
+            <%= check_box_tag :disp_quiNoite_pf, checked_value = true %>Noite
+        </div>
+
+        <div class="check_dia">
+            <p><b>Sexta</b></p>
+            <%= check_box_tag :disp_sexManha_pf, checked_value = true %>Manhã<br />
+            <%= check_box_tag :disp_sexTarde_pf, checked_value = true %>Tarde<br />
+            <%= check_box_tag :disp_sexNoite_pf, checked_value = true %>Noite
+        </div>
+
+        <div class="check_dia">
+            <p><b>Sábado</b></p>
+            <%= check_box_tag :disp_sabManha_pf, checked_value = true %>Manhã<br />
+            <%= check_box_tag :disp_sabTarde_pf, checked_value = true %>Tarde<br />
+            <%= check_box_tag :disp_sabNoite_pf, checked_value = true %>Noite
+        </div>
+    </div>
+    <div style="clear: both"></div>
+        <%= submit_tag "Buscar por Disponibilidade", :class => "botao_verde" %> 
+    <% end  %>
+<br />
+    <%= form_tag({:controller => 'voluntario_pessoa_fisicas', :action => 'busca_experiencia'}, :method => 'get') do %>
+        <h3>Busca por experiência:</h3>
+        <%= submit_tag "Buscar por Experiência", :class => "botao_verde" %> 
+    <% end  %>
+
+    
+    <br /><br />
 <%= link_to 'Criar  Voluntário', new_voluntario_pessoa_fisica_path, :class => "botao_verde" %>
 <table>
   <tr>
@@ -31,139 +134,5 @@
   </tr>
   <% end %>
   <% end %>
-
-
-
-  <%= form_tag({:controller => 'voluntario_pessoa_fisicas', :action => 'buscarGeral'}, :method => 'get') do %>
-        <br />
-        <h3>Busca Geral:</h3>
-        <%= text_field_tag :queryGeral %> <br/>
-        <%= submit_tag "Buscar" %> 
-    <% end  %>
-
-    <%= form_tag({:controller => 'voluntario_pessoa_fisicas', :action => 'buscarHistorico'}, :method => 'get') do %>
-        <h3>Busca pelo Histórico:</h3>
-        <%= text_field_tag :queryHistorico %> <br/>
-        <%= submit_tag "Buscar" %> 
-    <% end  %>
-
-    <%= form_tag({:controller => 'voluntario_pessoa_fisicas', :action => 'busca_por_afinidade'}, :method => 'get') do %>
-        <h3>Busca por Afinidade:</h3>
-        <%= check_box_tag :publico_criancas_pf, checked_value = true %> Criança <br/>
-        <%= check_box_tag :publico_adultos_pf, checked_value = true %> Adulto <br/>
-        <%= check_box_tag :publico_melhor_idade_pf, checked_value = true %> Melhor Idade<br/>
-        <%= check_box_tag :publico_adolescentes_pf, checked_value = true  %> Adolescente<br/>
-        <%= check_box_tag :publico_especiais_pf, checked_value = true %> Especiais<br/>
-        <%= submit_tag "Buscar por Afinidade" %> 
-    <% end  %>
-
-
-    <%= form_tag({:controller => 'voluntario_pessoa_fisicas', :action => 'busca_por_disponibilidade'}, :method => 'get') do %>
-        <h3>Busca disponibilidade de horário:</h3>
-        <div class="field">
-            <p> Domingo Manhã: </p>
-            <%= check_box_tag :disp_domManha_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Domingo Tarde: </p>
-            <%= check_box_tag :disp_domTarde_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Domingo Noite: </p>
-            <%= check_box_tag :disp_domNoite_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Sábado Manhã: </p>
-            <%= check_box_tag :disp_sabManha_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Sábado Tarde: </p>
-            <%= check_box_tag :disp_sabTarde_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Sábado Noite: </p>
-            <%= check_box_tag :disp_sabNoite_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Sexta Manhã: </p>
-            <%= check_box_tag :disp_sexManha_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Sexta Tarde: </p>
-            <%= check_box_tag :disp_sexTarde_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Sexta Noite: </p>
-            <%= check_box_tag :disp_sexNoite_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Quinta Manhã: </p>
-            <%= check_box_tag :disp_quiManha_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Quinta Tarde: </p>
-            <%= check_box_tag :disp_quiTarde_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Quinta Noite: </p>
-            <%= check_box_tag :disp_quiNoite_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Quarta Manhã: </p>
-            <%= check_box_tag :disp_quaManha_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Quarta Tarde: </p>
-            <%= check_box_tag :disp_quaTarde_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Quarta Noite: </p>
-            <%= check_box_tag :disp_quaNoite_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Terça Manhã: </p>
-            <%= check_box_tag :disp_terManha_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Terça Tarde: </p>
-            <%= check_box_tag :disp_terTarde_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Terça Noite: </p>
-            <%= check_box_tag :disp_terNoite_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Segunda Manhã: </p>
-            <%= check_box_tag :disp_segManha_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Segunda Tarde: </p>
-            <%= check_box_tag :disp_segTarde_pf, checked_value = true %>
-        </div>
-        <div class="field">
-            <p> Segunda Noite: </p>
-            <%= check_box_tag :disp_segNoite_pf, checked_value = true %>
-        </div>
-        <%= submit_tag "Buscar por Disponibilidade" %> 
-    <% end  %>
-
-    <%= form_tag({:controller => 'voluntario_pessoa_fisicas', :action => 'busca_experiencia'}, :method => 'get') do %>
-        <h3>Busca por experiência:</h3>
-        <%= submit_tag "Buscar por Experiência" %> 
-    <% end  %>
-
-    <%= form_tag({:controller => 'voluntario_pessoa_fisicas', :action => 'busca_atuacao'}, :method => 'get') do %>
-        <h3>Busca por Área de Atuação:</h3>
-        <%= check_box_tag :atuacao_juridica_pf, checked_value = true %> Jurídica <br/>
-        <%= check_box_tag :atuacao_administrativa_pf, checked_value = true %> Administrativa <br/>
-        <%= check_box_tag :atuacao_recreacao_pf, checked_value = true %> Recreação<br/>
-        <%= check_box_tag :atuacao_saude_pf, checked_value = true  %> Saúde<br/>
-        <%= check_box_tag :atuacao_educacao_pf, checked_value = true  %> Educação<br/>
-        <%= check_box_tag :atuacao_manutencao_pf, checked_value = true  %> Manutenção<br/>
-        <%= check_box_tag :atuacao_doacao_pf, checked_value = true %> Doação<br/>
-        <%= check_box_tag :atuacao_outro_pf, checked_value = true %> Outros<br/> 
-        <%= submit_tag "Buscar por Atuação" %> 
-    <% end  %>
-    
 </table>
 </div>
