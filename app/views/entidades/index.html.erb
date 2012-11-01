@@ -3,6 +3,9 @@
 <div id="corpo">
 
 <h1>Entidades</h1>
+<%= link_to 'Criar Entidade', new_entidade_path, :class => "botao_verde" %>
+<input type="button" id="abrirbusca" class="botao_verde" value="Buscar" />
+<div id="busca">
 <div style="float: left; width:50%; height:80px;">
 <%= form_tag({:controller => 'entidades', :action => 'buscarArray'}, :method => 'get') do %>
       <h3>Busca Geral</h3>
@@ -53,7 +56,8 @@
 <% end  %>
 </div>
 <div style="clear:both"></div><br />
-<%= link_to 'Criar Entidade', new_entidade_path, :class => "botao_verde" %>
+</div>
+<div id="lista">
 <table>
   <tr>
     <th style="width:150px">CNPJ</th>
@@ -103,4 +107,5 @@
   </tr>
 <% end %>
 </table>
+</div>
 </div>

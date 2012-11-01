@@ -13,3 +13,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+  $("#busca").hide();
+
+  $("#abrirbusca").click(function(){
+    if($("#abrirbusca").val() == "Buscar"){
+            $("#abrirbusca").val("Listar")
+        }
+        else {
+            $("#abrirbusca").val("Buscar")
+        }
+    $("#lista").fadeToggle();
+    $("#busca").slideToggle(500);
+  })
+
+  
+});
