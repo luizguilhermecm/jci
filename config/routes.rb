@@ -1,5 +1,16 @@
 Jci::Application.routes.draw do
+  get "home/index"
+
   resources :posts
+
+resources :home do
+    collection do
+      get :cadastrar
+      get :logar
+      get :admin
+    end
+  end
+
 
   resources :voluntario_pessoa_juridicas do
     resources :historicos
@@ -10,6 +21,7 @@ Jci::Application.routes.draw do
       get :visualizado_pj
       get :buscarHistorico
       get :buscarGeral
+      get :buscarArray
     end
   end
 
@@ -49,11 +61,10 @@ Jci::Application.routes.draw do
     end
   end
 
-  resources :home do
+  resources :senhorjcis do
     collection do
+      get :index
       get :inbox
-      get :cadastrar
-      get :logar
       get :admin
       get :pendencias
     end
@@ -117,7 +128,7 @@ match 'voluntario_pessoa_juridicas/:voluntario_pessoa_juridica_id/historicos/:id
   # just remember to delete public/index.html.
   root :to => 'home#index'  
 
-  match '/' => 'home#inbex', :as => :home
+  match '/' => 'home#index', :as => :home
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
