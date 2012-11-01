@@ -1,8 +1,12 @@
 <!-- render abaixo abre uma div que está sendo fechada na ultima linha dessa pagina -->
 <%= render 'home/menu' %>
+
 <div id="corpo">
 
 <h1>Voluntários: Pessoa Física</h1>
+<%= link_to 'Criar  Voluntário', new_voluntario_pessoa_fisica_path, :class => "botao_verde" %>
+<input type="button" id="abrirbusca" class="botao_verde" value="Buscar" />
+<div id="busca">
 <div style="float: left; width:50%; height:80px;">
     <%= form_tag({:controller => 'voluntario_pessoa_fisicas', :action => 'buscarGeral'}, :method => 'get') do %>
         <h3>Busca Geral:</h3>
@@ -103,10 +107,8 @@
         <h3>Busca por experiência:</h3>
         <%= submit_tag "Buscar por Experiência", :class => "botao_verde" %> 
     <% end  %>
-
-    
-    <br /><br />
-<%= link_to 'Criar  Voluntário', new_voluntario_pessoa_fisica_path, :class => "botao_verde" %>
+</div>
+<div id="lista">
 <table>
   <tr>
     <th>Nome</th>
@@ -135,4 +137,5 @@
   <% end %>
   <% end %>
 </table>
+</div>
 </div>

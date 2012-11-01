@@ -33,6 +33,6 @@ class HistoricosController < ApplicationController
     @voluntario_pessoa_juridica = VoluntarioPessoaJuridica.find(params[:voluntario_pessoa_juridica_id])
     @historico = @voluntario_pessoa_juridica.historicos.find(params[:id])
     @historico.destroy
-    redirect_to voluntario_pessoa_fisica_path(@voluntario_pessoa_juridica)
+    redirect_to voluntario_pessoa_juridica_path(@voluntario_pessoa_juridica)
   end
 end

@@ -3,6 +3,9 @@
 
 <div id="corpo">
 <h1>Voluntários: Pessoa Jurídica</h1>
+<%= link_to 'Criar Voluntário', new_voluntario_pessoa_juridica_path, :class => "botao_verde" %>
+<input type="button" id="abrirbusca" class="botao_verde" value="Buscar" />
+<div id="busca">
 <div style="float: left; width:50%">
 <%= form_tag({:controller => 'voluntario_pessoa_juridicas', :action => 'buscarGeral'}, :method => 'get') do %>
       <br/>
@@ -19,8 +22,8 @@
       <%= submit_tag "Buscar", :class => "botao_verde" %> 
 <% end  %>
 </div>
-<br /><br /><br /><br /><br /><br />
-<%= link_to 'Criar Voluntário', new_voluntario_pessoa_juridica_path, :class => "botao_verde" %>
+</div>
+<div id="lista">
 <table>
   <tr>
     <th style="width:150px">CNPJ</th>
@@ -49,4 +52,5 @@
   </tr>
 <% end %>
 </table>
+</div>
 </div>
