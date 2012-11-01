@@ -299,10 +299,6 @@ input[type=text],  textarea, input[type=number], select
   top:1px;
 }
 
-.actions {
-  text-align: center;
-}
-
 #menu_admin h3{
   margin-top:20px;
  }

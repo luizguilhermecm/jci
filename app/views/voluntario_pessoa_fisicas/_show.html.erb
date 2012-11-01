@@ -1,215 +1,318 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Cpf pf:</b>
-  <%= @voluntario_pessoa_fisica.cpf_pf %>
-</p>
+<h2>Dados Gerais</h2>
+<p><b>CPF: </b><%= @voluntario_pessoa_fisica.cpf_pf %></p>
+<p><b>Nome: </b><%= @voluntario_pessoa_fisica.nome_pf %></p>
+<p><b>Email: </b><%= @voluntario_pessoa_fisica.email_pf %></p>
+<p><b>Telefone: </b><%= @voluntario_pessoa_fisica.telefone_pf %></p>
+<p><b>Como ficou sabendo da JCI: </b><%= @voluntario_pessoa_fisica.como_ficou_sabendo_pf %></p>
 
-<p>
-  <b>Nome pf:</b>
-  <%= @voluntario_pessoa_fisica.nome_pf %>
+<div class="checks">
+<h2>Público</h2>
+<p><%= 
+    if @voluntario_pessoa_fisica.publico_criancas_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Criancas
 </p>
+<p><%= 
+    if @voluntario_pessoa_fisica.publico_adultos_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Adultos
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.publico_melhor_idade_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Melhor Idade
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.publico_adolescentes_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Adolescentes
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.publico_especiais_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Especiais
+</p>
+<p><b>Outros: </b><%= @voluntario_pessoa_fisica.publico_outros_pf %></p>
+</div>
+<div class="checks">
+<h2>Atuacão</h2>
+<p><%= 
+    if @voluntario_pessoa_fisica.atuacao_juridica_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Jurídica
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.atuacao_administrativa_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Administrativa
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.atuacao_recreacao_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Recreacão
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.atuacao_saude_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Saúde
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.atuacao_educacao_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Educacão
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.atuacao_manutencao_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Manutencão
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.atuacao_doacao_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Doacão
+</p>
+<p><b>Outros: </b><%= @voluntario_pessoa_fisica.atuacao_outro_pf %></p>
+</div>
+<div style="clear: both"></div>
 
-<p>
-  <b>Email pf:</b>
-  <%= @voluntario_pessoa_fisica.email_pf %>
+<h2>Disponibilidade</h2>
+<div class="field">
+<div class="check_dia">
+<h3>Domingo</h3>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_domManha_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Manhã
 </p>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_domTarde_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Tarde
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_domNoite_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Noite
+</p>
+</div>
+<div class="check_dia">
+<h3>Segunda</h3>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_segManha_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Manhã
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_segTarde_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Tarde
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_segNoite_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Noite
+</p>
+</div>
+<div class="check_dia">
+<h3>Terca</h3>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_terManha_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Manhã
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_terTarde_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Tarde
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_terNoite_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Noite
+</p>
+</div>
+<div class="check_dia">
+<h3>Quarta</h3>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_quaManha_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Manhã
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_quaTarde_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Tarde
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_quaNoite_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Noite
+</p>
+</div>
+<div class="check_dia">
+<h3>Quinta</h3>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_quiManha_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Manhã
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_quiTarde_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Tarde
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_quiNoite_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Noite
+</p>
+</div>
+<div class="check_dia">
+<h3>Sexta</h3>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_sexManha_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Manhã
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_sexTarde_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Tarde
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_sexNoite_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Noite
+</p>
+</div>
+<div class="check_dia">
+<h3>Sábado</h3>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_sabManha_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Manhã
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_sabTarde_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Tarde
+</p>
+<p><%= 
+    if @voluntario_pessoa_fisica.disp_sabNoite_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>Noite
+</p>
+</div></div>
+<div style="clear: both"></div>
 
-<p>
-  <b>Telefone pf:</b>
-  <%= @voluntario_pessoa_fisica.telefone_pf %>
-</p>
-
-<p>
-  <b>Como ficou sabendo pf:</b>
-  <%= @voluntario_pessoa_fisica.como_ficou_sabendo_pf %>
-</p>
-
-<p>
-  <b>Experiencia pf:</b>
-  <%= @voluntario_pessoa_fisica.experiencia_pf %>
-</p>
-
-<p>
-  <b>Publico criancas pf:</b>
-  <%= @voluntario_pessoa_fisica.publico_criancas_pf %>
-</p>
-
-<p>
-  <b>Publico adultos pf:</b>
-  <%= @voluntario_pessoa_fisica.publico_adultos_pf %>
-</p>
-
-<p>
-  <b>Publico melhor idade pf:</b>
-  <%= @voluntario_pessoa_fisica.publico_melhor_idade_pf %>
-</p>
-
-<p>
-  <b>Publico adolescentes pf:</b>
-  <%= @voluntario_pessoa_fisica.publico_adolescentes_pf %>
-</p>
-
-<p>
-  <b>Publico especiais pf:</b>
-  <%= @voluntario_pessoa_fisica.publico_especiais_pf %>
-</p>
-
-<p>
-  <b>Publico outros pf:</b>
-  <%= @voluntario_pessoa_fisica.publico_outros_pf %>
-</p>
-
-<p>
-  <b>Atuacao juridica pf:</b>
-  <%= @voluntario_pessoa_fisica.atuacao_juridica_pf %>
-</p>
-
-<p>
-  <b>Atuacao administrativa pf:</b>
-  <%= @voluntario_pessoa_fisica.atuacao_administrativa_pf %>
-</p>
-
-<p>
-  <b>Atuacao recreacao pf:</b>
-  <%= @voluntario_pessoa_fisica.atuacao_recreacao_pf %>
-</p>
-
-<p>
-  <b>Atuacao saude pf:</b>
-  <%= @voluntario_pessoa_fisica.atuacao_saude_pf %>
-</p>
-
-<p>
-  <b>Atuacao educacao pf:</b>
-  <%= @voluntario_pessoa_fisica.atuacao_educacao_pf %>
-</p>
-
-<p>
-  <b>Atuacao manutencao pf:</b>
-  <%= @voluntario_pessoa_fisica.atuacao_manutencao_pf %>
-</p>
-
-<p>
-  <b>Atuacao doacao pf:</b>
-  <%= @voluntario_pessoa_fisica.atuacao_doacao_pf %>
-</p>
-
-<p>
-  <b>Atuacao outro pf:</b>
-  <%= @voluntario_pessoa_fisica.atuacao_outro_pf %>
-</p>
-
-<p>
-  <b>Disp dommanha pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_domManha_pf %>
-</p>
-
-<p>
-  <b>Disp domtarde pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_domTarde_pf %>
-</p>
-
-<p>
-  <b>Disp domnoite pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_domNoite_pf %>
-</p>
-
-<p>
-  <b>Disp sabmanha pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_sabManha_pf %>
-</p>
-
-<p>
-  <b>Disp sabtarde pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_sabTarde_pf %>
-</p>
-
-<p>
-  <b>Disp sabnoite pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_sabNoite_pf %>
-</p>
-
-<p>
-  <b>Disp sexmanha pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_sexManha_pf %>
-</p>
-
-<p>
-  <b>Disp sextarde pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_sexTarde_pf %>
-</p>
-
-<p>
-  <b>Disp sexnoite pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_sexNoite_pf %>
-</p>
-
-<p>
-  <b>Disp quimanha pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_quiManha_pf %>
-</p>
-
-<p>
-  <b>Disp quitarde pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_quiTarde_pf %>
-</p>
-
-<p>
-  <b>Disp quinoite pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_quiNoite_pf %>
-</p>
-
-<p>
-  <b>Disp quamanha pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_quaManha_pf %>
-</p>
-
-<p>
-  <b>Disp quatarde pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_quaTarde_pf %>
-</p>
-
-<p>
-  <b>Disp quanoite pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_quaNoite_pf %>
-</p>
-
-<p>
-  <b>Disp termanha pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_terManha_pf %>
-</p>
-
-<p>
-  <b>Disp tertarde pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_terTarde_pf %>
-</p>
-
-<p>
-  <b>Disp ternoite pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_terNoite_pf %>
-</p>
-
-<p>
-  <b>Disp segmanha pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_segManha_pf %>
-</p>
-
-<p>
-  <b>Disp segtarde pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_segTarde_pf %>
-</p>
-
-<p>
-  <b>Disp segnoite pf:</b>
-  <%= @voluntario_pessoa_fisica.disp_segNoite_pf %>
-</p>
-
-<p>
-  <b>Outras infos pf:</b>
-  <%= @voluntario_pessoa_fisica.outras_infos_pf %>
-</p>
-<p>
-  <b>Visuzalizado pf:</b>
-  <%= @voluntario_pessoa_fisica.visuzalizado_pf %>
+<h2>Outras informacões</h2>
+<p><b>Outras Informacões: </b><%= @voluntario_pessoa_fisica.outras_infos_pf %></p>
+<p><b>Visualizado: </b><%= 
+    if @voluntario_pessoa_fisica.disp_sabNoite_pf == true 
+      image_tag("true.png", :alt => "Verdade");
+    else
+      image_tag("false.png", :alt => "Falso");
+    end
+  %>
 </p>
