@@ -5,7 +5,6 @@ class VoluntarioPessoaJuridica < ActiveRecord::Base
 
 validates  :cnpj_pj, :uniqueness => true
 validates  :razao_social_pj, :presence => true
-validates  :inscricao_estadual_pj, :uniqueness => true
 validates  :email_pj, :uniqueness => true
 validates  :telefone_pj, :presence => true
 validates  :endereco_pj, :presence => true
