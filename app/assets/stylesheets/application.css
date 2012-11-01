@@ -98,7 +98,7 @@ input[type=text],  textarea, input[type=number], select
 {
   margin: 0 auto;
   margin-top:20px;
-  width: 70%;
+  width: 80%;
   text-align:left
 
 }
@@ -107,11 +107,6 @@ input[type=text],  textarea, input[type=number], select
 
   text-align:center
 
-}
-
-#menu_admin h3 {
-  font-size: 14px;
-  margin: 10px 0 5px 0;
 }
 
 #menu_admin ul
