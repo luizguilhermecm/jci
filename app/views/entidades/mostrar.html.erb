@@ -4,9 +4,9 @@
 	<body>
 		<table>  <% @entidades.each do |entidade| %>
 		  <tr>
-		    <td><%= link_to entidade.nome_pf, entidade %></td>
-		    <td><%= entidade.email_pf %></td>
-		    <td><%= entidade.telefone_pf %></td>
+		    <td><%= link_to entidade.nome_ent, entidade %></td>
+		    <td><%= entidade.email_ent %></td>
+		    <td><%= entidade.telefone_ent %></td>
 
 		    <td><%= link_to 'Editar', edit_entidade_path(entidade) %></td>
 		    <td><%= link_to 'Apagar', entidade, method: :delete, data: { confirm: 'Are you sure?' } %></td>

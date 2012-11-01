@@ -1,0 +1,10 @@
+<div id="menu_admin">   
+    <ul>
+        <li><%= link_to 'Inbox', { :controller => "senhorjcis", :action => "inbox" } %></li>
+        <li><%= link_to 'Pendências', { :controller => "senhorjcis", :action => "pendencias" } %></li>
+        <li><%= link_to 'Entidades', entidades_path %></li>
+        <li><%= link_to 'Voluntários Pessoa Física', voluntario_pessoa_fisicas_path %></li>
+        <li><%= link_to 'Voluntários Pessoa Jurídica', voluntario_pessoa_juridicas_path %></li>
+        <li><%= link_to 'Notícias', posts_path %></li>
+    </ul>
+</div>
