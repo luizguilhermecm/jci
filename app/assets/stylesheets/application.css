@@ -368,3 +368,16 @@ text-align: center;
 .checks img {
   margin:8px 5px 0 0;
 }
+
+.historico {
+  background-color: #eee;
+  margin: 5px 0;
+  line-height: 30px;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.historico img {
+  float: right;
+  margin: 3px 3px 3px 5px;
+}
