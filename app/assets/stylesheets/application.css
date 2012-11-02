@@ -18,7 +18,7 @@ h2
   margin: 5px 0;
 }
 
-input[type=text],  textarea, input[type=number], select
+input[type=text],  textarea, input[type=number], select, input[type=password], input[type=email]
 {
   border: 1px solid #ccc;
   height: 25px;

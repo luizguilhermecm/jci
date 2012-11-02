@@ -1,15 +1,15 @@
 <%= form_for :session, :url => session_path do |form| %>
-  <div class='text_field'>
-    <%= form.label :email %>
+  <div class='field'>
+    <%= form.label :email, "Email:", :style => "width:100px" %>
     <%= form.text_field :email, :type => 'email' %>
   </div>
 
-  <div class='text_field'>
-    <%= form.label :password %>
+  <div class='field'>
+    <%= form.label :password, "Senha:", :style => "width:100px" %>
     <%= form.password_field :password %>
   </div>
 
-  <div class='submit_field'>
-    <%= form.submit 'Sign in' %>
+  <div class='field'>
+    <%= form.submit 'Entrar', :class => "botao_azul", :style => "float: right" %>
   </div>
 <% end %>
