@@ -36,3 +36,5 @@ class HistoricosController < ApplicationController
     redirect_to voluntario_pessoa_juridica_path(@voluntario_pessoa_juridica)
   end
 end
+
+#TODO: tentar criar 3 creates (1 para cara caso) em vez deixar essa gambi

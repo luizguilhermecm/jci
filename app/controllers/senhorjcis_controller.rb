@@ -9,6 +9,7 @@ class SenhorjcisController < ApplicationController
     @entidades = Entidade.where("aprovado_ent = ?", false)
   end
 
+  #TODO: querys retornando em ordem alfabetica
   def inbox
     @entidades = Entidade.where("visualizado_ent = ?", false )
     @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.where("visuzalizado_pf = ?", false)

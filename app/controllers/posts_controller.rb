@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  #TODO: colocar condicao de autenticar quando logar
   # GET /posts
   # GET /posts.json
   def index

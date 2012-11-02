@@ -39,3 +39,5 @@ validates  :aprovado_ent
   has_many :historicos
 
 end
+
+#TODO: verificar se faltam validação de algum atributo

@@ -23,3 +23,5 @@ class HomeController < ApplicationController
     render 'sobre'
   end
 end
+
+#FIX: excluir metodos nao usados em todos os controllers
