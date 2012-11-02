@@ -12,9 +12,7 @@
 
   <div id="wrapper">
     <div id="header">
-    <% if signed_in? -%>
-      <%= link_to 'Sign out', sign_out_path, :method => :delete %>      
-    <% end -%>
+    
 
       <div id="logo">
         <%= link_to( image_tag("logo.png", :alt => "rss feed"), home_path) %> 
@@ -27,7 +25,13 @@
           <li><%= link_to 'Alterar meus dados', logar_home_index_path %></li>
           <li><%= link_to 'Sobre', sobre_home_index_path %></li>
           <li><%= link_to 'Contato', contato_home_index_path%></li>
-          <li><%= link_to 'Admin', inbox_senhorjcis_path %></li>
+          
+          <% if signed_in? -%>
+            <li><%= link_to 'Sair', sign_out_path, :method => :delete %></li>
+          <% else -%>  
+            <li><%= link_to 'Admin', inbox_senhorjcis_path %></li>   
+          <% end -%>
+          
         </ul>
       </div>
 
