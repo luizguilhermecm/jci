@@ -6,7 +6,6 @@
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "jquery.maskedinput" %>
   <%= javascript_include_tag "utils" %>
-
   <%= csrf_meta_tag %>
 </head>
 <body>
@@ -26,9 +25,9 @@
       <div id="menu">
         <ul>
           <li><%= link_to 'Home', home_path %></li>
-          <li><%= link_to 'Cadastre-se', {:controller => "home", :action => 'cadastrar' }%></li>
-          <li><%= link_to 'Alterar meus dados', {:controller => "home", :action => 'logar'} %></li>
-          <li><%= link_to 'Admin', {:controller => "senhorjcis", :action => 'inbox' } %></li>
+          <li><%= link_to 'Cadastre-se', cadastrar_home_index_path %></li>
+          <li><%= link_to 'Alterar meus dados', logar_home_index_path %></li>
+          <li><%= link_to 'Admin', admin_senhorjcis_path %></li>
         </ul>
       </div>
 
