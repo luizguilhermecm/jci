@@ -1,22 +1,10 @@
 <%= render 'senhorjcis/menu' %>
+<div id="corpo">
+    <h1>Notícias</h1>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Data:</b>
-  <%= @post.data_not %>
-</p>
+<h3><%= @post.titulo_not %></h3>
+<p class="data">Data: <%= @post.data_not %> - Atualizado: <%= @post.data_update_not %></p>
 
-<p>
-  <b>Atualizado em:</b>
-  <%= @post.data_update_not %>
-</p>
-
-<p>
-  <b>Titulo:</b>
-  <%= @post.titulo_not %>
-</p>
-
-<p>
-  <b>Descricao:</b>
-  <%= @post.descricao_not %>
-</p>
+<p><%= @post.descricao_not %></p>
+</div>
