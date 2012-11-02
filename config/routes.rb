@@ -3,6 +3,8 @@ Jci::Application.routes.draw do
 
   resources :posts
 
+  resource :session, controller: 'sessions'
+
 resources :home do
     collection do
       get :cadastrar
