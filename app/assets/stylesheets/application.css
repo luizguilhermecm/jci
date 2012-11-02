@@ -388,3 +388,27 @@ text-align: center;
   font-style: italic;
   margin:0 0 10px 0;
 }
+
+#main #left {
+  width: 50%;
+  height: 450px;
+  float:left;
+}
+#main #left img {
+  margin:10px 30px;
+}
+#main #left h2 {
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: normal;
+  line-height: 30px;
+}
+#main #right {
+  width: 48%;
+  margin-left: 2%;
+  float:left;
+}
+#main #right h1 {
+  text-align: right;
+}

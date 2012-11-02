@@ -1,1 +1,10 @@
-<%= render :template => 'posts/noticias', :object => @posts %>
+<div id="main">
+    <div id="left">
+        <%= image_tag("jcipeople.png", :alt => "JCI People") %>
+        <h2>Junte-se a nós, seja um voluntário e participe da maior associacão mundial de jovens que buscam no aprimoramento individual, bases para o desenvolvimento de suas comunidades.</h2>
+    </div>
+    <div id="right">
+        <%= render :template => 'posts/noticias', :object => @posts %>
+    </div>
+    <div style="clear: both"></div>
+</div>
