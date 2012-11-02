@@ -13,11 +13,9 @@
   <div id="wrapper">
     <div id="header">
     <% if signed_in? -%>
-      <%= link_to 'Sign out', sign_out_path, :method => :delete %>
-    <% else -%>
-      <%= link_to 'Sign in', sign_in_path %>
+      <%= link_to 'Sign out', sign_out_path, :method => :delete %>      
     <% end -%>
-      
+
       <div id="logo">
         <%= link_to( image_tag("logo.png", :alt => "rss feed"), home_path) %> 
       </div>
@@ -27,18 +25,14 @@
           <li><%= link_to 'Home', home_path %></li>
           <li><%= link_to 'Cadastre-se', cadastrar_home_index_path %></li>
           <li><%= link_to 'Alterar meus dados', logar_home_index_path %></li>
-          <li><%= link_to 'Admin', admin_senhorjcis_path %></li>
+          <li><%= link_to 'Sobre', sobre_home_index_path %></li>
+          <li><%= link_to 'Contato', contato_home_index_path%></li>
+          <li><%= link_to 'Admin', inbox_senhorjcis_path %></li>
         </ul>
       </div>
 
     </div>
     <%= yield %>
-
-  <div id='flash'>
-    <% flash.each do |key, value| -%>
-      <div id='flash_<%= key %>'><%=h value %></div>
-    <% end %>
-  </div>
   </div>
 </body>
 </html>

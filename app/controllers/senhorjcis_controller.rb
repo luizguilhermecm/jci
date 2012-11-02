@@ -1,7 +1,8 @@
 class SenhorjcisController < ApplicationController
+  before_filter :authorize
 
   def admin
-    render 'admin'
+    render 'inbox'
   end
 
   def pendencias
@@ -14,3 +15,5 @@ class SenhorjcisController < ApplicationController
     @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.where("visualizado_pj = ?", false)
  end
 end
+# canaldevoluntariosjci@gmail.com
+# senhorjci2012
