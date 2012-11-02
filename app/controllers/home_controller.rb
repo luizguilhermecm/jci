@@ -15,5 +15,11 @@ class HomeController < ApplicationController
     render 'cadastrar'
   end
 
+  def contato
+    render 'contato'
+  end
 
+  def sobre
+    render 'sobre'
+  end
 end

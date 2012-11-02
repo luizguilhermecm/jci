@@ -1,4 +1,8 @@
 class VoluntarioPessoaFisicasController < ApplicationController
+
+  before_filter :authorize, :except => [:create, :new, :destroy, :vermeucadastro, :editarmeucadastro, :update, :buscar]
+
+
   # GET /voluntario_pessoa_fisicas
   # GET /voluntario_pessoa_fisicas.json
 

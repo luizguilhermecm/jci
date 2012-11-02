@@ -305,9 +305,8 @@
 </p>
 </div></div>
 <div style="clear: both"></div>
-
+<br />
 <h2>Outras informacões</h2>
-<p><b>Outras Informacões: </b><%= @voluntario_pessoa_fisica.outras_infos_pf %></p>
 <p><b>Visualizado: </b><%= 
     if @voluntario_pessoa_fisica.disp_sabNoite_pf == true 
       image_tag("true.png", :alt => "Verdade");
@@ -316,3 +315,5 @@
     end
   %>
 </p>
+<p><b>Outras Informacões: </b><%= @voluntario_pessoa_fisica.outras_infos_pf %></p>
+<br />

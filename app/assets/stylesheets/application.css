@@ -18,7 +18,7 @@ h2
   margin: 5px 0;
 }
 
-input[type=text],  textarea, input[type=number], select
+input[type=text],  textarea, input[type=number], select, input[type=password], input[type=email]
 {
   border: 1px solid #ccc;
   height: 25px;
@@ -367,4 +367,48 @@ text-align: center;
 
 .checks img {
   margin:8px 5px 0 0;
+}
+
+.historico {
+  background-color: #eee;
+  margin: 5px 0;
+  line-height: 30px;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.historico img {
+  float: right;
+  margin: 3px 3px 3px 5px;
+}
+
+.data {
+  color:#666;
+  font-size: 14px;
+  font-style: italic;
+  margin:0 0 10px 0;
+}
+
+#main #left {
+  width: 50%;
+  height: 450px;
+  float:left;
+}
+#main #left img {
+  margin:10px 30px;
+}
+#main #left h2 {
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: normal;
+  line-height: 30px;
+}
+#main #right {
+  width: 48%;
+  margin-left: 2%;
+  float:left;
+}
+#main #right h1 {
+  text-align: right;
 }

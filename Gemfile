@@ -6,7 +6,7 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-
+gem 'clearance', '1.0.0.rc2'
 gem 'railroady'
 
 group :development do
