@@ -41,7 +41,7 @@
   </div>
   <div class="field">
     <%= f.label :data_fundacao_ent, "Data da Fundacão:" %>
-    <%= f.date_select :data_fundacao_ent %>
+    <%= f.date_select :data_fundacao_ent, :start_year => 1900 %>
   </div>
   <div class="field">
     <%= f.label :numero_beneficiados_ent, "Número de Beneficiados:" %>
