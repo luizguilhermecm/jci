@@ -3,11 +3,11 @@ class Entidade < ActiveRecord::Base
 
   usar_como_cnpj :cnpj_ent
 
-validates  :cnpj_ent, :uniqueness => true 
+validates  :cnpj_ent, :uniqueness => true, :presence => true
 validates  :nome_ent, :presence => true                  
 validates  :endereco_ent, :presence => true
 validates  :nome_responsavel_ent, :presence => true      
-validates  :email_ent, :uniqueness => true                 
+validates  :email_ent, :uniqueness => true, :presence => true                 
 validates  :telefone_ent, :presence => true              
 /#
 validates  :site_ent                  
