@@ -5,8 +5,8 @@
 
 <h3><%= @post.titulo_not %></h3>
 <p class="data">Data: <%= @post.data_not %> - Atualizado: <%= @post.data_update_not %></p>
-
+<% if @post.photo? %>
+<%= image_tag @post.photo.url(), :size => "500" %>
+<% end %>
 <p><%= @post.descricao_not %></p>
-
-<p><%= image_tag @post.photo.url(), :size => "500" %></p>
  </div>
