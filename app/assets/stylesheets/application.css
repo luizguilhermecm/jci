@@ -12,6 +12,35 @@ h1
   margin:10px 0;
 }
 
+.pagination {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.pagination > * {
+  display: none;
+}
+
+.pagination span.previous_page, a.previous_page{
+  display: block;
+  float: left;
+  margin-left: 100px;
+  text-decoration: none;
+  color: #0097d8;
+}
+
+.pagination a.next_page, span.next_page{
+  display: block;
+  float: right;
+  margin-right: 100px;
+  text-decoration: none;
+  color: #0097d8;
+}
+
+.pagination a.next_page.disabled, span.next_page.disabled,  .pagination a.previous_page.disabled, span.previous_page.disabled{
+  color: #999;
+}
+
 h2
 {
   color:#666;
