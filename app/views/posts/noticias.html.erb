@@ -1,5 +1,6 @@
 <h1>Notícias</h1>
 <% @posts.each do |post| %>
+<%= will_paginate @posts %>
     <h3><%= post.titulo_not %></h3>
     <p class="data">Data: <%= post.data_not %></p>
     <p><%= post.descricao_not %></p>
@@ -9,3 +10,4 @@
     <% end %>
     <br />
 <% end %>
+
