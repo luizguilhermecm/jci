@@ -8,4 +8,6 @@
     <p><%= image_tag post.photo.url(), :width => "80%" %></p>
     <% end %>
     <br />
+    <%= will_paginate @posts %>
 <% end %>
+

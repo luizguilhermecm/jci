@@ -12,6 +12,7 @@
   </tr>
 
 <% @posts.each do |post| %>
+<%= will_paginate @posts %>
   <tr>
     <td><%= post.data_not %></td>
     <td><%= post.titulo_not %></td>

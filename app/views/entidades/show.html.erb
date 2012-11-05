@@ -4,7 +4,7 @@
 <%= if  @entidade.aprovado_ent 
 		render :text => "Aprovada"
 	else
-
+		
 	(link_to "Aprovar", { :action => "aprovado", :id => @entidade}, :class => "botao_verde" ) 
 	end
 		%>
