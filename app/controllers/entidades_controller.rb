@@ -32,7 +32,8 @@ class EntidadesController < ApplicationController
                                                   OR ((atuacao_saude_pf = atuacao_saude_ent) AND atuacao_saude_pf = 'true')
                                                   OR ((atuacao_educacao_pf = atuacao_educacao_ent) AND atuacao_educacao_pf = 'true')
                                                   OR ((atuacao_manutencao_pf = atuacao_manutencao_ent) AND atuacao_manutencao_pf = 'true')
-                                                  OR ((atuacao_doacao_pf = atuacao_doacao_ent) AND atuacao_doacao_pf = 'true')"
+                                                  OR ((atuacao_doacao_pf = atuacao_doacao_ent) AND atuacao_doacao_pf = 'true')
+                                                  ORDER BY nome_ent"
     )
     render 'entidades/index'
   end
@@ -89,7 +90,7 @@ class EntidadesController < ApplicationController
       parana = parana + '1 = 1'
     end
 
-    @entidades = Entidade.find_by_sql(parana)
+    @entidades = Entidade.find_by_sql(parana + " ORDER BY nome_ent")
     render 'entidades/index'
 
   end
@@ -168,23 +169,13 @@ class EntidadesController < ApplicationController
         flag = 0
       end
     end
-
-    if (params[:atuacao_outro_ent])
-      if (flag == 0)
-        parana = parana + ' OR ';
-        parana = parana + ' atuacao_outro_ent = ' + params[:atuacao_outro_ent];
-        flag = 0;
-      else
-        parana = parana + ' atuacao_outro_ent = ' + params[:atuacao_outro_ent];
-        flag = 0
-      end
-    end
     
     if (flag == 1)
       parana = parana + '1 = 1'
     end
 
-    @entidades = Entidade.find_by_sql(parana)
+
+    @entidades = Entidade.find_by_sql(parana + " ORDER BY nome_ent")
     render 'entidades/index'
   end
 
@@ -256,7 +247,7 @@ class EntidadesController < ApplicationController
       parana = parana + '1 = 1'
     end
 
-    @entidades = Entidade.find_by_sql(parana)
+    @entidades = Entidade.find_by_sql(parana + " ORDER BY nome_ent")
     render 'entidades/index'
 
   end
@@ -265,7 +256,7 @@ class EntidadesController < ApplicationController
     #exact
     #@entidades = Entidade.find_all_by_cnpj_ent(params[:cnpj])
     #query with like
-    @entidades = Entidade.find(:all, :conditions => ['nome_ent LIKE ? or endereco_ent LIKE ? or site_ent LIKE ? or cnpj_ent LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%"])
+    @entidades = Entidade.find(:all, :conditions => ['nome_ent LIKE ? or endereco_ent LIKE ? or site_ent LIKE ? or cnpj_ent LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%"], :order => "nome_ent")
     render 'entidades/index'
   end
 

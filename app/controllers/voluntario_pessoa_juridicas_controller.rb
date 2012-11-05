@@ -14,12 +14,12 @@ class VoluntarioPessoaJuridicasController < ApplicationController
 
   def buscarHistorico
     flag = 1 # Only to verify the first time to add the string OR
-    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.find_by_sql("SELECT * FROM voluntario_pessoa_juridicas WHERE id IN (SELECT DISTINCT(voluntario_pessoa_juridica_id) FROM historicos WHERE lower(descricao_hist) LIKE lower('%"+params[:queryHistorico]+"%'))")
+    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.find_by_sql("SELECT * FROM voluntario_pessoa_juridicas WHERE id IN (SELECT DISTINCT(voluntario_pessoa_juridica_id) FROM historicos WHERE lower(descricao_hist) LIKE lower('%"+params[:queryHistorico]+"%')) ORDER BY razao_social_pj")
     render 'voluntario_pessoa_juridicas/index'
   end
 
   def buscarGeral
-    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.find(:all, :conditions => ['cnpj_pj LIKE ? OR contato_pj LIKE ? OR email_pj LIKE ? OR endereco_pj LIKE ? OR inscricao_estadual_pj LIKE ? OR outras_infos_pj LIKE ? OR razao_social_pj LIKE ? OR telefone_pj LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%"])
+    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.find(:all, :conditions => ['cnpj_pj LIKE ? OR contato_pj LIKE ? OR email_pj LIKE ? OR endereco_pj LIKE ? OR inscricao_estadual_pj LIKE ? OR outras_infos_pj LIKE ? OR razao_social_pj LIKE ? OR telefone_pj LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%"], :order => "razao_social_pj")
     render 'voluntario_pessoa_juridicas/index'
   end
 

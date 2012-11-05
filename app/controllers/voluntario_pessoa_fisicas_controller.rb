@@ -52,12 +52,12 @@ end
 
 def buscarHistorico
     flag = 1 # Only to verify the first time to add the string OR
-    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql("SELECT * FROM voluntario_pessoa_fisicas WHERE id IN (SELECT DISTINCT(voluntario_pessoa_fisica_id) FROM historicos WHERE lower(descricao_hist) LIKE lower('%"+params[:queryHistorico]+"%'))")
+    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql("SELECT * FROM voluntario_pessoa_fisicas WHERE id IN (SELECT DISTINCT(voluntario_pessoa_fisica_id) FROM historicos WHERE lower(descricao_hist) LIKE lower('%"+params[:queryHistorico]+"%')) ORDER BY nome_pf ")
     render 'voluntario_pessoa_fisicas/index'
 end 
 
 def buscarGeral
-  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find(:all, :conditions => ['nome_pf LIKE ? or email_pf LIKE ? or atuacao_outro_pf LIKE ? OR como_ficou_sabendo_pf LIKE ? OR cpf_pf LIKE ? OR publico_outros_pf LIKE ? OR telefone_pf LIKE ? OR outras_infos_pf LIKE ?', "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%"])
+  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find(:all, :conditions => ['nome_pf LIKE ? or email_pf LIKE ? or atuacao_outro_pf LIKE ? OR como_ficou_sabendo_pf LIKE ? OR cpf_pf LIKE ? OR publico_outros_pf LIKE ? OR telefone_pf LIKE ? OR outras_infos_pf LIKE ?', "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%"], :order => "nome_pf")
   render 'voluntario_pessoa_fisicas/index'
 end
 
@@ -294,13 +294,13 @@ def busca_por_disponibilidade
       parana = parana + '1 = 1'
     end
 
-  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql(parana)
+  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql(parana + " ORDER BY nome_pf ")
   render 'voluntario_pessoa_fisicas/index'
 
 end
 
 def busca_experiencia
-  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.where("experiencia_pf = ?", true)
+  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.where("experiencia_pf = ?", true).order("nome_pf")
   render 'voluntario_pessoa_fisicas/index'
 end
 
@@ -378,23 +378,12 @@ def busca_atuacao
         flag = 0
       end
     end
-
-    if (params[:atuacao_outro_pf])
-      if (flag == 0)
-        parana = parana + ' OR ';
-        parana = parana + ' atuacao_outro_pf = ' + params[:atuacao_outro_pf];
-        flag = 0;
-      else
-        parana = parana + ' atuacao_outro_pf = ' + params[:atuacao_outro_pf];
-        flag = 0
-      end
-    end
     
     if (flag == 1)
       parana = parana + '1 = 1'
     end
 
-  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql(parana)
+  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql(parana + " ORDER BY nome_pf")
   
   render 'voluntario_pessoa_fisicas/index'
   
@@ -470,7 +459,7 @@ def busca_por_afinidade
       parana = parana + '1 = 1'
     end
 
-  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql(parana)
+  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql(parana + " ORDER BY nome_pf ")
   
   render 'voluntario_pessoa_fisicas/index'
 end
