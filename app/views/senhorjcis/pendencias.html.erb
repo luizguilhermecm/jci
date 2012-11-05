@@ -8,7 +8,7 @@
 <% @entidades.each do |entidade| %>
   <tr>
     <td>Entidade</td>
-    <td><%= link_to entidade.nome_ent, entidade %></td>
+    <td><%= link_to entidade.nome_ent, {:controller => "entidades", :action => "visualizado_ent", :id => entidade.id } %></td>
  </tr>
 <% end %>
 </table>

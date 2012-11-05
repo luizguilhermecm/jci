@@ -39,7 +39,3 @@ validates  :aprovado_ent
   has_many :historicos
 
 end
-
-#FIX: data de fundacao nao aceita data menor que 2007 (wagner))
-
-#TODO: verificar se faltam validação de algum atributo
