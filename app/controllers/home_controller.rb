@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-  	@posts = Post.all
+    @posts = Post.paginate(:page => params[:page], :per_page => 1)
   end
 	
   def admin

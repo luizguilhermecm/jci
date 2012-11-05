@@ -12,10 +12,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def noticias
-    @posts = Post.paginate(:page => params[:page], :per_page => 25)
-  end
-
   # GET /posts/1
   # GET /posts/1.json
   def show
