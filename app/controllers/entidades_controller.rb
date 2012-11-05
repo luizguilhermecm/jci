@@ -277,7 +277,7 @@ class EntidadesController < ApplicationController
 
   def index
     @entidades = Entidade.find(:all, :order =>"nome_ent")
-    #@entidades = Entidade.all.group_by{|ent| ent.nome_ent[0]}
+    @entidades = Entidade.paginate(:page => params[:page], :per_page => 10)
 
     respond_to do |format|
       format.html # index.html.erb

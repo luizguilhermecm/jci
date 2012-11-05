@@ -6,7 +6,7 @@ class SenhorjcisController < ApplicationController
   end
 
   def pendencias
-    @entidades = Entidade.where("aprovado_ent = ?", false)
+    @entidades = Entidade.where("aprovado_ent = ?", false).paginate(:page => params[:page], :per_page => 10)
   end
 
   #TODO: querys retornando em ordem alfabetica
