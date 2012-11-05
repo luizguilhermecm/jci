@@ -1,4 +1,4 @@
-<%= form_for(@post) do |f| %>
+<%= form_for @post, :html => { :multipart => true } do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -27,6 +27,10 @@
     <%= f.label :descricao_not, "Texto:" %>
     <%= f.text_area :descricao_not %>
   </div>
+  
+  <%= f.label :photo, "Photo" %>
+  <%= f.file_field :photo %>
+  
   <div class="actions">
     <%= f.submit "Criar/Editar", :class => "botao_verde" %>
   </div>
