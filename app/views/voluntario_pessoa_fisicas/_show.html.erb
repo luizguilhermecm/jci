@@ -306,6 +306,14 @@
 </div></div>
 <div style="clear: both"></div>
 <br />
+<p>Tem Experiência? <%= 
+    if @voluntario_pessoa_fisica.experiencia_pf == true 
+      image_tag("check.png", :alt => "Verdade");
+    else
+      image_tag("nocheck.png", :alt => "Falso");
+    end
+  %>
+</p>
 <h2>Outras informacões</h2>
 <p><b>Visualizado: </b><%= 
     if @voluntario_pessoa_fisica.disp_sabNoite_pf == true 

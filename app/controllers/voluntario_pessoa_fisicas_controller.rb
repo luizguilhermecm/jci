@@ -483,7 +483,7 @@ def buscar
   end
 
   def index
-    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.paginate(:page => params[:page], :per_page => 6).find(:all, :order => "nome_pf")
+    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.paginate(:page => params[:page], :per_page => 8).find(:all, :order => "nome_pf")
 
     respond_to do |format|
       format.html # index.html.erb
