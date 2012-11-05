@@ -28,8 +28,10 @@
     <%= f.text_area :descricao_not %>
   </div>
   
-  <%= f.label :photo, "Photo" %>
-  <%= f.file_field :photo %>
+  <div class="field">
+    <%= f.label :photo, "Imagem" %>
+    <%= f.file_field :photo %>
+  </div>
   
   <div class="actions">
     <%= f.submit "Criar/Editar", :class => "botao_verde" %>
