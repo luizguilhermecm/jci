@@ -285,7 +285,7 @@ class EntidadesController < ApplicationController
   end
 
   def index
-    @entidades = Entidade.all
+    @entidades = Entidade.find(:all, :order =>"nome_ent")
     #@entidades = Entidade.all.group_by{|ent| ent.nome_ent[0]}
 
     respond_to do |format|

@@ -11,9 +11,9 @@ class SenhorjcisController < ApplicationController
 
   #TODO: querys retornando em ordem alfabetica
   def inbox
-    @entidades = Entidade.where("visualizado_ent = ?", false )
-    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.where("visuzalizado_pf = ?", false)
-    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.where("visualizado_pj = ?", false)
+    @entidades = Entidade.where("visualizado_ent = ?", false ).order("nome_ent")
+    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.where("visuzalizado_pf = ?", false).order("nome_pf")
+    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.where("visualizado_pj = ?", false).order("razao_social_pj")
  end
 end
 # canaldevoluntariosjci@gmail.com

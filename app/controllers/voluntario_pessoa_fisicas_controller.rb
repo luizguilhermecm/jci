@@ -482,7 +482,7 @@ def buscar
   end
 
   def index
-    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.all
+    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find(:all, :order => "nome_pf")
 
     respond_to do |format|
       format.html # index.html.erb

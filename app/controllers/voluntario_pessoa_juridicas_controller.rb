@@ -24,7 +24,7 @@ class VoluntarioPessoaJuridicasController < ApplicationController
   end
 
    def index
-    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.all
+    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.find(:all, :order => "razao_social_pj")
 
     respond_to do |format|
       format.html # index.html.erb
