@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  #TODO: colocar condicao de autenticar quando logar
+  before_filter :authorize
+
   # GET /posts
   # GET /posts.json
   def index
