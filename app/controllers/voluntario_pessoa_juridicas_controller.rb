@@ -14,18 +14,20 @@ class VoluntarioPessoaJuridicasController < ApplicationController
 
   def buscarHistorico
     flag = 1 # Only to verify the first time to add the string OR
-    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.find_by_sql("SELECT * FROM voluntario_pessoa_juridicas WHERE id IN (SELECT DISTINCT(voluntario_pessoa_juridica_id) FROM historicos WHERE lower(descricao_hist) LIKE lower('%"+params[:queryHistorico]+"%')) ORDER BY razao_social_pj")
+    sql = "SELECT * FROM voluntario_pessoa_juridicas WHERE id IN (SELECT DISTINCT(voluntario_pessoa_juridica_id) FROM historicos WHERE lower(descricao_hist) LIKE lower('%"+params[:queryHistorico]+"%')) ORDER BY razao_social_pj"
+    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.paginate_by_sql(sql, :page => @page, :per_page => 8)
+
     render 'voluntario_pessoa_juridicas/index'
   end
 
   def buscarGeral
-    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.find(:all, :conditions => ['cnpj_pj LIKE ? OR contato_pj LIKE ? OR email_pj LIKE ? OR endereco_pj LIKE ? OR inscricao_estadual_pj LIKE ? OR outras_infos_pj LIKE ? OR razao_social_pj LIKE ? OR telefone_pj LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%"], :order => "razao_social_pj")
+    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.paginate(:page => params[:page], :per_page => 8).find(:all, :conditions => ['cnpj_pj LIKE ? OR lower(contato_pj) LIKE lower(?) OR lower(email_pj) LIKE lower(?) OR lower(endereco_pj) LIKE lower(?) OR inscricao_estadual_pj LIKE ? OR lower(outras_infos_pj) LIKE lower(?) OR lower(razao_social_pj) LIKE lower(?) OR telefone_pj LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%"], :order => "razao_social_pj")
     render 'voluntario_pessoa_juridicas/index'
   end
 
    def index
-    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.find(:all, :order => "razao_social_pj")
-    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.paginate(:page => params[:page], :per_page => 10)
+    @voluntario_pessoa_juridicas = VoluntarioPessoaJuridica.paginate(:page => params[:page], :per_page => 8).find(:all, :order => "razao_social_pj")
+    
 
     respond_to do |format|
       format.html # index.html.erb

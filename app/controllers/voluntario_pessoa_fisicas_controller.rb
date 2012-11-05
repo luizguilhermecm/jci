@@ -2,7 +2,7 @@ class VoluntarioPessoaFisicasController < ApplicationController
 
   before_filter :authorize, :except => [:create, :new, :destroy, :vermeucadastro, :editarmeucadastro, :update, :buscar]
 
-
+  
   # GET /voluntario_pessoa_fisicas
   # GET /voluntario_pessoa_fisicas.json
 
@@ -15,7 +15,7 @@ class VoluntarioPessoaFisicasController < ApplicationController
     #render 'entidades/index'
   #end
 def cruzar_pf_ent
-  @entidades = Entidade.find_by_sql("
+  sql = "
                 SELECT DISTINCT voluntario_pessoa_fisicas.id, cpf_pf, nome_pf, email_pf, telefone_pf, como_ficou_sabendo_pf, 
                        experiencia_pf, publico_criancas_pf, publico_adultos_pf, publico_melhor_idade_pf, 
                        publico_adolescentes_pf, publico_especiais_pf, publico_outros_pf, 
@@ -41,23 +41,30 @@ def cruzar_pf_ent
                 OR ((atuacao_educacao_pf = atuacao_educacao_ent) AND atuacao_educacao_pf = 'true')
                 OR ((atuacao_manutencao_pf = atuacao_manutencao_ent) AND atuacao_manutencao_pf = 'true')
                 OR ((atuacao_doacao_pf = atuacao_doacao_ent) AND atuacao_doacao_pf = 'true')"
-                )
+                
+  @entidades = Entidade.paginate_by_sql(sql, :page => @page, :per_page => 8)
+
   render 'entidades/index'
 end
 
 def busca_disponibilidade_horario
-  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.where("disp_domManha_pf = ?", params[:disp_dom])
+  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.paginate(:page => params[:page], :per_page => 8).where("disp_domManha_pf = ?", params[:disp_dom])
+
   render 'voluntario_pessoa_fisicas/index'
 end
 
 def buscarHistorico
     flag = 1 # Only to verify the first time to add the string OR
-    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql("SELECT * FROM voluntario_pessoa_fisicas WHERE id IN (SELECT DISTINCT(voluntario_pessoa_fisica_id) FROM historicos WHERE lower(descricao_hist) LIKE lower('%"+params[:queryHistorico]+"%')) ORDER BY nome_pf ")
+    sql = "SELECT * FROM voluntario_pessoa_fisicas WHERE id IN (SELECT DISTINCT(voluntario_pessoa_fisica_id) FROM historicos WHERE lower(descricao_hist) LIKE lower('%"+params[:queryHistorico]+"%')) ORDER BY nome_pf "
+    
+    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.paginate_by_sql(sql, :page => @page, :per_page => 8)
+
     render 'voluntario_pessoa_fisicas/index'
 end 
 
 def buscarGeral
-  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find(:all, :conditions => ['nome_pf LIKE ? or email_pf LIKE ? or atuacao_outro_pf LIKE ? OR como_ficou_sabendo_pf LIKE ? OR cpf_pf LIKE ? OR publico_outros_pf LIKE ? OR telefone_pf LIKE ? OR outras_infos_pf LIKE ?', "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%"], :order => "nome_pf")
+  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.paginate(:page => params[:page], :per_page => 8).find(:all, :conditions => ['nome_pf LIKE ? or email_pf LIKE ? or atuacao_outro_pf LIKE ? OR como_ficou_sabendo_pf LIKE ? OR cpf_pf LIKE ? OR publico_outros_pf LIKE ? OR telefone_pf LIKE ? OR outras_infos_pf LIKE ?', "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%", "%#{params[:queryGeral]}%"], :order => "nome_pf")
+
   render 'voluntario_pessoa_fisicas/index'
 end
 
@@ -294,13 +301,17 @@ def busca_por_disponibilidade
       parana = parana + '1 = 1'
     end
 
-  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql(parana + " ORDER BY nome_pf ")
+  parana = parana + " ORDER BY nome_pf "
+
+  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.paginate_by_sql(parana, :page => @page, :per_page => 8)
+
   render 'voluntario_pessoa_fisicas/index'
 
 end
 
 def busca_experiencia
-  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.where("experiencia_pf = ?", true).order("nome_pf")
+  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.paginate(:page => params[:page], :per_page => 6).where("experiencia_pf = ?", true).order("nome_pf")
+  
   render 'voluntario_pessoa_fisicas/index'
 end
 
@@ -382,11 +393,11 @@ def busca_atuacao
     if (flag == 1)
       parana = parana + '1 = 1'
     end
+    parana = parana + " ORDER BY nome_pf"
 
-  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql(parana + " ORDER BY nome_pf")
-  
-  render 'voluntario_pessoa_fisicas/index'
-  
+    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.paginate_by_sql(parana, :page => @page, :per_page => 8)
+
+  render 'voluntario_pessoa_fisicas/index'  
 end
 
 def busca_por_afinidade
@@ -458,9 +469,10 @@ def busca_por_afinidade
     if (flag == 1)
       parana = parana + '1 = 1'
     end
-
-  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find_by_sql(parana + " ORDER BY nome_pf ")
+    parana = parana + " ORDER BY nome_pf "
   
+    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.paginate_by_sql(parana, :page => @page, :per_page => 8)
+
   render 'voluntario_pessoa_fisicas/index'
 end
 
@@ -471,8 +483,7 @@ def buscar
   end
 
   def index
-    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.find(:all, :order => "nome_pf")
-    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.paginate(:page => params[:page], :per_page => 10)
+    @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.paginate(:page => params[:page], :per_page => 6).find(:all, :order => "nome_pf")
 
     respond_to do |format|
       format.html # index.html.erb

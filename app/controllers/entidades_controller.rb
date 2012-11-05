@@ -11,7 +11,7 @@ class EntidadesController < ApplicationController
   end
 
   def cruzar_pf_ent
-    @entidades = Entidade.find_by_sql("SELECT  DISTINCT  entidades.id, cnpj_ent, nome_ent, endereco_ent, nome_responsavel_ent, email_ent, 
+    sql = "SELECT  DISTINCT  entidades.id, cnpj_ent, nome_ent, endereco_ent, nome_responsavel_ent, email_ent, 
                                                          telefone_ent, site_ent, data_fundacao_ent, publico_criancas_ent, 
                                                          publico_adultos_ent, publico_melhor_idade_ent, publico_adolescentes_ent, 
                                                          publico_especiais_ent, publico_outros_ent, numero_beneficiados_ent, 
@@ -34,13 +34,16 @@ class EntidadesController < ApplicationController
                                                   OR ((atuacao_manutencao_pf = atuacao_manutencao_ent) AND atuacao_manutencao_pf = 'true')
                                                   OR ((atuacao_doacao_pf = atuacao_doacao_ent) AND atuacao_doacao_pf = 'true')
                                                   ORDER BY nome_ent"
-    )
+    
+    @entidades = Entidade.paginate_by_sql(sql, :page => @page, :per_page => 8)
     render 'entidades/index'
   end
 
   def buscarHistorico
     flag = 1 # Only to verify the first time to add the string OR
-    @entidades = Entidade.find_by_sql("SELECT * FROM entidades WHERE id IN (SELECT DISTINCT(entidade_id) FROM historicos WHERE lower(descricao_hist) LIKE lower('%"+params[:queryHistorico]+"%'))");
+    sql = "SELECT * FROM entidades WHERE id IN (SELECT DISTINCT(entidade_id) FROM historicos WHERE lower(descricao_hist) LIKE lower('%"+params[:queryHistorico]+"%'))"
+    @entidades = Entidade.paginate_by_sql(sql, :page => @page, :per_page => 8)
+
     render 'entidades/index'
   end
 
@@ -90,7 +93,9 @@ class EntidadesController < ApplicationController
       parana = parana + '1 = 1'
     end
 
-    @entidades = Entidade.find_by_sql(parana + " ORDER BY nome_ent")
+    parana = parana + " ORDER BY nome_ent"
+    @entidades = Entidade.paginate_by_sql(parana, :page => @page, :per_page => 8)
+
     render 'entidades/index'
 
   end
@@ -175,7 +180,9 @@ class EntidadesController < ApplicationController
     end
 
 
-    @entidades = Entidade.find_by_sql(parana + " ORDER BY nome_ent")
+    parana = parana + " ORDER BY nome_ent"
+    @entidades = Entidade.paginate_by_sql(parana, :page => @page, :per_page => 8)
+
     render 'entidades/index'
   end
 
@@ -247,7 +254,9 @@ class EntidadesController < ApplicationController
       parana = parana + '1 = 1'
     end
 
-    @entidades = Entidade.find_by_sql(parana + " ORDER BY nome_ent")
+    parana = parana + " ORDER BY nome_ent"
+    @entidades = Entidade.paginate_by_sql(parana, :page => @page, :per_page => 8)
+
     render 'entidades/index'
 
   end
@@ -256,7 +265,7 @@ class EntidadesController < ApplicationController
     #exact
     #@entidades = Entidade.find_all_by_cnpj_ent(params[:cnpj])
     #query with like
-    @entidades = Entidade.find(:all, :conditions => ['nome_ent LIKE ? or endereco_ent LIKE ? or site_ent LIKE ? or cnpj_ent LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%"], :order => "nome_ent")
+    @entidades = Entidade.paginate(:page => params[:page], :per_page => 8).find(:all, :conditions => ['lower(nome_ent) LIKE lower(?) or lower(endereco_ent) LIKE lower(?) or lower(site_ent) LIKE lower(?) or cnpj_ent LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%"], :order => "nome_ent")
     render 'entidades/index'
   end
 
