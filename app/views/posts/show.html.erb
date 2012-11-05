@@ -7,4 +7,6 @@
 <p class="data">Data: <%= @post.data_not %> - Atualizado: <%= @post.data_update_not %></p>
 
 <p><%= @post.descricao_not %></p>
-</div>
+
+<p><%= image_tag @post.photo.url(), :size => "500" %></p>
+ </div>
