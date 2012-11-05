@@ -8,6 +8,8 @@ gem 'rails', '3.2.8'
 gem 'pg'
 gem 'clearance', '1.0.0.rc2'
 gem 'railroady'
+gem "paperclip", "~> 3.0"
+
 
 group :development do
   gem 'rails-erd'
