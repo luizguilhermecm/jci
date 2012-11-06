@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :authorize
+#  before_filter :authorize
 
   # GET /posts
   # GET /posts.json

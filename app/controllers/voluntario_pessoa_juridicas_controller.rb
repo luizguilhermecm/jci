@@ -1,6 +1,6 @@
 class VoluntarioPessoaJuridicasController < ApplicationController
 
-  before_filter :authorize, :except => [:create, :new, :destroy, :vermeucadastro, :editarmeucadastro, :update, :buscar]
+#  before_filter :authorize, :except => [:create, :new, :destroy, :vermeucadastro, :editarmeucadastro, :update, :buscar]
 
 
 
