@@ -1,5 +1,6 @@
 class SenhorjcisController < ApplicationController
 #  before_filter :authorize
+before_filter :authenticate_admin!
 
   def admin
     render 'inbox'
