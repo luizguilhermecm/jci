@@ -1,6 +1,23 @@
 Jci::Application.routes.draw do
   devise_for :admins
 
+
+devise_scope :admin do
+  get "/login" => "devise/sessions#new"
+end
+
+devise_scope :admin do
+  delete "/logout" => "devise/sessions#destroy"
+end
+
+  authenticated :admin do
+    root :to => 'senhorjcis#inbox'
+  end
+
+unauthenticated :admin do
+  root :to => 'home#index'
+end
+
   get "home/index"
 
   resources :posts
