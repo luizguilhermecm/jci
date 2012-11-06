@@ -1,7 +1,7 @@
 <h1>Notícias</h1>
 <% @posts.each do |post| %>
     <h3><%= post.titulo_not %></h3>
-    <p class="data">Data: <%= post.data_not %></p>
+    <p class="data">Publicado em: <%= post.created_at.strftime("%d %b %y às %H:%M") %></p>
     <% if post.photo? %>
     <p><%= image_tag post.photo.url(), :width => "80%" %></p>
     <% end %>

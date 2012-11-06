@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.paginate(:page => params[:page], :per_page => 10)
+    @posts = Post.paginate(:page => params[:page], :per_page => 10, :order => 'data_not DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -43,6 +43,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
+    @post.update_attributes(:data_not => Time.now, :data_update_not => Time.now)
 
     respond_to do |format|
       if @post.save

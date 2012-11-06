@@ -14,7 +14,7 @@
 <% @posts.each do |post| %>
 <%= will_paginate @posts %>
   <tr>
-    <td><%= post.data_not %></td>
+    <td><%= post.created_at.strftime("%d %b %y às %H:%M") %></td>
     <td><%= post.titulo_not %></td>
     <td class="center_image">
       <%= link_to( image_tag("post.png", :alt => "Ver Post"), post) %>

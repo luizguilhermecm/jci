@@ -4,7 +4,7 @@
 <p id="notice"><%= notice %></p>
 
 <h3><%= @post.titulo_not %></h3>
-<p class="data">Data: <%= @post.data_not %> - Atualizado: <%= @post.data_update_not %></p>
+<p class="data">Data: <%= @post.created_at %> - Atualizado: <%= @post.updated_at %></p>
 <% if @post.photo? %>
 <%= image_tag @post.photo.url(), :size => "500" %>
 <% end %>
