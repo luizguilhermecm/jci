@@ -1,12 +1,18 @@
-<h2>Forgot your password?</h2>
+<div id="corpo-site" style="width:40%">
+
+<h2>Esqueceu sua senha?</h2>
 
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+<div class='field'>
+    <%= f.label :email, "Email:", :style => "width:100px" %>
+    <%= f.text_field :email, :type => 'email' %>
+</div>
+  <div class='field'>
+    <%= f.submit 'Enviar instruções para meu email', :class => "botao_azul", :style => "float: right" %>
+  </div>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+</div>

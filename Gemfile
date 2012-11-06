@@ -9,6 +9,7 @@ gem 'pg'
 gem 'railroady'
 gem "paperclip", "~> 3.0"
 gem 'devise'
+gem 'tlsmail'
 
 gem 'will_paginate', '~> 3.0.0'
 
