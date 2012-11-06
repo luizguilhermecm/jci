@@ -42,9 +42,9 @@ def cruzar_pf_ent
                 OR ((atuacao_manutencao_pf = atuacao_manutencao_ent) AND atuacao_manutencao_pf = 'true')
                 OR ((atuacao_doacao_pf = atuacao_doacao_ent) AND atuacao_doacao_pf = 'true')"
                 
-  @entidades = Entidade.paginate_by_sql(sql, :page => @page, :per_page => 8)
+  @voluntario_pessoa_fisicas = VoluntarioPessoaFisica.paginate_by_sql(sql, :page => @page, :per_page => 8)
 
-  render 'entidades/index'
+  render 'voluntario_pessoa_fisicas/index'
 end
 
 def busca_disponibilidade_horario
