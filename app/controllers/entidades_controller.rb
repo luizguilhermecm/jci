@@ -1,5 +1,5 @@
 class EntidadesController < ApplicationController
-    before_filter :authorize, :except => [:create, :new, :destroy, :vermeucadastro, :editarmeucadastro, :update, :buscar]
+#    before_filter :authorize, :except => [:create, :new, :destroy, :vermeucadastro, :editarmeucadastro, :update, :buscar]
 
   # GET /entidades
   # GET /entidades.json
