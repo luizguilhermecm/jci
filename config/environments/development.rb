@@ -45,14 +45,14 @@ Jci::Application.configure do
     :address            => 'smtp.gmail.com',   
     :port               => 587,   
     :tls                => true,   
-    #:domain             => 'canaldevoluntariosjci.herokuapps.com',    
-    :domain             => 'localhost:3000',
+    :domain             => 'canaldevoluntariosjci.herokuapp.com',    
+    #:domain             => 'localhost:3000',
     :authentication     => :plain,   
     :user_name          => 'canaldevoluntariosjci@gmail.com',   
     :password           => 'senhorjci2012' # for security reasons you can use a environment variable too. (ENV['INFO_MAIL_PASS'])   
   }   
 
-  #config.action_mailer.default_url_options = { :host => 'canaldevoluntariosjci.herokuapps.com' }   
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }   
+  config.action_mailer.default_url_options = { :host => 'canaldevoluntariosjci.herokuapp.com' }   
+  #config.action_mailer.default_url_options = { :host => 'localhost:3000' }   
 
 end
