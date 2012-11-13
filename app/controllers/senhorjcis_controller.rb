@@ -6,6 +6,17 @@ before_filter :authenticate_admin!
     render 'inbox'
   end
 
+  def novoAdministrador
+    render 'novoAdministrador'
+  end
+
+  def adicionarAdministrador
+    login = params[:login]
+    sql = "insert into admins (email, created_at, updated_at) VALUES ('"+login+"', now(), now())"
+    ActiveRecord::Base.connection.execute(sql)
+    redirect_to inbox_senhorjcis_path
+  end
+
   def pendencias
     @entidades = Entidade.where("aprovado_ent = ?", false).paginate(:page => params[:page], :per_page => 10)
   end

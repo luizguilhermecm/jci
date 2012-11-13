@@ -89,6 +89,8 @@ resources :home do
       get :inbox
       get :admin
       get :pendencias
+      get :novoAdministrador
+      get :adicionarAdministrador
     end
   end
 

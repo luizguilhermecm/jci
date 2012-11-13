@@ -1,0 +1,13 @@
+<%= render 'senhorjcis/menu' %>
+<div id="corpo">
+
+<p id="notice"><%= notice %></p>
+
+
+<h3>Novo Administrador</h3>
+<%= form_tag({:controller => 'senhorjcis', :action => 'adicionarAdministrador'}, :method => 'get') do %>
+      <%= text_field_tag :login %>
+      <%= submit_tag "Adicionar", :class => "botao_verde" %> 
+<% end  %>
+
+</div>
